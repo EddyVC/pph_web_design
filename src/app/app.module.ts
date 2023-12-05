@@ -15,6 +15,7 @@ import { gsap } from 'gsap';
 import { CardsComponent } from './general/cards/cards.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { PaymentMethodsComponent } from './general/payment-methods/payment-methods.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { PaymentMethodsComponent } from './general/payment-methods/payment-metho
     AppRoutingModule,
     CarouselModule,
     BrowserAnimationsModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration()
