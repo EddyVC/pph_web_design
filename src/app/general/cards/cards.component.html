@@ -1,0 +1,24 @@
+<div class=page-cards>
+    <div class="circle-gradient"></div>
+    <div class="circle-gradient-2"></div>
+    <h2 class="page-title">OUR FEATURES SERVICES</h2>
+
+    <div class="prueba">
+        <owl-carousel-o [options]="customOptions" #owlCar>
+            <ng-container *ngFor="let slide of slides">
+                <ng-template carouselSlide [id]="slide.id">
+                    <div class="card">
+                        <i [class]="slide.icon"></i>
+                        <h3>{{ slide.title }}</h3>
+                        <p>{{ slide.content }}</p>
+                    </div>
+                </ng-template>
+            </ng-container>
+        </owl-carousel-o>
+
+        <div class="container-nav-cards">
+            <a class="btn btn-success circular-btn" (click)="owlCar.prev()"><i class="fas fa-chevron-left"></i></a>
+            <a class="btn btn-success circular-btn" (click)="owlCar.next()"><i class="fas fa-chevron-right"></i></a>
+        </div>
+    </div>
+</div>

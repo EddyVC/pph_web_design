@@ -1,0 +1,128 @@
+/* ----------------- START CARDS ---------------------- */
+
+/* .splide__list {
+    gap: 2rem;
+} */
+
+.container-caracteristicas {
+    width: 80%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+.splide__slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+
+}
+
+.card {
+    border-radius: 20px;
+    background: rgba(68, 68, 68, 0.20);
+    backdrop-filter: blur(75px);
+    height: 100%;
+    width: 85%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card i {
+    border-radius: 50px;
+    background: rgba(68, 68, 68, 0.20);
+    backdrop-filter: blur(10px);
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.card h3 {
+    color: var(--dark-text-color);
+    font-size: 18px;
+    flex-wrap: 1;
+}
+
+.card p {
+    color: #ABABAB;
+    font-size: 14px;
+    flex: 5;
+}
+
+/* [type=button],
+[type=reset],
+[type=submit],
+button {
+    background-color: #ccc !important;
+} */
+
+/* ----------------- END CARDS ---------------------- */
+
+/* ----------------- START FEATURES ---------------------- */
+
+.container-card-carousel {
+    display: flex;
+    gap: 4rem;
+}
+
+.card-carousel {
+    height: 50dvh;
+    border-radius: 20px;
+    background: rgba(68, 68, 68, 0.20);
+    -webkit-backdrop-filter: blur(75px);
+    backdrop-filter: blur(75px);
+    width: 85%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    font-family: Bebas Neue;
+}
+
+.img-carousel {
+    width: 30dvw;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 50dvh;
+}
+
+.img-carousel img {
+    width: 100%;
+    height: auto;
+}
+
+/* ----------------- END FEATURES ---------------------- */
+
+.carousel-content {
+    display: flex;
+    flex-direction: column;
+    /* overflow-y: auto; */
+    /* animation: scroll 10s linear infinite; */
+}
+
+.menu--item {
+    font-size: 24px;
+    padding: 2rem;
+    text-align: center;
+    color: white;
+
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+}

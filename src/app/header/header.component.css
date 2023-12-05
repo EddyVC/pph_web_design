@@ -1,0 +1,80 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--dark-text-color);
+    padding: 1rem;
+    position: fixed;
+    height: 80px;
+    z-index: 10;
+    width: 100%;
+    background: var(--dark-bg-color)
+}
+
+.page {
+    padding-top: 80px;
+}
+
+.left-header,
+.right-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
+    font-size: 14px;
+}
+
+.left-header a,
+.right-header a {
+    color: var(--dark-text-color);
+    text-decoration: none;
+}
+
+.left-header a,
+.right-header a {
+    color: var(--dark-text-color);
+    text-decoration: none;
+}
+
+.left-header a:nth-child(even).active {
+    color: var(--primary-color);
+}
+
+.left-header a:nth-child(odd).active {
+    color: var(--secondary-color);
+}
+
+
+
+.left-header a:nth-child(even):hover {
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.left-header a:nth-child(odd):hover {
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+.right-header a:nth-child(even):hover {
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.right-header a:nth-child(odd):hover {
+    border-bottom: 1px solid var(--secondary-color);
+
+}
+
+.center-header a {
+    color: var(--dark-text-color);
+    font-family: Bebas Neue;
+    font-size: 25px;
+    text-decoration: none;
+
+}
+
+.center-header img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
