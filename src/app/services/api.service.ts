@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { environment } from '../../environment/environment';
+import { RespInformation } from '../models/Info.models';
 
 @Injectable({
   providedIn: 'root',
@@ -18,57 +19,15 @@ export class ApiService {
   //   return this.httpClient.post<AgentHierarchy[]>(apiUrl ,body)
   // }
 
-  getServices(): Observable<any> {
-    const dataservice = {
+  getInformation(data: string): Observable<RespInformation> {
+    const body = {
       page: null,
-      type: 'service',
+      type: data,
     };
 
     const apiUrl = environment.ApiUrl + 'PphOptions/GetOptionsPph';
 
-    return this.httpClient.post<any>(apiUrl, dataservice);
+    return this.httpClient.post<RespInformation>(apiUrl, body);
   }
 
-  getCards(): Observable<any> {
-    const dataservice = {
-      page: null,
-      type: 'cards',
-    };
-
-    const apiUrl = environment.ApiUrl + 'PphOptions/GetOptionsPph';
-
-    return this.httpClient.post<any>(apiUrl, dataservice);
-  }
-  getFeatures(): Observable<any> {
-    const dataservice = {
-      page: null,
-      type: 'features',
-    };
-
-    const apiUrl = environment.ApiUrl + 'PphOptions/GetOptionsPph';
-
-    return this.httpClient.post<any>(apiUrl, dataservice);
-  }
-
-  getPrice(): Observable<any> {
-    const dataservice = {
-      page: null,
-      type: 'price',
-    };
-
-    const apiUrl = environment.ApiUrl + 'PphOptions/GetOptionsPph';
-
-    return this.httpClient.post<any>(apiUrl, dataservice);
-  }
-
-  getContact(): Observable<any> {
-    const dataservice = {
-      page: null,
-      type: 'contact',
-    };
-
-    const apiUrl = environment.ApiUrl + 'PphOptions/GetOptionsPph';
-
-    return this.httpClient.post<any>(apiUrl, dataservice);
-  }
 }

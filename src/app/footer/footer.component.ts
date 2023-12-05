@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
+import { RespInformation } from '../models/Info.models';
 
 @Component({
   selector: 'app-footer',
@@ -7,19 +8,57 @@ import { ApiService } from '../services/api.service';
   styleUrl: './footer.component.css',
 })
 export class FooterComponent implements OnInit {
-  email = 'cs@redfigures.ag';
+  // email = 'cs@redfigures.ag';
 
-  serviceList: any;
-
-  constructor(private apiService: ApiService) {}
-
+  domain: string='';
+  
   ngOnInit(): void {
-    this.loadDataAll();
+
+    this.loadInformation()
+    this.loadInformationPrice()
+    this.domain = window.location.hostname;
+
+    
   }
 
-  async loadDataAll(): Promise<any> {
-    this.serviceList = await this.apiService.getContact().toPromise();
 
-    console.log(this.serviceList);
+
+  constructor(private infoService: ApiService) {
+
+  }
+
+  InformationResp : RespInformation[] = [];
+  phoneNumber : string = ''
+  email : string = ''
+  available : string = ''
+  location : string = ''
+  InformationPrice : string= '';
+
+
+
+
+  async loadInformation() {
+    const data = await this.infoService.getInformation('contact').toPromise();
+  
+    if (Array.isArray(data)) {
+      this.InformationResp = data;
+
+      this.phoneNumber = data[0].value;
+      this.email = data[1].value;
+      this.available = data[2].value;
+      this.location = data[3].value;
+    } else {
+      // Manejar el caso en el que data no es un array
+    }
+  }
+
+  async loadInformationPrice() {
+    const data = await this.infoService.getInformation('price').toPromise();
+  
+    if (Array.isArray(data)) {
+      this.InformationPrice = data[0].value;
+    } else {
+      // Manejar el caso en el que data no es un array
+    }
   }
 }
