@@ -5,5 +5,4 @@ export class RespInformation {
     type: string = '';
     value: string = '';
     detail: string = '';
-
 }

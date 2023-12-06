@@ -16,6 +16,7 @@ export class FooterComponent implements OnInit {
 
     this.loadInformation()
     this.loadInformationPrice()
+    this.loadInformationFooter()
     this.domain = window.location.hostname;
 
     
@@ -28,6 +29,7 @@ export class FooterComponent implements OnInit {
   }
 
   InformationResp : RespInformation[] = [];
+  InformatioFooterResp : RespInformation[] = [];
   phoneNumber : string = ''
   email : string = ''
   available : string = ''
@@ -61,4 +63,26 @@ export class FooterComponent implements OnInit {
       // Manejar el caso en el que data no es un array
     }
   }
+
+
+
+  async loadInformationFooter() {
+    const data = await this.infoService.getInformation('footer').toPromise();
+  
+    if (Array.isArray(data)) {
+      this.InformatioFooterResp = data;
+      this.replaceTextInInformation();
+    } else {
+      // Manejar el caso en el que data no es un array
+    }
+  }
+
+
+  replaceTextInInformation() {
+    this.InformatioFooterResp.forEach(item => {
+      if (item && item.value) {
+        item.value = item.value.replace(/\[ddd\]/g, this.domain);
+      }
+    });}
+
 }

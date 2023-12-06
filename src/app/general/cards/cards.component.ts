@@ -10,9 +10,12 @@ import { RespInformation } from '../../models/Info.models';
 })
 export class CardsComponent {
 
+  domain :string=''
+
   ngOnInit(): void {
 
     this.loadInformation()
+    this.domain = window.location.hostname;
     
   }
 
@@ -25,10 +28,19 @@ export class CardsComponent {
   
     if (Array.isArray(data)) {
       this.InformationResp = data;
+      this.replaceTextInInformation();
     } else {
       // Manejar el caso en el que data no es un array
     }
   }
+
+
+  replaceTextInInformation() {
+    this.InformationResp.forEach(item => {
+      if (item && item.value) {
+        item.value = item.value.replace(/\[ddd\]/g, this.domain);
+      }
+    });}
 
   customOptions: OwlOptions = {
     loop: true,
