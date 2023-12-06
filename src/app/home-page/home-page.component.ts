@@ -25,14 +25,23 @@ export class HomePageComponent {
   InformationResp : RespInformation[] = [];
 
   async loadInformation() {
-    const data = await this.infoService.getInformation('price').toPromise();
-  
+    const data = await this.infoService.getInformation('home').toPromise();
     if (Array.isArray(data)) {
-      this.InformationResp = data[0].value;
+      this.InformationResp = data;
+      this.replaceTextInInformation();
+
     } else {
       // Manejar el caso en el que data no es un array
     }
   }
+
+
+  replaceTextInInformation() {
+    this.InformationResp.forEach(item => {
+      if (item && item.value) {
+        item.value = item.value.replace(/\[ddd\]/g, this.domain);
+      }
+    });}
 
 
 }
