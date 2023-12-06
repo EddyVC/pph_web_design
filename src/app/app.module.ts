@@ -16,6 +16,7 @@ import { CardsComponent } from './general/cards/cards.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { PaymentMethodsComponent } from './general/payment-methods/payment-methods.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AccountDetailsComponent } from './demos/account-Details/account-Details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     ServicesComponent,
     FeaturesComponent,
     CardsComponent,
-    PaymentMethodsComponent
+    PaymentMethodsComponent,
+    AccountDetailsComponent
   ],
   imports: [
     BrowserModule,

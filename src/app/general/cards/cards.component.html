@@ -8,7 +8,7 @@
             <ng-container *ngFor="let slide of InformationResp">
                 <ng-template carouselSlide [id]="slide.order">
                     <div class="card">
-                        <!-- <i [class]="slide.icon"></i> -->
+                        <i [class]="slide.detail"></i>
                         <h3>{{ slide.title }}</h3>
                         <p>{{ slide.value }}</p>
                     </div>
