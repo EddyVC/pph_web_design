@@ -17,14 +17,36 @@
     width: auto;
     height: auto;
     z-index: -1;
+    object-fit: cover;
 }
 
 .container-home {
     display: flex;
     flex-direction: row;
-    height: calc(100vh);
+    height: calc(100dvh);
+}
+
+.home-desktop {
+    display: none;
+}
+
+
+@media screen and (min-width: 1024px) {
+    #bg-video {
+        object-fit: initial;
+    }
+
+    .home-mobile {
+        display: none;
+    }
+
+    .home-desktop {
+        display: flex;
+    }
 
 }
+
+
 
 .blur-container {
     /* position: fixed; */
@@ -70,7 +92,6 @@
 }
 
 .container-title {
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,11 +101,23 @@
 .container-title h1,
 .container-title span {
     color: var(--dark-text-color);
-    ;
     font-family: Bebas Neue;
-    font-size: 80px;
+    font-size: 30px;
     text-align: center;
     width: 100%;
+
+}
+
+@media screen and (min-width: 1024px) {
+
+    .container-title h1,
+    .container-title span {
+        font-size: 80px;
+    }
+
+    .container-title {
+        height: 100%;
+    }
 
 }
 
@@ -226,3 +259,66 @@
 }
 
 /* ----------------- END OUR COMPANY ---------------------- */
+
+
+/* -------------- Start Home Mobile -------------------- */
+
+.container-home-mobile {
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.container-top,
+.container-buttom {
+    width: 100%;
+    height: 40%;
+}
+
+.container-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.container-buttom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.container-buttom-info {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.container-buttom-info h2 {
+    font-size: 18px;
+    color: white;
+}
+
+.container-buttom-info p {
+    font-size: 12px;
+    color: white;
+}
+
+.btn-signup-mobile {
+    color: white;
+    padding: 1rem 2rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    font-size: 12px;
+}
+

@@ -1,12 +1,31 @@
-<header>
+<header class="header-desktop">
+    <div class="left-header">
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        <a routerLink="/demos" routerLinkActive="active">Demos</a>
+        <a routerLink="/pricing" routerLinkActive="active">Pricing</a>
+        <a href="#">Payment Methods</a>
+        <a href="#">PPH Software Reseller</a>
+        <a href="#">Epos</a>
+    </div>
+
+    <div class="center-header">
+        <a href="#">Payperhead.net</a>
+    </div>
+
+    <div class="right-header">
+        <a href="#">Features</a>
+        <a href="#">Fees Paid</a>
+        <a href="#">Blogs</a>
+        <a href="#">Sites Avaliables</a>
+        <a href="#">Player Login</a>
+        <a href="#">Agents Login</a>
+    </div>
+</header>
+
+<header class="header-mobile">
     <div class="left-header">
         <div class="left-header">
-            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-            <a routerLink="/demos" routerLinkActive="active">Demos</a>
-            <a routerLink="/pricing" routerLinkActive="active">Pricing</a>
-            <a href="#">Payment Methods</a>
-            <a href="#">PPH Software Reseller</a>
-            <a href="#">Epos</a>
+            <button class="fas fa-bars" (click)="toggleSidebar()"></button>
         </div>
     </div>
 
@@ -15,13 +34,34 @@
     </div>
 
     <div class="right-header">
-        <div class="right-header">
-            <a href="#">Features</a>
-            <a href="#">Fees Paid</a>
-            <a href="#">Blogs</a>
-            <a href="#">Sites Avaliables</a>
-            <a href="#">Player Login</a>
-            <a href="#">Agents Login</a>
-        </div>
+        <button class="fas fa-ellipsis-vertical" (click)="toggleMoreInfo()"></button>
     </div>
+
 </header>
+
+<div class="more-info-header" [ngClass]="{'closed-more': !isMoreInfoOpen}">
+    <a href="tel:+1-855 296-9171" class="TagMenu"><i class="fa fa-mobile" aria-hidden="true"></i> +1-855
+        296-9171</a>
+    <a href="mailto:cs@redfigures.ag" class="TagMenu"><i class="fa fa-envelope" aria-hidden="true"></i>
+        csredfigures.ag</a>
+    <a href="https://goo.gl/maps/7snErmvbfFzYEPdj9" class="TagMenu"><i class="fa fa-map-marker" aria-hidden="true"></i>
+        Costa Rica</a>
+</div>
+
+<div class="overlay" [ngClass]="{'visible': isSidebarOpen}" (click)="toggleSidebar()"></div>
+<div class="sidebar" [ngClass]="{'closed': !isSidebarOpen}">
+    <div class="nav-mobile">
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        <a routerLink="/demos" routerLinkActive="active">Demos</a>
+        <a routerLink="/pricing" routerLinkActive="active">Pricing</a>
+        <a href="#">Payment Methods</a>
+        <a href="#">PPH Software Reseller</a>
+        <a href="#">Epos</a>
+        <a href="#">Features</a>
+        <a href="#">Fees Paid</a>
+        <a href="#">Blogs</a>
+        <a href="#">Sites Avaliables</a>
+        <a href="#">Player Login</a>
+        <a href="#">Agents Login</a>
+    </div>
+</div>
