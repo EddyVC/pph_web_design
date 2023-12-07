@@ -4,7 +4,9 @@
 
 .page-services {
     height: auto;
+    overflow: hidden;
 }
+
 .container-services {
     width: 80%;
     display: flex;
@@ -28,12 +30,10 @@
     color: transparent;
     -webkit-text-stroke: 2px var(--primary-color);
     text-stroke: 2px #00DAC4;
-
 }
 
 .page-subtitle {
     color: var(--dark-text-color);
-    ;
     font-family: Bebas Neue;
     font-size: 30px;
     font-style: normal;
@@ -96,11 +96,10 @@
 /* Otras media queries según sea necesario para ajustar el diseño en pantallas más pequeñas */
 @media screen and (min-width: 1024px) {
     .grid-container {
-    grid-template-columns: repeat(5, 1fr);
-    display: grid;
-    margin: 20px;
-    padding: 1rem;
-
+        grid-template-columns: repeat(5, 1fr);
+        display: grid;
+        margin: 20px;
+        padding: 1rem;
     }
 
     .grid-item h3 {
@@ -108,10 +107,9 @@
         font-size: 16px;
         font-weight: 700;
     }
-    
+
     .grid-item p {
         color: var(--dark-text-color);
-        ;
         font-size: 12px;
     }
 
@@ -125,12 +123,10 @@
         color: transparent;
         -webkit-text-stroke: 2px var(--primary-color);
         text-stroke: 2px #00DAC4;
-    
     }
-    
+
     .page-subtitle {
         color: var(--dark-text-color);
-        ;
         font-family: Bebas Neue;
         font-size: 60px;
         font-style: normal;
@@ -138,9 +134,8 @@
         line-height: normal;
         text-align: center;
         margin-right: 20rem;
-    
     }
-    
+
     .subtitle-span {
         font-family: Bebas Neue;
         font-size: 60px;
@@ -151,6 +146,13 @@
         color: transparent;
         -webkit-text-stroke: 2px var(--secondary-color);
         text-stroke: 2px var(--primary-color);
+    }
+
+    .page-title {
+        color: var(--dark-text-color);
+        font-family: Bebas Neue;
+        font-size: 60px;
+        margin-left: 20rem;
     }
 }
 
