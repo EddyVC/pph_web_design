@@ -18,8 +18,11 @@ import { PaymentMethodsComponent } from './general/payment-methods/payment-metho
 import { HttpClientModule } from '@angular/common/http';
 import { AccountDetailsComponent } from './demo-page/account-Details/account-Details.component';
 import { DemosComponent } from './demo-page/demos.component';
+import { PaymentComponent } from './payment-page/payment.component';
+import { PphSoftwareComponent } from './pphSoftware-page/pphSoftware.component';
+import { EposComponent } from './epos-page/epos.component';
 @NgModule({
-  declarations: [
+  declarations: [			
     AppComponent,
     HeaderComponent,
     FooterComponent,
@@ -30,8 +33,11 @@ import { DemosComponent } from './demo-page/demos.component';
     FeaturesComponent,
     CardsComponent,
     PaymentMethodsComponent,
-    AccountDetailsComponent
-  ],
+    AccountDetailsComponent,
+    PaymentComponent,
+      PphSoftwareComponent,
+      EposComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
