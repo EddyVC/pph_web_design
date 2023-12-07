@@ -1,4 +1,4 @@
-<header class="header-desktop">
+<header class="header-desktop" [ngClass]="{'opaque-header': isOpaque, 'transparent-header': !isOpaque}">
     <div class="left-header">
         <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
         <a routerLink="/demos" routerLinkActive="active">Demos</a>
@@ -22,7 +22,7 @@
     </div>
 </header>
 
-<header class="header-mobile">
+<header class="header-mobile" [ngClass]="{'opaque-header': isOpaque, 'transparent-header': !isOpaque}">
     <div class="left-header">
         <div class="left-header">
             <button class="fas fa-bars" (click)="toggleSidebar()"></button>

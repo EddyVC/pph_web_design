@@ -8,9 +8,17 @@ header {
     height: 80px;
     z-index: 10;
     width: 100%;
-    background: var(--dark-bg-color)
+    /* background: var(--dark-bg-color) */
         /* backdrop-filter: blur(10px); */
 }
+
+.transparent-header {
+    background-color: transparent;
+  }
+  
+  .opaque-header {
+    background-color: black;
+  }
 
 .more-info-header {
     display: flex;
@@ -20,7 +28,7 @@ header {
     color: var(--dark-text-color);
     padding: 1rem;
     position: fixed;
-    top: 80px;
+    top: 60px;
     z-index: 9;
     width: 100%;
     gap: 1rem;
@@ -32,7 +40,7 @@ header {
 }
 
 .closed-more {
-    transform: translateY(-120%);
+    transform: translateY(-200%);
 }
 
 .header-desktop {
@@ -180,6 +188,8 @@ button {
 
 .header-mobile {
     padding: 1rem 2rem;
+    height: 60px;
+    transition: background-color 0.5s ease;
 
 }
 
