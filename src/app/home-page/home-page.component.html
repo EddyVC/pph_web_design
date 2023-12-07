@@ -1,7 +1,7 @@
 <div class="home-desktop container-home page-home page">
     <div class="video-container">
-        <video id="bg-video" loop muted autoplay>
-            <source src="../../assets/videos/bg-video-rb.mp4" type="video/mp4">
+        <video id="bg-video" loop muted autoplay playsinline>
+            <source src="https://uwtelecom.net/pphs/home-video-pph/bg-video-rb.mp4" type="video/mp4">
         </video>
     </div>
     <div class="blur-container left-blur">
@@ -36,8 +36,8 @@
 
 <div class="home-mobile">
     <div class="video-container">
-        <video id="bg-video" loop muted autoplay>
-            <source src="../../assets/videos/bg-video-mobile.mp4" type="video/mp4">
+        <video id="bg-video" loop muted autoplay playsinline>
+            <source src="https://uwtelecom.net/pphs/home-video-pph/bg-video-by-mobile.mp4" type="video/mp4">
         </video>
     </div>
 
@@ -51,12 +51,8 @@
         </div>
         <div class="blur-container container-buttom">
             <div class="container-buttom-info">
-                <h2>Pay Per Head Software</h2>
-                <p>For a limited time, If you sign up now, special $5 Price Per Head will be kept forever!
-                    payperhead.net
-                    offers the most advanced “Pay Per Head” services with FREE POKER, LIVE CASINO, LOTTERY, PROPS,
-                    FAST
-                    LINES, SECURE CONNECTIONS and TOTAL PRIVACY. Now $5 per player!</p>
+                <h2>{{InformationResp[0].title}}</h2>
+                <p>{{InformationResp[0].value}}</p>
             </div>
 
             <div class="links-right-info">
@@ -72,7 +68,7 @@
 </div>
 
 <app-services></app-services>
-<app-features></app-features>
+<!-- <app-features></app-features>
 <app-cards></app-cards>
 
 <div class="page-services">
@@ -89,4 +85,4 @@
     </div>
 </div>
 
-<app-payment-methods></app-payment-methods>
+<app-payment-methods></app-payment-methods> -->
