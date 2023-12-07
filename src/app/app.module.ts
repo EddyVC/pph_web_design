@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { DemosComponent } from './demos/demos.component';
+// import { DemosComponent } from './demos/demos.component';
 import { PricingComponent } from './pricing-page/pricing.component';
 import { ServicesComponent } from './general/services/services.component';
 import { FeaturesComponent } from './general/features/features.component';
@@ -16,7 +16,8 @@ import { CardsComponent } from './general/cards/cards.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { PaymentMethodsComponent } from './general/payment-methods/payment-methods.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AccountDetailsComponent } from './demos/account-Details/account-Details.component';
+import { AccountDetailsComponent } from './demo-page/account-Details/account-Details.component';
+import { DemosComponent } from './demo-page/demos.component';
 @NgModule({
   declarations: [
     AppComponent,
