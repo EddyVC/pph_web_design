@@ -1,0 +1,44 @@
+
+
+.banner-title{
+    color: var(--dark-text-color);
+    font-family: Bebas Neue;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.banner-subtitle{
+    color: var(--dark-text-color);
+    font-family: Bebas Neue;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+    text-align: center;
+}
+
+.banner-Price {
+    background: linear-gradient(270deg, var(--primary-color) 30.41%, var(--secondary-color) 70.89%);
+    color: transparent; 
+    font-family: Bebas Neue;
+    font-size: 150px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+    -webkit-background-clip: text; 
+    background-clip: text;
+}
+
+.banner-text{
+    color: var(--dark-text-color);
+    font-family: Bebas Neue;
+    font-size: 15px;
+    font-style: normal;
+    line-height: normal;
+    text-align: center;
+}
