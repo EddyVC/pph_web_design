@@ -8,7 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { DemosComponent } from './demos/demos.component';
-import { PricingComponent } from './pricing/pricing.component';
+import { PricingComponent } from './pricing-page/pricing.component';
 import { ServicesComponent } from './general/services/services.component';
 import { FeaturesComponent } from './general/features/features.component';
 import { gsap } from 'gsap';
