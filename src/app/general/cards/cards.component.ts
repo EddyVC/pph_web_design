@@ -45,7 +45,7 @@ export class CardsComponent {
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
-    touchDrag: false,
+    touchDrag: true,
     pullDrag: false,
     dots: false,
     navSpeed: 700,
@@ -54,13 +54,13 @@ export class CardsComponent {
       0: {
         items: 1
       },
-      400: {
+      740: {
         items: 2
       },
-      740: {
+      940: {
         items: 3
       },
-      940: {
+      1024: {
         items: 4
       }
     },

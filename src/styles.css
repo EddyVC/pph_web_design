@@ -51,6 +51,34 @@ body {
     }
 }
 
+.circle-gradient-4 {
+    width: 250px;
+    height: 250px;
+    background: conic-gradient(from 45deg, var(--primary-color) 50%, var(--secondary-color) 50%);
+    border-radius: 50%;
+    filter: blur(75px);
+    position: absolute;
+    top: 30%;
+    right: 0;
+    animation: moveCircle-4 15s infinite alternate;
+}
+
+@keyframes moveCircle-4 {
+    0% {
+        transform: translate(100px, 0);
+    }
+
+    50% {
+        transform: translate(150px, -50px);
+    }
+
+    100% {
+        transform: translate(100px, 100px);
+    }
+}
+
+
+
 .circle-gradient-2 {
     width: 250px;
     height: 250px;
@@ -86,7 +114,7 @@ body {
     border-radius: 50%;
     filter: blur(75px);
     position: absolute;
-    top: 80%;
+    top: 60%;
     left: -20%;
     animation: moveCircle-3 20s infinite alternate;
 }
@@ -107,7 +135,20 @@ body {
 
 
 @media screen and (min-width: 1024px) {
+
+    .circle-gradient-1 {
+        display: initial;
+    }
+
+    .circle-gradient-2 {
+        display: initial;
+    }
+    
     .circle-gradient-3 {
+        display: none;
+    }
+
+    .circle-gradient-4 {
         display: none;
     }
 }
@@ -122,6 +163,7 @@ body {
     /* height: 100vh; */
     position: relative;
     padding: 5rem 0;
+    overflow: hidden;
 }
 
 .page-title {
@@ -138,9 +180,19 @@ body {
 .title-company {
     color: var(--dark-text-color);
     font-family: Bebas Neue;
-    font-size: 50px;
+    font-size: 30px;
     text-align: center;
     width: 100%;
+}
+
+@media screen and (min-width: 1024px) {
+    .title-company {
+        color: var(--dark-text-color);
+        font-family: Bebas Neue;
+        font-size: 50px;
+        text-align: center;
+        width: 100%;
+    }
 }
 
 /* Estilo para navegadores webkit como Chrome y Safari */

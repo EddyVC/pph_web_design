@@ -1,3 +1,6 @@
+.page-services {
+    overflow: hidden;
+}
 .video-container {
     position: absolute;
     top: 0;
@@ -226,11 +229,10 @@
 
 .container-our-company {
     width: 80%;
-    height: calc(80vh - 80px);
+    height: 400px;
     border-radius: 20px;
     background: rgba(68, 68, 68, 0.20);
     backdrop-filter: blur(75px);
-    margin-top: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -322,3 +324,32 @@
     font-size: 12px;
 }
 
+.title-company {
+    color: var(--dark-text-color);
+    font-family: Bebas Neue;
+    font-size: 30px;
+    margin: 0;
+}
+
+@media screen and (min-width: 1024px) {
+    .title-company {
+        color: var(--dark-text-color);
+        font-family: Bebas Neue;
+        font-size: 60px;
+        margin-left: 20rem;
+    }
+
+    .container-our-company {
+        width: 80%;
+        height: calc(80vh - 80px);
+        border-radius: 20px;
+        background: rgba(68, 68, 68, 0.20);
+        backdrop-filter: blur(75px);
+        margin-top: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 1rem;
+    }
+}

@@ -215,4 +215,14 @@
     border-end-end-radius: 12px;
 }
 
+.circle-gradient, .circle-gradient-2{
+    display: none;
+}
+
+@media screen and (min-width: 1024px) {
+
+    .circle-gradient, .circle-gradient-2{
+        display: initial;
+    }
+}
 /* ----------------- END SERVICES ---------------------- */

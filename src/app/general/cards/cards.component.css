@@ -70,9 +70,29 @@
 }
 
 .page-cards{
-  height: 100vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
   position: relative;
+  overflow: hidden;
+  padding: 5rem 0;
+}
+
+.page-title {
+  color: var(--dark-text-color);
+  font-family: Bebas Neue;
+  font-size: 30px;
+  margin-left: 0;
+}
+
+@media screen and (min-width: 1024px) {
+  .page-title {
+    color: var(--dark-text-color);
+    font-family: Bebas Neue;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+  }
 }

@@ -1,8 +1,10 @@
 /* ----------------- START PAYMENT ---------------------- */
-
+.page-services {
+    overflow: hidden;
+    padding: 5rem 0;
+}
 .container-payment-methods {
     width: 100%;
-    height: calc(80vh - 80px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,6 +26,7 @@
 
 .container-top-payments img {
     max-width: 100%;
+    padding: 1rem;
     /* height: 60%; */
 }
 
@@ -79,7 +82,7 @@
     bottom: 0;
     left: 12px;
     /* Ajusta según la posición deseada hacia la izquierda */
-    width: 90%;
+    width: 96%;
     height: 1px;
     background-color: #393939;
     z-index: 0;
@@ -106,6 +109,17 @@
     background-color: #393939;
 }
 
+    .page-payment-desktop{
+    display: none;
+}
 
-
+@media screen and (min-width: 1024px) {
+    .page-payment-mobile{
+        display: none;
+    }
+    .page-payment-desktop{
+        display: flex;
+    }
+    
+}
 /* ----------------- END PAYMENT ---------------------- */

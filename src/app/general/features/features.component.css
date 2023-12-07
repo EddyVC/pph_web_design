@@ -185,4 +185,14 @@ button {
     }
 }
 
+.circle-gradient{
+    display: none;
+}
+
+@media screen and (min-width: 1024px) {
+
+    .circle-gradient {
+        display: initial;
+    }
+}
 /* -------------- END Home Mobile -------------------- */
