@@ -29,6 +29,8 @@ export class CardsComponent {
     if (Array.isArray(data)) {
       this.InformationResp = data;
       this.replaceTextInInformation();
+      console.log('DATA', this.InformationResp);
+
     } else {
       // Manejar el caso en el que data no es un array
     }
@@ -37,8 +39,8 @@ export class CardsComponent {
 
   replaceTextInInformation() {
     this.InformationResp.forEach(item => {
-      if (item && item.value) {
-        item.value = item.value.replace(/\[ddd\]/g, this.domain);
+      if (item && item.Value) {
+        item.Value = item.Value.replace(/\[ddd\]/g, this.domain);
       }
     });}
 

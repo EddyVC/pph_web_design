@@ -128,7 +128,7 @@ render()
 API 
 --------------------*/
 
-  const url = 'https://liveadmin.bridgehost.net/api/PphOptions/GetOptionsPph';
+  const url = 'https://liveadmin.bridgehost.net/api/PphOptions/getPphOptions';
 
 
 // ********************************HTTP Serice

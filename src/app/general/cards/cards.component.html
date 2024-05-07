@@ -6,11 +6,11 @@
     <div class="prueba">
         <owl-carousel-o [options]="customOptions" #owlCar>
             <ng-container *ngFor="let slide of InformationResp">
-                <ng-template carouselSlide [id]="slide.order">
+                <ng-template carouselSlide [id]="slide.Order">
                     <div class="card">
                         <i [class]="slide.detail"></i>
-                        <h3>{{ slide.title }}</h3>
-                        <p>{{ slide.value }}</p>
+                        <h3>{{ slide.Title }}</h3>
+                        <p>{{ slide.Value }}</p>
                     </div>
                 </ng-template>
             </ng-container>

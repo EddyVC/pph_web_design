@@ -25,7 +25,7 @@ export class ApiService {
       type: data,
     };
 
-    const apiUrl = environment.ApiUrl + 'PphOptions/GetOptionsPph';
+    const apiUrl = environment.ApiUrl + 'PphOptions/getPphOptions';
 
     return this.httpClient.post<RespInformation>(apiUrl, body);
   }

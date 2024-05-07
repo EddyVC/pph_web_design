@@ -1,9 +1,9 @@
 export class RespInformation {
-    page: string = '';
-    title: string = '';
-    order: string = '';
-    type: string = '';
-    value: string = '';
+    Page: string = '';
+    Title: string = '';
+    Order: string = '';
+    Type: string = '';
+    Value: string = '';
     detail: string = '';
 
 }

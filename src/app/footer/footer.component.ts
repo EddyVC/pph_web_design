@@ -45,10 +45,10 @@ export class FooterComponent implements OnInit {
     if (Array.isArray(data)) {
       this.InformationResp = data;
 
-      this.phoneNumber = data[0].value;
-      this.email = data[1].value;
-      this.available = data[2].value;
-      this.location = data[3].value;
+      this.phoneNumber = data[0].Value;
+      this.email = data[1].Value;
+      this.available = data[2].Value;
+      this.location = data[3].Value;
     } else {
       // Manejar el caso en el que data no es un array
     }
@@ -58,7 +58,7 @@ export class FooterComponent implements OnInit {
     const data = await this.infoService.getInformation('price').toPromise();
   
     if (Array.isArray(data)) {
-      this.InformationPrice = data[0].value;
+      this.InformationPrice = data[0].Value;
     } else {
       // Manejar el caso en el que data no es un array
     }
@@ -80,8 +80,8 @@ export class FooterComponent implements OnInit {
 
   replaceTextInInformation() {
     this.InformatioFooterResp.forEach(item => {
-      if (item && item.value) {
-        item.value = item.value.replace(/\[ddd\]/g, this.domain);
+      if (item && item.Value) {
+        item.Value = item.Value.replace(/\[ddd\]/g, this.domain);
       }
     });}
 

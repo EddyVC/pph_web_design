@@ -38,8 +38,8 @@ export class AccountDetailsComponent implements OnInit {
 
   replaceTextInInformation() {
     this.InformationResp.forEach(item => {
-      if (item && item.value) {
-        item.value = item.value.replace(/\[ddd\]/g, this.domain);
+      if (item && item.Value) {
+        item.Value = item.Value.replace(/\[ddd\]/g, this.domain);
       }
     });}
 }
