@@ -5,5 +5,7 @@ export class RespInformation {
     Type: string = '';
     Value: string = '';
     detail: string = '';
-
+    Style: string = '';
+    Logo: string = '';
+    Video: string = '';
 }

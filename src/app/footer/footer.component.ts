@@ -40,7 +40,7 @@ export class FooterComponent implements OnInit {
 
 
   async loadInformation() {
-    const data = await this.infoService.getInformation('contact').toPromise();
+    const data = await this.infoService.getInformation('GENERAL','contact').toPromise();
   
     if (Array.isArray(data)) {
       this.InformationResp = data;
@@ -55,7 +55,7 @@ export class FooterComponent implements OnInit {
   }
 
   async loadInformationPrice() {
-    const data = await this.infoService.getInformation('price').toPromise();
+    const data = await this.infoService.getInformation('GENERAL','price').toPromise();
   
     if (Array.isArray(data)) {
       this.InformationPrice = data[0].Value;
@@ -67,7 +67,7 @@ export class FooterComponent implements OnInit {
 
 
   async loadInformationFooter() {
-    const data = await this.infoService.getInformation('footer').toPromise();
+    const data = await this.infoService.getInformation('GENERAL','footer').toPromise();
   
     if (Array.isArray(data)) {
       this.InformatioFooterResp = data;

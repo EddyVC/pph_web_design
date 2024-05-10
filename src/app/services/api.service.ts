@@ -8,6 +8,7 @@ import { RespInformation } from '../models/Info.models';
   providedIn: 'root',
 })
 export class ApiService {
+
   constructor(private httpClient: HttpClient) {}
 
   // sendAgent(idAgent:any):  Observable<any>{
@@ -19,13 +20,24 @@ export class ApiService {
   //   return this.httpClient.post<AgentHierarchy[]>(apiUrl ,body)
   // }
 
-  getInformation(data: string): Observable<RespInformation> {
+  getInformation(page: string, type: string): Observable<RespInformation> {
     const body = {
-      page: null,
-      type: data,
+      page: page,
+      type: type,
     };
 
     const apiUrl = environment.ApiUrl + 'PphOptions/getPphOptions';
+
+    return this.httpClient.post<RespInformation>(apiUrl, body);
+  }
+
+  getPphDesign(page: string, type: string): Observable<RespInformation> {
+    const body = {
+      page: page,
+      type: type,
+    };
+
+    const apiUrl = environment.ApiUrl + 'PphOptions/getPphDesign';
 
     return this.httpClient.post<RespInformation>(apiUrl, body);
   }

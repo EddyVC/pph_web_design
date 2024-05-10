@@ -25,7 +25,7 @@ export class AccountDetailsComponent implements OnInit {
   InformationResp : RespInformation[] = [];
 
   async loadInformation() {
-    const data = await this.infoService.getInformation('demo').toPromise();
+    const data = await this.infoService.getInformation('GENERAL','demo').toPromise();
     if (Array.isArray(data)) {
       this.InformationResp = data;
       this.replaceTextInInformation();

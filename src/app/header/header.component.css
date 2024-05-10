@@ -73,6 +73,10 @@ header {
     text-decoration: none;
 }
 
+.right-header{
+    justify-content: end;
+}
+
 .left-header a:nth-child(even).active {
     color: var(--primary-color);
 }
@@ -233,3 +237,15 @@ button {
 }
 
 /* -----------------  End SideBar Mobile ------------------- */
+
+.btn__signUp{
+    padding: 0.5rem 1rem;
+    border-radius: 2px;
+    cursor: pointer;
+    background: var(--secondary-color);
+    transition: all 0.3s;
+}
+
+.btn__signUp:hover{
+    background: var(--secondary-color-dark);
+}

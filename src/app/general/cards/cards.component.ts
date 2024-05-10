@@ -24,7 +24,7 @@ export class CardsComponent {
   InformationResp : RespInformation[] = [];
 
   async loadInformation() {
-    const data = await this.infoService.getInformation('cards').toPromise();
+    const data = await this.infoService.getInformation('GENERAL','cards').toPromise();
   
     if (Array.isArray(data)) {
       this.InformationResp = data;

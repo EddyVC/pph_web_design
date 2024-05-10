@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ApiService } from './services/api.service';
+import { RespInformation } from './models/Info.models';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,44 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ppg-design';
+
+  domain: string = '';
+
+  ngOnInit(): void {
+    this.domain = window.location.hostname;
+    this.loadPageDesign();
+  }
+
+  constructor(private infoService: ApiService) {
+  }
+  
+  DesignResp: RespInformation[] = [];
+
+  loadPageDesign() {
+    this.infoService.getPphDesign(this.domain, 'design').subscribe({
+      next: data => {
+        if (Array.isArray(data)) {
+          this.DesignResp = data;
+          console.log('this.DesignResp', this.DesignResp)
+        }
+      },
+      error: (err: any) => {},
+      complete: () => {
+        if (this.DesignResp.length == 0 ) {
+          this.loadCss("https://scores.bridgehost.net/templates/TemplateGreenOrange/styles.css");
+        } else {
+          this.loadCss(this.DesignResp[0].Style);
+        }
+      },
+    });
+  }
+
+
+  // Función para cargar CSS dinámicamente
+  loadCss(url: string) {
+    const link = document.createElement('link');
+    link.href = url;
+    link.rel = 'stylesheet';
+    document.head.appendChild(link);
+  }
 }

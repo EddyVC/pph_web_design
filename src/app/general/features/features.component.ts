@@ -21,7 +21,7 @@ export class FeaturesComponent {
   InformationResp : RespInformation[] = [];
 
   async loadInformation() {
-    const data = await this.infoService.getInformation('features').toPromise();
+    const data = await this.infoService.getInformation('GENERAL','features').toPromise();
   
     if (Array.isArray(data)) {
       this.InformationResp = data;

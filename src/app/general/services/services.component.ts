@@ -22,7 +22,7 @@ export class ServicesComponent {
   InformationPrice : string= '';
 
   async loadInformation() {
-    const data = await this.infoService.getInformation('service').toPromise();
+    const data = await this.infoService.getInformation('GENERAL','service').toPromise();
   
     if (Array.isArray(data)) {
       this.InformationResp = data;
@@ -33,7 +33,7 @@ export class ServicesComponent {
 
 
   async loadInformationPrice() {
-    const data = await this.infoService.getInformation('price').toPromise();
+    const data = await this.infoService.getInformation('GENERAL','price').toPromise();
   
     if (Array.isArray(data)) {
       this.InformationPrice = data[0].value;

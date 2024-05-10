@@ -21,6 +21,12 @@ import { DemosComponent } from './demo-page/demos.component';
 import { PaymentComponent } from './payment-page/payment.component';
 import { PphSoftwareComponent } from './pphSoftware-page/pphSoftware.component';
 import { EposComponent } from './epos-page/epos.component';
+
+import { VgCoreModule } from '@videogular/ngx-videogular/core';
+import { VgControlsModule } from '@videogular/ngx-videogular/controls';
+import { VgOverlayPlayModule } from '@videogular/ngx-videogular/overlay-play';
+import { VgBufferingModule } from '@videogular/ngx-videogular/buffering';
+
 @NgModule({
   declarations: [			
     AppComponent,
@@ -44,7 +50,11 @@ import { EposComponent } from './epos-page/epos.component';
     CarouselModule,
     BrowserAnimationsModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule
   ],
   providers: [
     provideClientHydration()

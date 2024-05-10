@@ -19,10 +19,10 @@ export class PricingComponent {
   InformationPrice : string= '';
 
   async loadInformationPrice() {
-    const data = await this.infoService.getInformation('price').toPromise();
+    const data = await this.infoService.getInformation('GENERAL','price').toPromise();
   
     if (Array.isArray(data)) {
-      this.InformationPrice = data[0].value;
+      this.InformationPrice = data[0].Value;
     } else {
       // Manejar el caso en el que data no es un array
     }

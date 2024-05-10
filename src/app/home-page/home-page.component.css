@@ -9,6 +9,7 @@
     height: 100%;
     overflow: hidden;
     z-index: 0;
+    object-fit: cover;
 }
 
 #bg-video {
@@ -152,7 +153,6 @@
 
 .right-info h2 {
     color: var(--dark-text-color);
-    ;
     text-align: center;
     font-size: 30px;
     font-weight: 700;
@@ -167,13 +167,14 @@
     transform: rotate(35deg);
     flex-shrink: 0;
     border-radius: 50px;
-    background: var(--primary-color);
+    background: var(--primary-color-circle);
     font-weight: 600;
     padding: 1rem 2rem;
     position: absolute;
     top: -12vh;
     left: 10%;
     transition: all 0.3s;
+    color: var(--light-text-color);
 }
 
 .btn-signup:hover {
