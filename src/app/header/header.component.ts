@@ -7,6 +7,11 @@ import { Component, HostListener } from '@angular/core';
 })
 export class HeaderComponent {
   isSidebarOpen = false;
+  domain: string = '';
+
+  ngOnInit(): void {
+    this.domain = window.location.hostname;
+  }
 
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;

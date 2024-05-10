@@ -133,6 +133,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: Bebas Neue;
+    font-size: 50px;
 }
 
 .container-logo img {

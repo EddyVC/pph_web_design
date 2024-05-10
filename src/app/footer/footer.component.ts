@@ -9,25 +9,6 @@ import { RespInformation } from '../models/Info.models';
 })
 export class FooterComponent implements OnInit {
   // email = 'cs@redfigures.ag';
-
-  domain: string='';
-  
-  ngOnInit(): void {
-
-    this.loadInformation()
-    this.loadInformationPrice()
-    this.loadInformationFooter()
-    this.domain = window.location.hostname;
-
-    
-  }
-
-
-
-  constructor(private infoService: ApiService) {
-
-  }
-
   InformationResp : RespInformation[] = [];
   InformatioFooterResp : RespInformation[] = [];
   phoneNumber : string = ''
@@ -35,9 +16,37 @@ export class FooterComponent implements OnInit {
   available : string = ''
   location : string = ''
   InformationPrice : string= '';
+  DesignResp: RespInformation[] = [];
+  logo: string = '';
+  domain: string='';
+  
+  constructor(private infoService: ApiService) {}
 
+  ngOnInit(): void {
+    this.loadPageDesign();
+    this.loadInformation();
+    this.loadInformationPrice();
+    this.loadInformationFooter();
+    this.domain = window.location.hostname;
+  }
 
-
+  loadPageDesign() {
+    this.infoService.getPphDesign(this.domain, 'design').subscribe({
+      next: data => {
+        if (Array.isArray(data)) {
+          this.DesignResp = data;
+        }
+      },
+      error: (err: any) => { },
+      complete: () => {
+        if (this.DesignResp.length == 0) {
+          this.logo = "";
+        } else {
+          this.logo = this.DesignResp[0].Logo;
+        }
+      },
+    });
+  }
 
   async loadInformation() {
     const data = await this.infoService.getInformation('GENERAL','contact').toPromise();

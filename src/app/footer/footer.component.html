@@ -41,8 +41,11 @@
         <div class="container-footer-buttom">
             <div class="container-info-logo">
                 <p> {{InformatioFooterResp[0].Value}}</p>
-                <div class="container-logo">
-                    <img src="../../assets/img/payperhead-logo.png" alt="logo">
+                <div class="container-logo" *ngIf="logo != ''">
+                    <img [src]='logo' alt="logo">
+                </div>
+                <div class="container-logo" *ngIf="logo == ''">
+                    <a href="#">{{domain}}</a>
                 </div>
             </div>
 

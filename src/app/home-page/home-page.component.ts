@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { RespInformation } from '../models/Info.models';
 import { AppComponent } from '../app.component';
@@ -12,6 +12,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   styleUrl: './home-page.component.css'
 })
 export class HomePageComponent {
+  @ViewChild('videoContainer') videoContainer!: ElementRef;
 
   domain: string = '';
   video: string = '';
@@ -38,22 +39,26 @@ export class HomePageComponent {
           console.log('this.DesignResp', this.DesignResp)
         }
       },
-      error: (err: any) => {},
+      error: (err: any) => { },
       complete: () => {
-        if (this.DesignResp.length == 0 ) {
+        if (this.DesignResp.length == 0) {
           this.video = "https://scores.bridgehost.net/video/bg-video-go.mp4";
-          console.log('this.Video', this.video);
         } else {
-            this.video = this.DesignResp[0].Video;
+          this.video = this.DesignResp[0].Video;
         }
       },
     });
   }
 
-  getVideo() { 
-
-    return this.sanitizer.bypassSecurityTrustResourceUrl(this.video);
+  ngAfterViewInit() {
+    setTimeout(() => {
+      if (this.video) {
+        const videoElement = `<video loop muted autoplay playsinline><source src="${this.video}" type="video/mp4">Your browser does not support the video tag.</video>`;
+        this.videoContainer.nativeElement.innerHTML = videoElement;
+      }
+    }, 1000); // Retraso de 1 segundo (1000 milisegundos)
   }
+
   async loadInformation() {
     const data = await this.infoService.getInformation('GENERAL', 'home').toPromise();
     if (Array.isArray(data)) {

@@ -1,5 +1,5 @@
 {
-  "name": "ppg-design",
+  "name": "pphmaster",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:ppg-design": "node dist/ppg-design/server/server.mjs"
+    "lint": "ng lint --fix",
+    "format": "prettier --write \"src/**/*.{ts,css,html}\""
   },
   "private": true,
   "dependencies": {
@@ -33,6 +34,11 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^17.0.5",
+    "@angular-eslint/builder": "14.4.0",
+    "@angular-eslint/eslint-plugin": "14.4.0",
+    "@angular-eslint/eslint-plugin-template": "14.4.0",
+    "@angular-eslint/schematics": "14.4.0",
+    "@angular-eslint/template-parser": "14.4.0",
     "@angular/cli": "^17.0.5",
     "@angular/compiler-cli": "^17.0.0",
     "@types/core-js": "^2.5.8",
@@ -45,6 +51,8 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "prettier": "^2.8.8",
+    "prettier-eslint": "^15.0.1",
     "typescript": "~5.2.2"
   }
 }

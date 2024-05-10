@@ -1,17 +1,5 @@
 <div class="home-desktop container-home page-home page">
-    <!-- <div class="video-container" *ngIf="video != ''">
-        <video loop muted autoplay playsinline>
-            <source [src]="video" type="video/mp4">
-        </video>
-    </div> -->
-
-    <!-- <video loop muted autoplay playsinline width="100px" height="100px">
-        <source [src]="sanitizer.bypassSecurityTrustResourceUrl(video)" type="video/mp4">
-    </video> -->
-
-    <video *ngIf="video" class="video-container"  loop muted autoplay playsinline>
-        <source [src]="sanitizer.bypassSecurityTrustResourceUrl(video)" type="video/mp4">
-    </video>
+    <div id="video__container" class="video-container" #videoContainer></div>
 
     <div class="blur-container left-blur">
         <div class="container-title">
@@ -46,7 +34,7 @@
 <div class="home-mobile">
     <div class="video-container">
         <video loop muted autoplay playsinline>
-            <source src="https://uwtelecom.net/pphs/home-video-pph/bg-video-by-mobile.mp4" type="video/mp4">
+            <source [src]="sanitizer.bypassSecurityTrustResourceUrl(video)" type="video/mp4">
         </video>
     </div>
 
