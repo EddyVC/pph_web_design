@@ -3,6 +3,7 @@ import { ApiService } from '../services/api.service';
 import { RespInformation } from '../models/Info.models';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { title } from 'process';
+import { AuthenticationDto, LoginUserDto, PlayerDto, RequestPlayerInfo } from '../models/Login.models';
 @Component({
   selector: 'app-demos',
   templateUrl: './demos.component.html',
@@ -13,8 +14,11 @@ import { title } from 'process';
 export class DemosComponent {
 
   banners: any[] = [];
+  encryptPlayer: string = '';
+  currentUser: PlayerDto = new PlayerDto();
 
   ngOnInit(): void {
+    this.login();
     this.banners = [
       { id: 1, url: '../../assets/img/demo-banners/AGENT.png', desktop: true },
       { id: 2, url: '../../assets/img/demo-banners/PLAYER.png', desktop: true },
@@ -53,6 +57,34 @@ export class DemosComponent {
     nav: false
   }
 
+  base64Encode(plainText: string): string {
+    const plainTextBytes = new TextEncoder().encode(plainText);
+    return btoa(String.fromCharCode(...plainTextBytes));
+  }
+
+  login(): void {
+    const userlogin: LoginUserDto = new LoginUserDto();
+    userlogin.IpAddress = "10.0.0.0";
+    userlogin.Domain = 'payperhead';
+    const f: AuthenticationDto = new AuthenticationDto();
+    f.AccountName = 'ug1';
+    f.Password = '123';
+
+    this.infoService.Login(userlogin, f).subscribe({
+      next: (data) => {
+        const playerdata: PlayerDto = data;
+        this.encryptPlayer = this.base64Encode(playerdata.IdPlayer + "|" + playerdata.IdCall);
+        console.log('playerData',playerdata);
+        console.log('encryptPlayer',this.encryptPlayer);
+      },
+      error: (err: any) => {
+        console.log(err);
+      },
+      complete: () => {
+      },
+    });
+  } // end login
+  
 }
 
 

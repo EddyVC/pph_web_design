@@ -1,9 +1,9 @@
 <div class="container-home">
     <div class="page-cards card--desktop">
         <owl-carousel-o [options]="customOptions" #owlCar>
-            <ng-container *ngFor="let slide of banners" >
+            <ng-container *ngFor="let slide of banners">
                 <ng-template carouselSlide *ngIf="slide.desktop">
-                    <div class="card" >
+                    <div class="card">
                         <img [src]="slide.url" alt="">
                     </div>
                 </ng-template>
@@ -18,9 +18,9 @@
 
     <div class="page-cards card--mobile">
         <owl-carousel-o [options]="customOptions" #owlCar>
-            <ng-container *ngFor="let slide of banners" >
+            <ng-container *ngFor="let slide of banners">
                 <ng-template carouselSlide *ngIf="!slide.desktop">
-                    <div class="card" >
+                    <div class="card">
                         <img [src]="slide.url" alt="">
                     </div>
                 </ng-template>
@@ -36,18 +36,37 @@
     <div class="blur-container right-blur container__demo">
         <h2 class="page__title">Try our services</h2>
         <div class="containerDemos__links">
-            <div class="gradient-border btn__demo btn__demo--agent">
-                <a href="#">Agent Demo</a>
-            </div>
-            <div class="gradient-border btn__demo btn__demo--player">
-                <a href="#">Player Demo</a>
-            </div>
+
+            <form action="https://agents.redfigures.ag/Default.aspx" method="post" target="_blank">
+                <input id="Username" class="myinput" name="Account" readonly="readonly" type="hidden" value="uagent">
+                <input id="Password" class="myinput" name="Password" readonly="readonly" type="hidden" value="test123">
+                <div class="gradient-border btn__demo btn__demo--agent">
+                    <input name="LOGIN" type="submit" value="Agent Demo">
+                </div>
+            </form>
+
+            <form action="https://wager.ibet.ag/Login.aspx" method="post" target="_blank"><input name="IdBook"
+                    type="hidden" value="">
+                <input id="Username" class="myinput" name="Account" readonly="readonly" type="hidden" value="ug1">
+                <input id="Password" class="myinput" name="Password" readonly="readonly" type="hidden" value="123">
+                <div class="gradient-border btn__demo btn__demo--player">
+                    <input name="LOGIN" type="submit" value="Player Demo">
+                </div>
+            </form>
+
+
             <div class="gradient-border btn__demo btn__demo--live">
-                <a href="#">Live Demo</a>
+                <a href="https://vegaslive.bet/liv/livebetting?piden={{encryptPlayer}}" target="_blank">Live Demo</a>
             </div>
-            <div class="gradient-border btn__demo btn__demo--epos">
-                <a href="#">EPOS Demo</a>
-            </div>
+
+            
+            <form action="https://epos.ibet.ag/Login.aspx" method="post" target="_blank"><input name="IdBook" type="hidden" value="">
+                <input id="Username" class="myinput" name="Account" readonly="readonly" type="hidden" value="ug1">
+                <input id="Password" class="myinput" name="Password" readonly="readonly" type="hidden" value="123">
+                <div class="gradient-border btn__demo btn__demo--epos">
+                    <input name="LOGIN" type="submit" value="Epos Demo">
+                </div>
+            </form>
         </div>
     </div>
 
