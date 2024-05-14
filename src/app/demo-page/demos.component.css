@@ -3,22 +3,20 @@
     justify-content: center;
     align-items: center;
     /* height: 100vh; */
-  }
-  
-  .centered-image {
-    max-width: 30%; 
-    max-height: 30%; 
-  }
+}
 
-  .links-right-info {
+.centered-image {
+    max-width: 30%;
+    max-height: 30%;
+}
+
+.links-right-info {
     display: flex;
     gap: 5rem;
 }
 
-.gradient-border {
-    position: relative;
-    display: inline-block;
-}
+
+
 .container-rigt-info {
     height: 100%;
     width: 100%;
@@ -70,20 +68,20 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 60%;
+    width: 100%;
     position: relative;
+    padding: 1rem;
 }
 
 .right-info h2 {
     color: var(--dark-text-color);
-    ;
     text-align: center;
     font-size: 30px;
     font-weight: 700;
 }
 
 .right-info p {
-    color: #706A79;
+    color: var(--text-color-secondary);
     font-size: 16px;
 }
 
@@ -109,55 +107,257 @@
     gap: 5rem;
 }
 
-.gradient-border {
-    position: relative;
-    display: inline-block;
+
+
+/* NEW DESIGN */
+
+.video__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.gradient-border a {
-    display: block;
+.bg__video {
+    width: 100%;
+    height: 100dvh;
+    object-fit: cover;
+}
+
+.demos__container {
+    width: 100%;
+    height: 100dvh;
+}
+
+.demos__container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* BANNERS */
+
+.page-cards {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    padding: 5rem 0;
+    width: 100%;
+    height: 100dvh;
+}
+
+.splide__slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+
+}
+
+.card {
+    height: 100dvh;
+    width: 100%;
+}
+
+.card img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.container-nav-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.circular-btn {
+    display: inline-block;
+    border-radius: 50%;
+    /* Hace que el botón sea circular */
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    background: rgba(68, 68, 68, 0.20);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(75px);
+    color: white;
+}
+
+
+
+.page__title {
+    color: var(--dark-text-color);
+    font-family: Bebas Neue;
+    font-size: 30px;
+    margin-left: 0;
+    text-align: center;
+}
+
+
+.card--mobile {
+    display: flex;
+}
+
+.card--desktop {
+    display: none;
+}
+
+.container__demo {
+    padding: 2rem;
+}
+
+.containerDemos__links {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 2rem 0;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+/* BTNS DEMO */
+
+.btn__demo {
+    border-radius: 5px;
+    width: 120px;
+    height: 60px;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+
+.btn__demo a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
     padding: 10px;
     text-decoration: none;
     font-size: 16px;
     border-radius: 5px;
     position: relative;
     z-index: 1;
-    background: linear-gradient(270deg, var(--primary-color) 30.41%, var(--secondary-color) 70.89%);
-    /* color: #FCED3B; */
+}
 
+.btn__demo--agent a {
+    background: linear-gradient(270deg, red 30.41%, rgb(95, 0, 0) 70.89%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: all 0.3s;
 }
 
-.gradient-border::before {
+.btn__demo--player a {
+    background: linear-gradient(270deg, rgb(0, 17, 255) 30.41%, rgb(0, 150, 170) 70.89%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s;
+}
+
+.btn__demo--epos a {
+    background: linear-gradient(270deg, #3ec91b 30.41%, #b2c31d 70.89%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s;
+}
+
+.btn__demo--live a {
+    background: linear-gradient(270deg, #c4b000 30.41%, #5e5c00 70.89%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s;
+}
+
+.btn__demo::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 1px;
-    background: linear-gradient(270deg, var(--primary-color) 30.41%, var(--secondary-color) 70.89%);
-    /* background: #FCED3B; */
     z-index: 0;
-    border-radius: 5px;
 }
 
-.gradient-border a:hover {
-    transform: scale(1.05);
+.btn__demo--agent::before {
+    content: "";
+    position: absolute;
+    background: linear-gradient(270deg, red 30.41%, rgb(95, 0, 0) 70.89%);
 }
 
-/* NEW DESIGN */
-
-.video__container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.btn__demo--player::before {
+    content: "";
+    position: absolute;
+    background: linear-gradient(270deg, rgb(0, 17, 255) 30.41%, rgb(0, 150, 170) 70.89%);
 }
 
-.bg__video{
-    width: 100%;
-    height: 100dvh;
-    object-fit: cover;
+.btn__demo--epos::before {
+    content: "";
+    position: absolute;
+    background: linear-gradient(270deg, #3ec91b 30.41%, #b2c31d 70.89%);
+
 }
+
+.btn__demo--live::before {
+    content: "";
+    position: absolute;
+    background: linear-gradient(270deg, #c4b000 30.41%, #5e5c00 70.89%);
+
+}
+
+
+
+.btn__demo--agent:hover a,
+.btn__demo--player:hover a,
+.btn__demo--epos:hover a,
+.btn__demo--live:hover a {
+    color: white;
+    background-clip: initial;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: white;
+}
+
+/* END BTNS DEMO */
+@media screen and (min-width: 1024px) {
+    .card--mobile {
+        display: none;
+    }
+
+    .card--desktop {
+        display: flex;
+    }
+
+    .page__title {
+        color: var(--dark-text-color);
+        font-family: Bebas Neue;
+        font-size: 60px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-align: center;
+    }
+
+    .right-info {
+        width: 60%;
+    }
+
+    .containerDemos__links {
+        padding: 2rem;
+    }
+
+    .btn__demo {
+        width: 200px;
+    }
+}
+
+/* END BANNERS */

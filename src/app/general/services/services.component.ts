@@ -19,7 +19,6 @@ export class ServicesComponent {
   constructor(private infoService: ApiService) {}
 
   InformationResp : RespInformation[] = [];
-  InformationPrice : string= '';
 
   async loadInformation() {
     const data = await this.infoService.getInformation('GENERAL','service').toPromise();
@@ -32,11 +31,13 @@ export class ServicesComponent {
   }
 
 
+  InformationPrice : string= '';
+
   async loadInformationPrice() {
     const data = await this.infoService.getInformation('GENERAL','price').toPromise();
   
     if (Array.isArray(data)) {
-      this.InformationPrice = data[0].value;
+      this.InformationPrice = data[0].Value;
     } else {
       // Manejar el caso en el que data no es un array
     }

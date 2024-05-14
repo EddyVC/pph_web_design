@@ -40,7 +40,12 @@
     font-weight: 400;
     line-height: normal;
     text-align: center;
-
+}
+.page-subtitle span {
+    background: linear-gradient(270deg, var(--primary-color) 30.41%, var(--secondary-color) 70.89%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .subtitle-span {
@@ -133,7 +138,8 @@
         font-weight: 400;
         line-height: normal;
         text-align: center;
-        margin-right: 20rem;
+        margin-left: 20rem;
+
     }
 
     .subtitle-span {
@@ -152,7 +158,7 @@
         color: var(--dark-text-color);
         font-family: Bebas Neue;
         font-size: 60px;
-        margin-left: 20rem;
+        margin-right: 20rem;
     }
 }
 

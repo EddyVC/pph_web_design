@@ -45,20 +45,21 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 60%;
+    width: 100%;
+    padding: 1rem;
     position: relative;
+    gap: 2rem;
 }
 
 .right-info h2 {
     color: var(--dark-text-color);
-    ;
     text-align: center;
     font-size: 30px;
     font-weight: 700;
 }
 
 .right-info p {
-    color: #706A79;
+    color: var(--text-color-secondary);
     font-size: 16px;
 }
 
@@ -108,3 +109,10 @@
     transform: scale(1.05);
 }
 
+
+/* END BTNS DEMO */
+@media screen and (min-width: 1024px) {
+    .right-info {
+        width: 60%;
+    }
+}

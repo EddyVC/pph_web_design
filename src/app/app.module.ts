@@ -54,7 +54,8 @@ import { VgBufferingModule } from '@videogular/ngx-videogular/buffering';
     VgCoreModule,
     VgControlsModule,
     VgOverlayPlayModule,
-    VgBufferingModule
+    VgBufferingModule,
+    
   ],
   providers: [
     provideClientHydration()

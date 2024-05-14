@@ -1,24 +1,52 @@
 <div class="container-home">
-
-    <div class="video__container">
-        <video id="bg-video" class="bg__video" loop muted autoplay playsinline>
-            <source src="./../../assets/videos/PromotionVideo.mp4" type="video/mp4">
-        </video>
+    <div class="page-cards card--desktop">
+        <owl-carousel-o [options]="customOptions" #owlCar>
+            <ng-container *ngFor="let slide of banners" >
+                <ng-template carouselSlide *ngIf="slide.desktop">
+                    <div class="card" >
+                        <img [src]="slide.url" alt="">
+                    </div>
+                </ng-template>
+            </ng-container>
+        </owl-carousel-o>
+        <!-- 
+        <div class="container-nav-cards">
+            <a class="btn btn-success circular-btn" (click)="owlCar.prev()"><i class="fas fa-chevron-left"></i></a>
+            <a class="btn btn-success circular-btn" (click)="owlCar.next()"><i class="fas fa-chevron-right"></i></a>
+        </div> -->
     </div>
 
-    <div class="blur-container right-blur">
-        <div class="container-rigt-info">
+    <div class="page-cards card--mobile">
+        <owl-carousel-o [options]="customOptions" #owlCar>
+            <ng-container *ngFor="let slide of banners" >
+                <ng-template carouselSlide *ngIf="!slide.desktop">
+                    <div class="card" >
+                        <img [src]="slide.url" alt="">
+                    </div>
+                </ng-template>
+            </ng-container>
+        </owl-carousel-o>
+        <!-- 
+        <div class="container-nav-cards">
+            <a class="btn btn-success circular-btn" (click)="owlCar.prev()"><i class="fas fa-chevron-left"></i></a>
+            <a class="btn btn-success circular-btn" (click)="owlCar.next()"><i class="fas fa-chevron-right"></i></a>
+        </div> -->
+    </div>
 
-            <div class="links-right-info">
-                <div class="gradient-border">
-                    <a href="#">Agent Demo</a>
-                </div>
-                <div class="gradient-border">
-                    <a href="#">Player Demo</a>
-                </div>
-                <div class="gradient-border">
-                    <a href="#">EPOS Demo</a>
-                </div>
+    <div class="blur-container right-blur container__demo">
+        <h2 class="page__title">Try our services</h2>
+        <div class="containerDemos__links">
+            <div class="gradient-border btn__demo btn__demo--agent">
+                <a href="#">Agent Demo</a>
+            </div>
+            <div class="gradient-border btn__demo btn__demo--player">
+                <a href="#">Player Demo</a>
+            </div>
+            <div class="gradient-border btn__demo btn__demo--live">
+                <a href="#">Live Demo</a>
+            </div>
+            <div class="gradient-border btn__demo btn__demo--epos">
+                <a href="#">EPOS Demo</a>
             </div>
         </div>
     </div>
