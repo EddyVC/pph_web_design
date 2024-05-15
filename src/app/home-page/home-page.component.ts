@@ -6,6 +6,7 @@ import { subscribe } from 'diagnostics_channel';
 import { error } from 'console';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { AppModule } from '../app.module';
 
 @Component({
   selector: 'app-home-page',
@@ -25,7 +26,7 @@ export class HomePageComponent {
 
 
 
-  constructor(private infoService: ApiService, public appComponent: AppComponent, public sanitizer: DomSanitizer) {
+  constructor(private infoService: ApiService, public appComponent: AppComponent, public sanitizer: DomSanitizer, public appModule: AppModule) {
   }
 
   ngOnInit(): void {
@@ -34,9 +35,6 @@ export class HomePageComponent {
     this.loadInformation();
     this.loadPageDesign();
     this.loadInformationPrice();
-
-
-
 
     this.banners = [
       { id: 1, url: '../../assets/img/demo-banners/AGENT.png', desktop: true },

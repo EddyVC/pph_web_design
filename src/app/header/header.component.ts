@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +14,8 @@ export class HeaderComponent {
     this.domain = window.location.hostname;
   }
 
+  constructor(public appComponent: AppComponent) {
+  }
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
     this.isMoreInfoOpen = false;
@@ -38,5 +41,15 @@ export class HeaderComponent {
   }
   toggleIsOpaque() {
     this.isOpaque = true;
+  }
+
+  scrollToTop() {
+    window.scrollTo(0, 0); 
+    this.isSidebarOpen = false;
+  }
+
+  openModal() {
+    this.appComponent.showModal = true;
+    this.appComponent.activeScroll(true);
   }
 }

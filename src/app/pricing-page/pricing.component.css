@@ -1,6 +1,4 @@
-
-
-.banner-title{
+.banner-title {
     color: var(--dark-text-color);
     font-family: Bebas Neue;
     font-size: 60px;
@@ -8,10 +6,9 @@
     font-weight: 400;
     line-height: normal;
     text-align: center;
-    padding-top: 80px;
 }
 
-.banner-subtitle{
+.banner-subtitle {
     color: var(--dark-text-color);
     font-family: Bebas Neue;
     font-size: 25px;
@@ -23,22 +20,39 @@
 
 .banner-Price {
     background: linear-gradient(270deg, var(--primary-color) 30.41%, var(--secondary-color) 70.89%);
-    color: transparent; 
+    color: transparent;
     font-family: Bebas Neue;
     font-size: 150px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     text-align: center;
-    -webkit-background-clip: text; 
+    -webkit-background-clip: text;
     background-clip: text;
 }
 
-.banner-text{
+.banner-text {
     color: var(--dark-text-color);
     font-family: Bebas Neue;
-    font-size: 15px;
+    font-size: 20px;
     font-style: normal;
     line-height: normal;
     text-align: center;
+}
+
+.page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.page img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+    z-index: -1;
 }

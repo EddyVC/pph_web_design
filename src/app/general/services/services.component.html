@@ -14,7 +14,7 @@
             <ng-container *ngFor="let service of InformationResp">
               <div class="grid-item">
                 <h3>{{ service.Value }}</h3>
-                <p>{{ service.detail }}</p>
+                <p [ngClass]="{'extra': service.detail !== '(FREE)'}">{{ service.detail }}</p>
               </div>
             </ng-container>
           </div>

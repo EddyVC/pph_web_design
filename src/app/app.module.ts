@@ -26,6 +26,8 @@ import { VgCoreModule } from '@videogular/ngx-videogular/core';
 import { VgControlsModule } from '@videogular/ngx-videogular/controls';
 import { VgOverlayPlayModule } from '@videogular/ngx-videogular/overlay-play';
 import { VgBufferingModule } from '@videogular/ngx-videogular/buffering';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [			
@@ -42,7 +44,8 @@ import { VgBufferingModule } from '@videogular/ngx-videogular/buffering';
     AccountDetailsComponent,
     PaymentComponent,
       PphSoftwareComponent,
-      EposComponent
+      EposComponent,
+      SignUpComponent
    ],
   imports: [
     BrowserModule,
@@ -55,6 +58,7 @@ import { VgBufferingModule } from '@videogular/ngx-videogular/buffering';
     VgControlsModule,
     VgOverlayPlayModule,
     VgBufferingModule,
+    FormsModule
     
   ],
   providers: [

@@ -84,12 +84,22 @@
     backdrop-filter: blur(75px);
     /* transition: all 0.3s; */
 }
+.grid-item .extra{
+    color: var(--primary-color-dark);
+
+}
 
 .grid-item:hover {
     border: 1px solid #393939;
     background: linear-gradient(270deg, var(--primary-color-dark) 0%, var(--secondary-color-dark) 100%);
     backdrop-filter: blur(125px);
 }
+
+.grid-item:hover p{
+    color: var(--dark-text-color);
+}
+
+
 
 /* Media query para hacer el grid responsive cuando la pantalla sea más estrecha */
 @media screen and (min-width: 768px) {
@@ -114,7 +124,6 @@
     }
 
     .grid-item p {
-        color: var(--dark-text-color);
         font-size: 12px;
     }
 

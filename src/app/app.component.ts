@@ -11,6 +11,7 @@ export class AppComponent {
   title = 'ppg-design';
 
   domain: string = '';
+  showModal: boolean = false;
 
   ngOnInit(): void {
     this.domain = window.location.hostname;
@@ -41,12 +42,19 @@ export class AppComponent {
     });
   }
 
-
   // Función para cargar CSS dinámicamente
   loadCss(url: string) {
     const link = document.createElement('link');
     link.href = url;
     link.rel = 'stylesheet';
     document.head.appendChild(link);
+  }
+
+  activeScroll( switching : boolean = false) {
+    if(switching){
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
   }
 }

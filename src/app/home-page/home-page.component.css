@@ -198,24 +198,6 @@
     font-size: 16px;
 }
 
-.btn-signup {
-    transform: rotate(35deg);
-    flex-shrink: 0;
-    border-radius: 50px;
-    background: var(--primary-color-circle);
-    font-weight: 600;
-    padding: 1rem 2rem;
-    position: absolute;
-    top: -12vh;
-    left: 10%;
-    transition: all 0.3s;
-    color: var(--light-text-color);
-}
-
-.btn-signup:hover {
-    background-color: var(--primary-color-dark);
-}
-
 .links-right-info {
     display: flex;
     gap: 5rem;
@@ -349,6 +331,24 @@
 .container-buttom-info p {
     font-size: 12px;
     color: white;
+}
+
+
+.btn-signup {
+    color: white;
+    padding: 1rem 2rem;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.btn-signup:hover{
+    background: linear-gradient(270deg, var(--primary-color-dark) 0%, var(--secondary-color-dark) 100%);
+    backdrop-filter: blur(125px);
 }
 
 .btn-signup-mobile {

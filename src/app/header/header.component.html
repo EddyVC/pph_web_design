@@ -1,11 +1,12 @@
 <header class="header-desktop" [ngClass]="{'opaque-header': isOpaque, 'transparent-header': !isOpaque}">
     <div class="left-header">
-        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-        <a routerLink="/demos" routerLinkActive="active">Demos</a>
-        <a routerLink="/pricing" routerLinkActive="active">Pricing</a>
-        <a href="/payment">Payment Methods</a>
-        <a href="/pphSofware">PPH Software Reseller</a>
-        <a href="https://epos.ibet.ag/">Epos</a>
+        <a (click)="scrollToTop()" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        <a (click)="scrollToTop()" routerLink="/demos" routerLinkActive="active">Demos</a>
+        <a (click)="scrollToTop()" routerLink="/pricing" routerLinkActive="active">Pricing</a>
+        <a (click)="scrollToTop()" routerLink="/payment" routerLinkActive="active">Payment Methods</a>
+        <a (click)="scrollToTop()" routerLink="/pphSofware" routerLinkActive="active" >PPH Software Reseller</a>
+        <a (click)="scrollToTop()" href="#">Features</a>
+
     </div>
 
     <div class="center-header">
@@ -13,13 +14,13 @@
     </div>
 
     <div class="right-header">
-        <a href="#">Features</a>
-        <a href="#">Fees Paid</a>
-        <a href="#">Blogs</a>
-        <a href="#">Sites Avaliables</a>
-        <a href="#">Player Login</a>
-        <a href="#">Agents Login</a>
-        <a href="#" class="btn__signUp">Sign Up</a>
+        <a (click)="scrollToTop()" href="#">Fees Paid</a>
+        <a (click)="scrollToTop()" href="#">Blogs</a>
+        <a (click)="scrollToTop()" href="#">Sites Avaliables</a>
+        <a (click)="scrollToTop()" href="https://epos.ibet.ag/" target="_blank">Epos</a>
+        <a (click)="scrollToTop()" href="https://ibet.ag/" target="_blank">Player Login</a>
+        <a (click)="scrollToTop()" href="https://redfigures.ag/" target="_blank">Agents Login</a>
+        <button (click)="openModal()" class="btn__signUp">Sign Up</button>
     </div>
 </header>
 
@@ -52,17 +53,20 @@
 <div class="overlay" [ngClass]="{'visible': isSidebarOpen}" (click)="toggleSidebar()"></div>
 <div class="sidebar" [ngClass]="{'closed': !isSidebarOpen}">
     <div class="nav-mobile">
-        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-        <a routerLink="/demos" routerLinkActive="active">Demos</a>
-        <a routerLink="/pricing" routerLinkActive="active">Pricing</a>
-        <a href="#">Payment Methods</a>
-        <a href="#">PPH Software Reseller</a>
-        <a href="#">Epos</a>
-        <a href="#">Features</a>
-        <a href="#">Fees Paid</a>
-        <a href="#">Blogs</a>
-        <a href="#">Sites Avaliables</a>
-        <a href="#">Player Login</a>
-        <a href="#">Agents Login</a>
+        <a (click)="scrollToTop()" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        <a (click)="scrollToTop()" routerLink="/demos" routerLinkActive="active">Demos</a>
+        <a (click)="scrollToTop()" routerLink="/pricing" routerLinkActive="active">Pricing</a>
+        <a (click)="scrollToTop()" routerLink="/payment" routerLinkActive="active">Payment Methods</a>
+        <a (click)="scrollToTop()" routerLink="/pphSofware" routerLinkActive="active" >PPH Software Reseller</a>
+        <a (click)="scrollToTop()" href="https://epos.ibet.ag/" target="_blank">Epos</a>
+        <a (click)="scrollToTop()" href="#">Features</a>
+        <a (click)="scrollToTop()" href="#">Fees Paid</a>
+        <a (click)="scrollToTop()" href="#">Blogs</a>
+        <a (click)="scrollToTop()" href="#">Sites Avaliables</a>
+        <a (click)="scrollToTop()" href="#">Player Login</a>
+        <a (click)="scrollToTop()" href="#">Agents Login</a>
+        <a (click)="scrollToTop()" href="#" class="btn__signUp">Sign Up</a>
+
+
     </div>
 </div>

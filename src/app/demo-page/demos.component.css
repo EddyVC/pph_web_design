@@ -330,6 +330,11 @@
     -webkit-text-fill-color: white;
 }
 
+
+.ibet__desktop{
+    display: none;
+}
+
 /* END BTNS DEMO */
 @media screen and (min-width: 1024px) {
     .card--mobile {
@@ -360,6 +365,14 @@
 
     .btn__demo {
         width: 200px;
+    }
+
+    .ibet__desktop{
+        display: block;
+    }
+
+    .ibet__mobile{
+        display: none;
     }
 }
 

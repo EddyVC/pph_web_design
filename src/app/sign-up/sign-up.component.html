@@ -1,0 +1,176 @@
+<div class="container__signup">
+    <div (click)="hiddeModal()" class="bg__opacity"></div>
+    <div class="card__signup" [ngClass]="{'active': active}">
+        <div class="container__left" [ngClass]="{'active': active}">
+            <div class="card__title">Agent Account Details</div>
+            <h2>User Information</h2>
+            <div class="container__inputs">
+                <form #myForm="ngForm" (ngSubmit)="submitForm(myForm)">
+                    <div class="container__inputs">
+                        <div class="account__input">
+                            <input name="username" type="text" placeholder="Username*" [(ngModel)]="userData.username"
+                                class="field__input" required>
+                            <div class="warning"
+                                *ngIf="myForm.controls['username'].invalid && (myForm.controls['username'].dirty || myForm.controls['username'].touched)">
+                                Username is required.
+                            </div>
+                        </div>
+
+                        <div class="account__input">
+                            <input name="password" type="password" placeholder="Password*"
+                                [(ngModel)]="userData.password" class="field__input" required>
+                            <div class="warning"
+                                *ngIf="myForm.controls['password'].invalid && (myForm.controls['password'].dirty || myForm.controls['password'].touched)">
+                                Password is required.
+                            </div>
+                        </div>
+
+                        <div class="account__input">
+                            <input name="password2" type="password" placeholder="Confirm Password*"
+                                [(ngModel)]="confirmPassword" class="field__input" required>
+                            <div class="warning"
+                                *ngIf="confirmPassword !== userData.password && (myForm.controls['password2'].dirty || myForm.controls['password2'].touched)">
+                                Passwords do not match.
+                            </div>
+                        </div>
+
+                        <div class="account__input">
+                            <input name="email" type="email" placeholder="Email*" [(ngModel)]="userData.email"
+                                class="field__input" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                            <div class="warning"
+                                *ngIf="myForm.controls['email'].invalid && (myForm.controls['email'].dirty || myForm.controls['email'].touched)">
+                                Please enter a valid email.
+                            </div>
+                        </div>
+
+                        <div class="account__input">
+                            <input name="phone" type="text" placeholder="Phone" [(ngModel)]="userData.phone"
+                                class="field__input" (input)="onInputChange($event)">
+                            <div class="warning">
+                                * This field is for validation purposes and should be left unchanged.
+                            </div>
+                        </div>
+
+                        <div class="account__input">
+                            <input name="otherRequest" placeholder="Any other initial request"
+                                [(ngModel)]="userData.otherRequest" class="field__input">
+                        </div>
+
+                        <p class="important"> *If you do not receive the confirmation message within a few minutes of
+                            signing up, please check your SPAM folder. </p>
+                        <ng-container *ngIf="!myForm.invalid">
+                            <button class="btn__submit" [ngClass]="{'disabled': myForm.invalid}">Continue</button>
+                        </ng-container>
+                        <ng-container *ngIf="myForm.invalid">
+                            <button class="btn__submit disabled" (click)="continue()">hhContinue</button>
+                        </ng-container>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="bg__left" [ngClass]="{'active': active}">
+            <img src="../../assets/img/bg_pricing.jpeg" alt="pricing banner">
+            <div class="go__back" (click)="continue();">Go back</div>
+        </div>
+        <div class="container__right" [ngClass]="{'active': active}">
+            <h2>User Config</h2>
+            <div class="container__inputs">
+                <form #myForm="ngForm" (ngSubmit)="submitForm(myForm)">
+                    <div class="container__inputs">
+                        <div class="account__input">
+                            <label class="field__label" for="parlays">Parlays</label>
+                            <select name="parlays" class="field__input" id="parlays" aria-invalid="false">
+                                <option value="Default">Default</option>
+                                <option value="2 Team Max">2 Team Max</option>
+                                <option value="3 Team Max">3 Team Max</option>
+                                <option value="4 Team Max">4 Team Max</option>
+                                <option value="5 Team Max">5 Team Max</option>
+                                <option value="6 Team Max">6 Team Max</option>
+                                <option value="7 Team Max">7 Team Max</option>
+                                <option value="8 Team Max">8 Team Max</option>
+                            </select>
+                        </div>
+
+                        <div class="account__input">
+                            <label class="field__label" for="teasers">Teasers</label>
+                            <select class="field__input" name="teasers" id="teasers" aria-invalid="false">
+                                <option value="Default">Default</option>
+                                <option value="2 Team Max">2 Team Max</option>
+                                <option value="3 Team Max">3 Team Max</option>
+                                <option value="4 Team Max">4 Team Max</option>
+                                <option value="5 Team Max">5 Team Max</option>
+                                <option value="6 Team Max">6 Team Max</option>
+                                <option value="7 Team Max">7 Team Max</option>
+                                <option value="8 Team Max">8 Team Max</option>
+                            </select>
+                        </div>
+
+                        <div class="account__input">
+                            <label class="field__label" for="accountNedded">Total # Accounts Needed</label>
+                            <select name="accountNedded" id="accountNedded" class="field__input" aria-invalid="false">
+                                <option value="Create Manually">Create Manually</option>
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="30">30</option>
+                                <option value="50+">50+</option>
+                                <option value="More">More</option>
+                            </select>
+                        </div>
+
+                        <div class="account__input">
+                            <label class="field__label" for="carryOver">Carry over player balance*</label>
+                            <select name="carryOver" id="carryOver" class="field__input" aria-invalid="false">
+                                <option value="- choose one -">- Choose One -</option>
+                                <option value="No">No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                        </div>
+
+                        <div class="account__input">
+                            <label class="field__label" for="support">Support*</label>
+                            <select name="support" id="support" class="field__input" aria-invalid="false">
+                                <option value="- please select -">- Choose One -</option>
+                                <option value="All">All</option>
+                                <option value="By Email">By Email</option>
+                                <option value="LiveChat">LiveChat</option>
+                                <option value="By Phone">By Phone</option>
+                                <option value="Internal Message System">Internal Message System</option>
+                            </select>
+                        </div>
+
+                        <div class="account__input">
+                            <label class="field__label" for="playerWebsite">Choose your player's website</label>
+                            <select name="playerWebsite" class="field__input" aria-invalid="false">
+                                <option value="ibet.ag">ibet.ag</option>
+                                <option value="betwolf.ag">betwolf.ag</option>
+                                <option value="justwager.ag">justwager.ag</option>
+                                <option value="Riskandwin.net">Riskandwin.net</option>
+                                <option value="probet.ag">probet.ag</option>
+                                <option value="dog15.com">dog15.com</option>
+                                <option value="igg.ag">igg.ag</option>
+                                <option value="betnyc888.com">betnyc888.com</option>
+                                <option value="wageraccess.ag">wageraccess.ag</option>
+                                <option value="betboss.ag">betboss.ag</option>
+                                <option value="any2sports.com">any2sports.com</option>
+                                <option value="betfun.net">betfun.net</option>
+                                <option value="ckaction.com">ckaction.com</option>
+                                <option value="deluxewager.com">deluxewager.com</option>
+                                <option value="lines777.com">lines777.com</option>
+                                <option value="playtexan.com">playtexan.com</option>
+                                <option value="fatlopes.com">fatlopes.com</option>
+                                <option value="winnerscircle.ag">winnerscircle.ag</option>
+                                <option value="livelines247.com">livelines247.com</option>
+                                <option value="jbet.mx">jbet.mx</option>
+                                <option value="realbettors.com">realbettors.com</option>
+                            </select>
+                        </div>
+
+
+                        <button type="submit" class="btn__submit"
+                            [ngClass]="{'disabled': myForm.invalid}">Continue</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
