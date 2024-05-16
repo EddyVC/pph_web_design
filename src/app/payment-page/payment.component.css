@@ -1,10 +1,119 @@
-.banner-title{
+.banner-title {
     color: var(--dark-text-color);
     font-family: Bebas Neue;
-    font-size: 60px;
+    font-size: 40px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     text-align: center;
-    padding-top: 80px;
+    padding-top: 120px;
+}
+
+.container__paymentsMethods {
+    color: var(--light-text-color);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* 3 columnas en desktop */
+    grid-gap: 20px;
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card__methods {
+    padding: 20px;
+    text-align: center;
+    background: rgba(68, 68, 68, 0.20);
+    border-radius: 6px;
+    position: relative;
+    z-index: 1;
+}
+
+.card__methods h4 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.card__methods p {
+    font-size: 12px;
+}
+
+.card__methods span{
+    color: var(--primary-color-circle);
+}
+
+.methods__img {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    justify-content: center;
+    align-items: center;
+
+}
+.methods__img img {
+    max-width: 200px;
+    max-height: 50px;
+    margin: 0 auto;
+}
+
+.circle-gradient {
+    width: 250px;
+    height: 250px;
+    background: conic-gradient(from 45deg, var(--primary-color-circle) 50%, var(--secondary-color-circle) 50%);
+    border-radius: 50%;
+    filter: blur(75px);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    animation: moveCircle 15s infinite alternate
+}
+.circle-gradient-2{
+    top: 0%;
+}
+
+
+@keyframes moveCircle {
+    0% {
+        transform: translate(100px, 0)
+    }
+
+    50% {
+        transform: translate(150px, -50px)
+    }
+
+    100% {
+        transform: translate(100px, 100px)
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .container__paymentsMethods {
+        grid-template-columns: 1fr 1fr;
+        /* 2 columnas en tablet */
+    }
+}
+
+/* Media queries para mobile */
+@media screen and (max-width: 600px) {
+    .container__paymentsMethods {
+        grid-template-columns: 1fr;
+        /* 1 columna en mobile */
+    }
+}
+
+
+@media screen and (min-width:1024px) {
+    .banner-title{
+        font-size: 60px;
+    }
+
+    .circle-gradient {
+        left: auto;
+        right: 0;
+    }
+
+    .circle-gradient-2{
+        top: 30%;
+    }
 }

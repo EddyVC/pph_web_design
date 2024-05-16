@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { RespInformation } from '../models/Info.models';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-footer',
@@ -20,7 +21,7 @@ export class FooterComponent implements OnInit {
   logo: string = '';
   domain: string='';
   
-  constructor(private infoService: ApiService) {}
+  constructor(private infoService: ApiService, public appComponent: AppComponent) {}
 
   ngOnInit(): void {
     this.loadPageDesign();
@@ -93,5 +94,10 @@ export class FooterComponent implements OnInit {
         item.Value = item.Value.replace(/\[ddd\]/g, this.domain);
       }
     });}
+
+    openModal() {
+      this.appComponent.showModal = true;
+      this.appComponent.activeScroll(true);
+    }
 
 }

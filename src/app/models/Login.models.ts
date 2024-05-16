@@ -26,3 +26,28 @@ export class LoginUserDto {
     IpAddress: string = "";
     Domain: string = "";
 }
+
+export class SignUpDto {
+    AgentName: string = "";
+    PasswordSignUp: string = "";
+    EmailSignUp: string = "";
+    PhoneSignUp: string = "";
+    AnotherRequest: string = "";
+    Parlays: string = "";
+    Domain: string = "";
+    Teasers: string = "";
+    AccountsNedded: string = "";
+    CarryOver: string = "";
+    Support: string = "";
+    PlayerWebSite: string = "";
+    Important: string = "";
+    IP: string = "";
+}
+
+export interface ResponseSignupDto {
+    Code: number;
+    Message: string;
+    Pass: string;
+    PlayerId: number;
+    User: string;
+}

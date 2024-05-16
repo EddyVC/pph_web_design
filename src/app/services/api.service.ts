@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { RespInformation } from '../models/Info.models';
-import { AuthenticationDto, LoginUserDto, PlayerDto } from '../models/Login.models';
+import { AuthenticationDto, LoginUserDto, PlayerDto, ResponseSignupDto, SignUpDto } from '../models/Login.models';
 import { catchError } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
@@ -54,7 +54,12 @@ export class ApiService {
     const options = { headers };
     const apiUrl = 'https://fxapi.bridgehost.net/api/Player/PlayerLogin';
     return this.httpClient.post<PlayerDto>(apiUrl, t, options)
+  }
 
-} // end Login
+  SignUp(agentInfo: SignUpDto): Observable<ResponseSignupDto> {
+    const apiUrl = 'https://apiofficetools.bridgehost.net/api/AgentOptions/CreateSignUpAgentVerification';
+    return this.httpClient.post<ResponseSignupDto>(apiUrl, agentInfo);
+  }
+
 
 }

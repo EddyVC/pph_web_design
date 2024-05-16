@@ -16,7 +16,7 @@
             <h1>BECOME A SUCCESSFUL</h1>
             <h2>BOOKIE FOR</h2>
             <span class="price">{{InformationPrice}}</span>
-            <a href="#" class="btn-signup">SIGN UP NOW</a>
+            <button (click)="openModal()" class="btn-signup">SIGN UP NOW</button>
         </div>
     </div>
 
@@ -32,10 +32,10 @@
             </div>
             <div class="links-right-info">
                 <div class="gradient-border">
-                    <a href="#">SEE PRICE</a>
+                    <a (click)="scrollToTop()" routerLink="/pricing" routerLinkActive="active">SEE PRICE</a>
                 </div>
                 <div class="gradient-border">
-                    <a href="#">SEE DEMOS</a>
+                    <a (click)="scrollToTop()"routerLink="/demos" routerLinkActive="active">SEE DEMOS</a>
                 </div>
             </div>
         </div>
@@ -52,7 +52,7 @@
                 <h2>BOOKIE FOR</h2>
                 <span class="price">{{InformationPrice}}</span>
             </div>
-            <a href="#" class="btn-signup-mobile">SIGN UP NOW</a>
+            <button (click)="openModal()" class="btn-signup-mobile">SIGN UP NOW</button>
         </div>
         <div class="blur-container container-buttom">
             <div class="container-buttom-info">

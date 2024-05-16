@@ -26,7 +26,7 @@ export class HomePageComponent {
 
 
 
-  constructor(private infoService: ApiService, public appComponent: AppComponent, public sanitizer: DomSanitizer, public appModule: AppModule) {
+  constructor(private infoService: ApiService, public appComponent: AppComponent, public sanitizer: DomSanitizer) {
   }
 
   ngOnInit(): void {
@@ -140,4 +140,12 @@ export class HomePageComponent {
     nav: false
   }
 
+  openModal() {
+    this.appComponent.showModal = true;
+    this.appComponent.activeScroll(true);
+  }
+  
+  scrollToTop() {
+    window.scrollTo(0, 0); 
+  }
 }

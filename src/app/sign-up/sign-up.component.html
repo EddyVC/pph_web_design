@@ -2,25 +2,26 @@
     <div (click)="hiddeModal()" class="bg__opacity"></div>
     <div class="card__signup" [ngClass]="{'active': active}">
         <div class="container__left" [ngClass]="{'active': active}">
-            <div class="card__title">Agent Account Details</div>
-            <h2>User Information</h2>
+            <div *ngIf="active" class="bg__back" (click)="continue()"></div>
+            <div [ngClass]="{'active': active}" class="card__title">Agent Account Details</div>
+            <h2 class="title--information" [ngClass]="{'active': active}">User Information</h2>
             <div class="container__inputs">
-                <form #myForm="ngForm" (ngSubmit)="submitForm(myForm)">
+                <form #myFormAccount="ngForm" (ngSubmit)="continueForm(myFormAccount)">
                     <div class="container__inputs">
                         <div class="account__input">
-                            <input name="username" type="text" placeholder="Username*" [(ngModel)]="userData.username"
-                                class="field__input" required>
+                            <input name="AgentName" type="text" placeholder="AgentName* (8 max characters)" [(ngModel)]="accountData.AgentName"
+                                class="field__input" maxlength="8" required>
                             <div class="warning"
-                                *ngIf="myForm.controls['username'].invalid && (myForm.controls['username'].dirty || myForm.controls['username'].touched)">
+                                *ngIf="myFormAccount.controls['AgentName'].invalid && (myFormAccount.controls['AgentName'].dirty || myFormAccount.controls['AgentName'].touched)">
                                 Username is required.
                             </div>
                         </div>
 
                         <div class="account__input">
-                            <input name="password" type="password" placeholder="Password*"
-                                [(ngModel)]="userData.password" class="field__input" required>
+                            <input name="PasswordSignUp" type="password" placeholder="Password* (10 max characters)"
+                                [(ngModel)]="accountData.PasswordSignUp" class="field__input" maxlength="10" required>
                             <div class="warning"
-                                *ngIf="myForm.controls['password'].invalid && (myForm.controls['password'].dirty || myForm.controls['password'].touched)">
+                                *ngIf="myFormAccount.controls['PasswordSignUp'].invalid && (myFormAccount.controls['PasswordSignUp'].dirty || myFormAccount.controls['PasswordSignUp'].touched)">
                                 Password is required.
                             </div>
                         </div>
@@ -29,22 +30,22 @@
                             <input name="password2" type="password" placeholder="Confirm Password*"
                                 [(ngModel)]="confirmPassword" class="field__input" required>
                             <div class="warning"
-                                *ngIf="confirmPassword !== userData.password && (myForm.controls['password2'].dirty || myForm.controls['password2'].touched)">
+                                *ngIf="confirmPassword !== accountData.PasswordSignUp && (myFormAccount.controls['password2'].dirty || myFormAccount.controls['password2'].touched)">
                                 Passwords do not match.
                             </div>
                         </div>
 
                         <div class="account__input">
-                            <input name="email" type="email" placeholder="Email*" [(ngModel)]="userData.email"
+                            <input name="EmailSignUp" type="EmailSignUp" placeholder="Email*" [(ngModel)]="accountData.EmailSignUp"
                                 class="field__input" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
                             <div class="warning"
-                                *ngIf="myForm.controls['email'].invalid && (myForm.controls['email'].dirty || myForm.controls['email'].touched)">
+                                *ngIf="myFormAccount.controls['EmailSignUp'].invalid && (myFormAccount.controls['EmailSignUp'].dirty || myFormAccount.controls['EmailSignUp'].touched)">
                                 Please enter a valid email.
                             </div>
                         </div>
 
                         <div class="account__input">
-                            <input name="phone" type="text" placeholder="Phone" [(ngModel)]="userData.phone"
+                            <input name="Phone" type="text" placeholder="Phone" [(ngModel)]="accountData.PhoneSignUp"
                                 class="field__input" (input)="onInputChange($event)">
                             <div class="warning">
                                 * This field is for validation purposes and should be left unchanged.
@@ -52,34 +53,34 @@
                         </div>
 
                         <div class="account__input">
-                            <input name="otherRequest" placeholder="Any other initial request"
-                                [(ngModel)]="userData.otherRequest" class="field__input">
+                            <input name="AnotherRequest" placeholder="Any other initial request"
+                                [(ngModel)]="accountData.AnotherRequest" class="field__input">
                         </div>
 
                         <p class="important"> *If you do not receive the confirmation message within a few minutes of
                             signing up, please check your SPAM folder. </p>
-                        <ng-container *ngIf="!myForm.invalid">
-                            <button class="btn__submit" [ngClass]="{'disabled': myForm.invalid}">Continue</button>
-                        </ng-container>
-                        <ng-container *ngIf="myForm.invalid">
-                            <button class="btn__submit disabled" (click)="continue()">hhContinue</button>
-                        </ng-container>
+
+                        <div class="container__btn container__btn--continue" [ngClass]="{'active': active}">
+                            <ng-container>
+                                <button class="btn__submit" [ngClass]="{'disabled': myFormAccount.invalid}">Continue</button>
+                            </ng-container>
+                        </div>
                     </div>
                 </form>
             </div>
         </div>
         <div class="bg__left" [ngClass]="{'active': active}">
             <img src="../../assets/img/bg_pricing.jpeg" alt="pricing banner">
-            <div class="go__back" (click)="continue();">Go back</div>
+            <div *ngIf="active" class="go__back" (click)="continue();">Go back</div>
         </div>
         <div class="container__right" [ngClass]="{'active': active}">
-            <h2>User Config</h2>
+            <h2 class="title--config" [ngClass]="{'active': active}">User Config</h2>
             <div class="container__inputs">
-                <form #myForm="ngForm" (ngSubmit)="submitForm(myForm)">
+                <form #myFormConfig="ngForm" (ngSubmit)="submitForm(myFormConfig)">
                     <div class="container__inputs">
                         <div class="account__input">
-                            <label class="field__label" for="parlays">Parlays</label>
-                            <select name="parlays" class="field__input" id="parlays" aria-invalid="false">
+                            <label class="field__label" for="Parlays">Parlays</label>
+                            <select name="Parlays" class="field__input" id="Parlays" aria-invalid="false" [(ngModel)]="configData.Parlays">
                                 <option value="Default">Default</option>
                                 <option value="2 Team Max">2 Team Max</option>
                                 <option value="3 Team Max">3 Team Max</option>
@@ -92,8 +93,8 @@
                         </div>
 
                         <div class="account__input">
-                            <label class="field__label" for="teasers">Teasers</label>
-                            <select class="field__input" name="teasers" id="teasers" aria-invalid="false">
+                            <label class="field__label" for="Teasers">Teasers</label>
+                            <select class="field__input" name="Teasers" id="Teasers" aria-invalid="false" [(ngModel)]="configData.Teasers">
                                 <option value="Default">Default</option>
                                 <option value="2 Team Max">2 Team Max</option>
                                 <option value="3 Team Max">3 Team Max</option>
@@ -106,8 +107,8 @@
                         </div>
 
                         <div class="account__input">
-                            <label class="field__label" for="accountNedded">Total # Accounts Needed</label>
-                            <select name="accountNedded" id="accountNedded" class="field__input" aria-invalid="false">
+                            <label class="field__label" for="AccountsNedded">Total # Accounts Needed</label>
+                            <select name="AccountsNedded" id="AccountsNedded" class="field__input" aria-invalid="false" [(ngModel)]="configData.AccountsNedded">
                                 <option value="Create Manually">Create Manually</option>
                                 <option value="10">10</option>
                                 <option value="20">20</option>
@@ -118,29 +119,31 @@
                         </div>
 
                         <div class="account__input">
-                            <label class="field__label" for="carryOver">Carry over player balance*</label>
-                            <select name="carryOver" id="carryOver" class="field__input" aria-invalid="false">
-                                <option value="- choose one -">- Choose One -</option>
+                            <label class="field__label" for="CarryOver">Carry over player balance*</label>
+                            <select name="CarryOver" id="CarryOver" class="field__input" aria-invalid="false" [(ngModel)]="configData.CarryOver">
+                                <option value="" disabled selected>- Choose One -</option>
                                 <option value="No">No</option>
                                 <option value="Yes">Yes</option>
                             </select>
+                            <div class="warning">Please select one </div>
                         </div>
 
                         <div class="account__input">
-                            <label class="field__label" for="support">Support*</label>
-                            <select name="support" id="support" class="field__input" aria-invalid="false">
-                                <option value="- please select -">- Choose One -</option>
+                            <label class="field__label" for="Support">Support*</label>
+                            <select name="Support" id="Support" class="field__input" aria-invalid="false" [(ngModel)]="configData.Support">
+                                <option value="" disabled selected>- Choose One -</option>
                                 <option value="All">All</option>
                                 <option value="By Email">By Email</option>
                                 <option value="LiveChat">LiveChat</option>
                                 <option value="By Phone">By Phone</option>
                                 <option value="Internal Message System">Internal Message System</option>
                             </select>
+                            <div class="warning">Please select one </div>
                         </div>
 
                         <div class="account__input">
-                            <label class="field__label" for="playerWebsite">Choose your player's website</label>
-                            <select name="playerWebsite" class="field__input" aria-invalid="false">
+                            <label class="field__label" for="PlayerWebsite">Choose your player's website</label>
+                            <select name="PlayerWebsite" class="field__input" aria-invalid="false" [(ngModel)]="configData.PlayerWebsite">
                                 <option value="ibet.ag">ibet.ag</option>
                                 <option value="betwolf.ag">betwolf.ag</option>
                                 <option value="justwager.ag">justwager.ag</option>
@@ -164,10 +167,14 @@
                                 <option value="realbettors.com">realbettors.com</option>
                             </select>
                         </div>
+                        <ng-container *ngIf="configData.CarryOver != '' && configData.Support != ''">
+                            <button type="submit" class="btn__submit"
+                            [ngClass]="{'disabled': myFormAccount.invalid}">Create Account</button>
+                        </ng-container>
+                        <ng-container *ngIf="configData.CarryOver == '' || configData.Support == '' ">
+                        <a class="btn__submit disabled">Create Account</a>
+                        </ng-container>
 
-
-                        <button type="submit" class="btn__submit"
-                            [ngClass]="{'disabled': myForm.invalid}">Continue</button>
                     </div>
                 </form>
             </div>

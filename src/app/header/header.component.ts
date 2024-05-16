@@ -51,5 +51,6 @@ export class HeaderComponent {
   openModal() {
     this.appComponent.showModal = true;
     this.appComponent.activeScroll(true);
+    this.isSidebarOpen = false;
   }
 }
