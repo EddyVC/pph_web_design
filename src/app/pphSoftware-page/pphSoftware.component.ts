@@ -15,17 +15,17 @@ export class PphSoftwareComponent implements OnInit {
   ngOnInit() {
 
     this.softwares = [
-      { id: 1, url: '../../assets/img/demo-banners/AGENT.png', name: 'Sportbook'},
-      { id: 2, url: '../../assets/img/demo-banners/PLAYER.png', name: 'Horsebook'},
-      { id: 3, url: '../../assets/img/demo-banners/EPOS.png', name: 'Vegas Live'},
-      { id: 4, url: '../../assets/img/demo-banners/LIVE.png', name: 'In-House Live Betting'},
-      { id: 3, url: '../../assets/img/demo-banners/AGENT_MOBILE.png', name: 'Digital Casino'},
-      { id: 2, url: '../../assets/img/demo-banners/PLAYER_MOBILE.png', name: 'Live Casino'},
-      { id: 3, url: '../../assets/img/demo-banners/LIVE_MOBILE.png', name: 'Poker'},
-      { id: 4, url: '../../assets/img/demo-banners/EPOS_MOBILE.png', name: 'Boss Casino'},
-      { id: 4, url: '../../assets/img/demo-banners/EPOS_MOBILE.png', name: 'Horses TV'},
-      { id: 4, url: '../../assets/img/demo-banners/EPOS_MOBILE.png', name: 'Pro Horses'},
-      { id: 4, url: '../../assets/img/demo-banners/EPOS_MOBILE.png', name: 'Prop Builder'}
+      { id: 1, url: '../../assets/img/softwares/sportbook.jpg', name: 'Sportbook'},
+      { id: 2, url: '../../assets/img/softwares/horseRacing.jpg', name: 'Horsebook'},
+      { id: 3, url: '../../assets/img/softwares/vegasLive.png', name: 'Vegas Live'},
+      { id: 3, url: '../../assets/img/softwares/poker.jpg', name: 'Poker'},
+      { id: 2, url: '../../assets/img/softwares/liveCasino.jpg', name: 'Live Casino'},
+      { id: 3, url: '../../assets/img/softwares/casino.jpg', name: 'Digital Casino'},
+      { id: 4, url: '../../assets/img/softwares/bossCasino.png', name: 'Boss Casino'},
+      // { id: 4, url: '../../assets/img/demo-banners/LIVE.png', name: 'In-House Live Betting'},
+      { id: 4, url: '../../assets/img/softwares/horseTV.jpg', name: 'Horses TV'},
+      { id: 4, url: '../../assets/img/softwares/proHorses.png', name: 'Pro Horses'},
+      { id: 4, url: '../../assets/img/softwares/propBuilder.png', name: 'Prop Builder'}
 
 
     ];
