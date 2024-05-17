@@ -57,17 +57,16 @@
                 <div class="container-links">
                     <div class="footer-links">
                         <div class="links-info">
-                            <a href="#">Home</a>
-                            <a href="#">Demos</a>
-                            <a href="#">Pricing</a>
+                            <a (click)="scrollToTop()" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+                            <a (click)="scrollToTop()" routerLink="/demos" routerLinkActive="active">Demos</a>
+                            <a (click)="scrollToTop()" routerLink="/pricing" routerLinkActive="active">Pricing</a>
                         </div>
                         <div class="links-info">
-                            <a href="#">Payment Methods</a>
-                            <a href="#">PPH Software Reseller</a>
-                            <a href="#">Epos</a>
-                        </div>
-                        <div class="links-info">
+                            <a (click)="scrollToTop()" routerLink="/payment" routerLinkActive="active">Payment Methods</a>
+                            <a (click)="scrollToTop()" routerLink="/pphSofware" routerLinkActive="active">PPH Software Reseller</a>
                             <a href="#">Fees Paid</a>
+                        </div>
+                        <div class="links-info">
                             <a href="#">Sites Avaliables</a>
                         </div>
                     </div>

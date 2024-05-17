@@ -1,1 +1,28 @@
-<h2 class="banner-title">PPH SOFTWARE RESELLER</h2>
+<div class="container__software">
+    <h2 class="banner-title">PPH SOFTWARE RESELLER</h2>
+
+    <p>Instead of booking all players yourself, you can now hire subagents and resell the product for a profit with our PPH
+        Software. Let’s say you sign up an agent with 10 active players per week. Our office will charge you $5 per active
+        player a week (a total of $50 a week) while you can charge your subagent for example $10 a player (or any price you
+        want). If you charge $10 per head, you will be making the same money as the office for a profit of 0 per week, the
+        more agents and players your hire the better deal we can give you.</p>
+    
+    
+    <div class="page-cards card--desktop">
+        <owl-carousel-o [options]="customOptions" #owlCar>
+            <ng-container *ngFor="let slide of softwares">
+                <ng-template carouselSlide>
+                    <div class="card">
+                        <img class="software__img" [src]="slide.url" alt="">
+                        <p class="software__name">{{slide.name}}</p>
+                    </div>
+                </ng-template>
+            </ng-container>
+        </owl-carousel-o>
+        <!-- 
+            <div class="container-nav-cards">
+                <a class="btn btn-success circular-btn" (click)="owlCar.prev()"><i class="fas fa-chevron-left"></i></a>
+                <a class="btn btn-success circular-btn" (click)="owlCar.next()"><i class="fas fa-chevron-right"></i></a>
+            </div> -->
+    </div>
+</div>

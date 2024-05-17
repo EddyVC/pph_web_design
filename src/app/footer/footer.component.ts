@@ -100,4 +100,8 @@ export class FooterComponent implements OnInit {
       this.appComponent.activeScroll(true);
     }
 
+    scrollToTop() {
+      window.scrollTo(0, 0); 
+    }
+
 }

@@ -23,8 +23,7 @@ export class HomePageComponent {
   video: string = '';
   InformationResp: RespInformation[] = [];
   DesignResp: RespInformation[] = [];
-
-
+  banners: any[] = [];
 
   constructor(private infoService: ApiService, public appComponent: AppComponent, public sanitizer: DomSanitizer) {
   }
@@ -112,7 +111,6 @@ export class HomePageComponent {
     }
   }
 
-  banners: any[] = [];
 
   customOptions: OwlOptions = {
     autoplay: true,
