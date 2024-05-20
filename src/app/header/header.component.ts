@@ -72,8 +72,7 @@ export class HeaderComponent {
 
   getFeature(feature: string) {
     feature = feature.replaceAll(' ','-').toLowerCase();
-    console.log(feature);
-
+    window.scrollTo(0, 0);
     this._router.navigateByUrl(feature);
   }
 
