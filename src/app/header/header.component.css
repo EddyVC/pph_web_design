@@ -267,7 +267,7 @@ button {
   display: none;
   position: absolute;
   background-color: white;
-  color: black;
+  color: #333;
   width: 312px;
   top: 55px;
 }
@@ -278,26 +278,20 @@ button {
   cursor: pointer;
 }
 
+.item-list-features:hover{
+  font-weight: 500;
+  font-size: 14px;
+}
+
 .features:hover + .list-features,
 .list-features:hover {
   display: block;
 }
 
-.list-features:hover + .features .svg-features-hover,
-.features:hover .svg-features-hover {
-  display: block;
-}
-
-/* Ocultar svg-features-hover cuando se quita el hover de .list-features */
-.list-features:not(:hover) ~ .features .svg-features-hover {
+.svg-features-hover{
   display: none;
 }
 
-/* Ocultar svg-features-normal cuando se hace hover en .features */
-.features:hover .svg-features-normal {
+/* .svg-features-hover + .list-features:not(:hover){
   display: none;
-}
-
-.svg-features-hover {
-  display: none;
-}
+} */
