@@ -10,27 +10,4 @@ import { ApiService } from '../../services/api.service';
 })
 export class FeatureFourComponent {
 
-  InformationResp: RespInformation[] = [];
-
-  constructor(
-    private infoService: ApiService,
-    private router: Router
-  ) { }
-
-  ngOnInit(): void {
-    this.loadInformation();
-  }
-
-  async loadInformation() {
-    const featureRoute = this.router.url.replace('/', '');
-
-    const data = await this.infoService.getInformation('GENERAL', featureRoute).toPromise();
-
-    if (Array.isArray(data)) {
-      this.InformationResp = data;
-    } else {
-      // Manejar el caso en el que data no es un array
-    }
-  }
-
 }
