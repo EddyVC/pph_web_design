@@ -15,7 +15,7 @@ header {
 .transparent-header {
     background-color: transparent;
   }
-  
+
   .opaque-header {
     background-color: black;
   }
@@ -176,7 +176,7 @@ header {
     color: var(--secondary-color)
 }
 
-/* 
+/*
 button {
     position: fixed;
     top: 10px;

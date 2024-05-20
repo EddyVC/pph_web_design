@@ -28,9 +28,17 @@ import { VgOverlayPlayModule } from '@videogular/ngx-videogular/overlay-play';
 import { VgBufferingModule } from '@videogular/ngx-videogular/buffering';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { FormsModule } from '@angular/forms';
+import { FeatureOneComponent } from './features/feature-one/feature-one.component';
+import { FeatureTwoComponent } from './features/feature-two/feature-two.component';
+import { FeatureThreeComponent } from './features/feature-three/feature-three.component';
+import { FeatureFourComponent } from './features/feature-four/feature-four.component';
+import { FeatureFiveComponent } from './features/feature-five/feature-five.component';
+import { FeatureSixComponent } from './features/feature-six/feature-six.component';
+import { FeatureSevenComponent } from './features/feature-seven/feature-seven.component';
+import { FeatureEightComponent } from './features/feature-eight/feature-eight.component';
 
 @NgModule({
-  declarations: [			
+  declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
@@ -43,10 +51,18 @@ import { FormsModule } from '@angular/forms';
     PaymentMethodsComponent,
     AccountDetailsComponent,
     PaymentComponent,
-      PphSoftwareComponent,
-      EposComponent,
-      SignUpComponent
-   ],
+    PphSoftwareComponent,
+    EposComponent,
+    SignUpComponent,
+    FeatureOneComponent,
+    FeatureTwoComponent,
+    FeatureThreeComponent,
+    FeatureFourComponent,
+    FeatureFiveComponent,
+    FeatureSixComponent,
+    FeatureSevenComponent,
+    FeatureEightComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -59,7 +75,7 @@ import { FormsModule } from '@angular/forms';
     VgOverlayPlayModule,
     VgBufferingModule,
     FormsModule
-    
+
   ],
   providers: [
     provideClientHydration()

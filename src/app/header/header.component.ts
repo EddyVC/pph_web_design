@@ -1,20 +1,36 @@
 import { Component, HostListener } from '@angular/core';
 import { AppComponent } from '../app.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
+
 export class HeaderComponent {
   isSidebarOpen = false;
   domain: string = '';
+
+  readonly FEATURES = [
+    { name: 'Pay Per Head Software' },
+    { name: 'Best Pay Per Head Software' },
+    { name: 'Pph Software For Bookies' },
+    { name: 'Payperhead' },
+    { name: 'Pph Software For Sportsbooks' },
+    { name: 'Pph Sportsbook Software' },
+    { name: 'Best Pph Sportsbook & Bookie Software Premiere Pay Per Head' },
+    { name: 'Software For Sportsbook' },
+    // { name: 'Sportsbook Software' },
+  ];
 
   ngOnInit(): void {
     this.domain = window.location.hostname;
   }
 
-  constructor(public appComponent: AppComponent) {
+  constructor(public appComponent: AppComponent, private _router: Router) {
+    console.log(this.FEATURES);
+
   }
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
@@ -44,7 +60,7 @@ export class HeaderComponent {
   }
 
   scrollToTop() {
-    window.scrollTo(0, 0); 
+    window.scrollTo(0, 0);
     this.isSidebarOpen = false;
   }
 
@@ -53,4 +69,12 @@ export class HeaderComponent {
     this.appComponent.activeScroll(true);
     this.isSidebarOpen = false;
   }
+
+  getFeature(feature: string) {
+    feature = feature.replaceAll(' ','-').toLowerCase();
+    console.log(feature);
+
+    this._router.navigateByUrl(feature);
+  }
+
 }

@@ -1,70 +1,79 @@
 <header class="header-desktop" [ngClass]="{'opaque-header': isOpaque, 'transparent-header': !isOpaque}">
-    <div class="left-header">
-        <a (click)="scrollToTop()" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-        <a (click)="scrollToTop()" routerLink="/demos" routerLinkActive="active">Demos</a>
-        <a (click)="scrollToTop()" routerLink="/pricing" routerLinkActive="active">Pricing</a>
-        <a (click)="scrollToTop()" routerLink="/payment" routerLinkActive="active">Payment Methods</a>
-        <a (click)="scrollToTop()" routerLink="/pphSofware" routerLinkActive="active" >PPH Software Reseller</a>
-        <a (click)="scrollToTop()" href="#">Features</a>
+  <div class="left-header">
+    <a (click)="scrollToTop()" routerLink="/" routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a (click)="scrollToTop()" routerLink="/demos" routerLinkActive="active">Demos</a>
+    <a (click)="scrollToTop()" routerLink="/pricing" routerLinkActive="active">Pricing</a>
+    <a (click)="scrollToTop()" routerLink="/payment" routerLinkActive="active">Payment Methods</a>
+    <a (click)="scrollToTop()" routerLink="/pphSofware" routerLinkActive="active">PPH Software Reseller</a>
 
-    </div>
+    <a (click)="scrollToTop()" routerLinkActive="active" style="cursor: pointer; padding: 20px;">Features</a>
 
-    <div class="center-header">
-        <a href="#">{{domain}}</a>
-    </div>
+    <!-- <ul style="background-color: white;color: black;margin-top: 30rem; ">
+      <li style="border-bottom: 1px solid lightgray; padding: 10px; cursor: pointer; " *ngFor="let item of FEATURES" (click)="getFeature(item.name)">
+        {{item.name}}
+      </li>
+    </ul> -->
 
-    <div class="right-header">
-        <a (click)="scrollToTop()" href="#">Fees Paid</a>
-        <a (click)="scrollToTop()" href="#">Blogs</a>
-        <a (click)="scrollToTop()" href="#">Sites Avaliables</a>
-        <a (click)="scrollToTop()" href="https://epos.ibet.ag/" target="_blank">Epos</a>
-        <a (click)="scrollToTop()" href="https://ibet.ag/" target="_blank">Player Login</a>
-        <a (click)="scrollToTop()" href="https://redfigures.ag/" target="_blank">Agents Login</a>
-        <button (click)="openModal()" class="btn__signUp">Sign Up</button>
-    </div>
+  </div>
+
+  <div class="center-header">
+    <a href="#">{{domain}}</a>
+  </div>
+
+  <div class="right-header">
+    <a (click)="scrollToTop()" href="#">Fees Paid</a>
+    <a (click)="scrollToTop()" href="#">Blogs</a>
+    <a (click)="scrollToTop()" href="#">Sites Avaliables</a>
+    <a (click)="scrollToTop()" href="https://epos.ibet.ag/" target="_blank">Epos</a>
+    <a (click)="scrollToTop()" href="https://ibet.ag/" target="_blank">Player Login</a>
+    <a (click)="scrollToTop()" href="https://redfigures.ag/" target="_blank">Agents Login</a>
+    <button (click)="openModal()" class="btn__signUp">Sign Up</button>
+  </div>
 </header>
 
 <header class="header-mobile" [ngClass]="{'opaque-header': isOpaque, 'transparent-header': !isOpaque}">
+  <div class="left-header">
     <div class="left-header">
-        <div class="left-header">
-            <button class="fas fa-bars" (click)="toggleSidebar()"></button>
-        </div>
+      <button class="fas fa-bars" (click)="toggleSidebar()"></button>
     </div>
+  </div>
 
-    <div class="center-header">
-        <a href="#">Payperhead.net</a>
-    </div>
+  <div class="center-header">
+    <a href="#">Payperhead.net</a>
+  </div>
 
-    <div class="right-header">
-        <button class="fas fa-ellipsis-vertical" (click)="toggleMoreInfo()"></button>
-    </div>
+  <div class="right-header">
+    <button class="fas fa-ellipsis-vertical" (click)="toggleMoreInfo()"></button>
+  </div>
 
 </header>
 
 <div class="more-info-header" [ngClass]="{'closed-more': !isMoreInfoOpen}">
-    <a href="tel:+1-855 296-9171" class="TagMenu"><i class="fa fa-mobile" aria-hidden="true"></i> +1-855
-        296-9171</a>
-    <a href="mailto:cs@redfigures.ag" class="TagMenu"><i class="fa fa-envelope" aria-hidden="true"></i>
-        csredfigures.ag</a>
-    <a href="https://goo.gl/maps/7snErmvbfFzYEPdj9" class="TagMenu"><i class="fa fa-map-marker" aria-hidden="true"></i>
-        Costa Rica</a>
+  <a href="tel:+1-855 296-9171" class="TagMenu"><i class="fa fa-mobile" aria-hidden="true"></i> +1-855
+    296-9171</a>
+  <a href="mailto:cs@redfigures.ag" class="TagMenu"><i class="fa fa-envelope" aria-hidden="true"></i>
+    csredfigures.ag</a>
+  <a href="https://goo.gl/maps/7snErmvbfFzYEPdj9" class="TagMenu"><i class="fa fa-map-marker" aria-hidden="true"></i>
+    Costa Rica</a>
 </div>
 
 <div class="overlay" [ngClass]="{'visible': isSidebarOpen}" (click)="toggleSidebar()"></div>
 <div class="sidebar" [ngClass]="{'closed': !isSidebarOpen}">
-    <div class="nav-mobile">
-        <a (click)="scrollToTop()" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-        <a (click)="scrollToTop()" routerLink="/demos" routerLinkActive="active">Demos</a>
-        <a (click)="scrollToTop()" routerLink="/pricing" routerLinkActive="active">Pricing</a>
-        <a (click)="scrollToTop()" routerLink="/payment" routerLinkActive="active">Payment Methods</a>
-        <a (click)="scrollToTop()" routerLink="/pphSofware" routerLinkActive="active" >PPH Software Reseller</a>
-        <a (click)="scrollToTop()" href="#">Features</a>
-        <a (click)="scrollToTop()" href="#">Fees Paid</a>
-        <a (click)="scrollToTop()" href="#">Blogs</a>
-        <a (click)="scrollToTop()" href="#">Sites Avaliables</a>
-        <a (click)="scrollToTop()" href="https://epos.ibet.ag/" target="_blank">Epos</a>
-        <a (click)="scrollToTop()" href="#">Player Login</a>
-        <a (click)="scrollToTop()" href="#">Agents Login</a>
-        <button (click)="openModal()" class="btn__signUp">Sign Up</button>
-    </div>
+  <div class="nav-mobile">
+    <a (click)="scrollToTop()" routerLink="/" routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a (click)="scrollToTop()" routerLink="/demos" routerLinkActive="active">Demos</a>
+    <a (click)="scrollToTop()" routerLink="/pricing" routerLinkActive="active">Pricing</a>
+    <a (click)="scrollToTop()" routerLink="/payment" routerLinkActive="active">Payment Methods</a>
+    <a (click)="scrollToTop()" routerLink="/pphSofware" routerLinkActive="active">PPH Software Reseller</a>
+    <a (click)="scrollToTop()" href="#">Features</a>
+    <a (click)="scrollToTop()" href="#">Fees Paid</a>
+    <a (click)="scrollToTop()" href="#">Blogs</a>
+    <a (click)="scrollToTop()" href="#">Sites Avaliables</a>
+    <a (click)="scrollToTop()" href="https://epos.ibet.ag/" target="_blank">Epos</a>
+    <a (click)="scrollToTop()" href="#">Player Login</a>
+    <a (click)="scrollToTop()" href="#">Agents Login</a>
+    <button (click)="openModal()" class="btn__signUp">Sign Up</button>
+  </div>
 </div>
