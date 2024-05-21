@@ -256,42 +256,36 @@ button {
   background: var(--secondary-color-dark);
 }
 
-.features {
+/* features */
+.features-desktop {
   cursor: pointer;
   padding: 4px;
   display: flex;
   align-items: center;
 }
 
-.list-features {
-  display: none;
+.list-features-desktop {
   position: absolute;
   background-color: white;
   color: #333;
   width: 312px;
-  top: 55px;
 }
 
-.item-list-features {
+.item-list-features-desktop {
   border-bottom: 1px solid lightgray;
   padding: 15px 20px;
+  font-size: 14px;
   cursor: pointer;
+  font-weight: 500;
 }
 
-.item-list-features:hover{
-  font-weight: 500;
+.item-list-features-desktop:hover{
+  font-weight: 600;
   font-size: 14px;
 }
 
-.features:hover + .list-features,
-.list-features:hover {
-  display: block;
+.sidebar li:nth-child(even).active {
+  border-bottom: 1px solid var(--primary-color);
+  color: var(--primary-color)
 }
-
-.svg-features-hover{
-  display: none;
-}
-
-/* .svg-features-hover + .list-features:not(:hover){
-  display: none;
-} */
+/* features */

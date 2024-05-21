@@ -9,8 +9,10 @@ import { Router } from '@angular/router';
 })
 
 export class HeaderComponent {
-  isSidebarOpen = false;
+
+  isSidebarOpen = true;
   domain: string = '';
+  isFeaturesOpen: boolean = false;
 
   readonly FEATURES = [
     { name: 'Pay Per Head Software' },
@@ -29,12 +31,12 @@ export class HeaderComponent {
   }
 
   constructor(public appComponent: AppComponent, private _router: Router) {
-    console.log(this.FEATURES);
-
   }
+
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
     this.isMoreInfoOpen = false;
+    this.isFeaturesOpen = false;
     this.toggleIsOpaque();
   }
 
@@ -71,9 +73,21 @@ export class HeaderComponent {
   }
 
   getFeature(feature: string) {
-    feature = feature.replaceAll(' ','-').toLowerCase();
+    feature = feature.replaceAll(' ', '-').toLowerCase();
+
+    // if (this.isSidebarOpen)
+    //   this.isSidebarOpen = !this.isSidebarOpen;
+
     window.scrollTo(0, 0);
     this._router.navigateByUrl(feature);
+  }
+
+  openFeatures() {
+    this.isFeaturesOpen = true;
+  }
+
+  closeFeatures() {
+    this.isFeaturesOpen = false;
   }
 
 }
