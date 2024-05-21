@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { RespInformation } from '../../models/Info.models';
 import { ApiService } from '../../services/api.service';
 import { AppComponent } from '../../app.component';
 
@@ -10,28 +9,27 @@ import { AppComponent } from '../../app.component';
 })
 export class FeatureOneComponent {
 
-  InformationResp: RespInformation[] = [];
+  InformationPrice : string= '';
 
   constructor(
     private appComponent: AppComponent,
-    // private infoService: ApiService
+    private infoService: ApiService
   ) { }
 
   ngOnInit(): void {
-    // this.loadInformation();
+    this.loadInformationPrice();
   }
 
-  // async loadInformation() {
-  //   const featureRoute = this.router.url.replace('/', '');
+  async loadInformationPrice() {
+    const data = await this.infoService.getInformation('GENERAL','price').toPromise();
 
-  //   const data = await this.infoService.getInformation('GENERAL', featureRoute).toPromise();
+    if (Array.isArray(data)) {
+      this.InformationPrice = data[0].Value;
+    } else {
+      // Manejar el caso en el que data no es un array
+    }
 
-  //   if (Array.isArray(data)) {
-  //     this.InformationResp = data;
-  //   } else {
-  //     // Manejar el caso en el que data no es un array
-  //   }
-  // }
+  }
 
   openModal() {
     this.appComponent.showModal = true;

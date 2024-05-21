@@ -257,35 +257,59 @@ button {
 }
 
 /* features */
-.features-desktop {
+.features {
   cursor: pointer;
   padding: 4px;
   display: flex;
   align-items: center;
 }
 
+.features-desktop:hover{
+  border-bottom: 1px solid var(--primary-color);
+}
+
 .list-features-desktop {
   position: absolute;
-  background-color: white;
+  background-color: var(--dark-text-color);
   color: #333;
   width: 312px;
 }
 
 .item-list-features-desktop {
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid var(--text-color-secondary);
   padding: 15px 20px;
   font-size: 14px;
   cursor: pointer;
   font-weight: 500;
 }
 
-.item-list-features-desktop:hover{
+.item-list-features-desktop:hover {
   font-weight: 600;
   font-size: 14px;
 }
 
-.sidebar li:nth-child(even).active {
-  border-bottom: 1px solid var(--primary-color);
-  color: var(--primary-color)
+.features-mobile {
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  justify-content: space-between;
 }
+
+.list-features-mobile {
+  padding-top: 15px !important;
+  padding-bottom: 20px !important;
+  color: var(--light-text-color);
+}
+
+.item-list-features-mobile {
+  text-align: left !important;
+  font-size: 13px;
+  padding-left: 5px;
+}
+
+.active-path-subMenu {
+  border-bottom: 1px solid var(--primary-color);
+  color: var(--primary-color) !important;
+}
+
 /* features */

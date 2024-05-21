@@ -1,0 +1,5 @@
+<svg [attr.class]="iconClass" [attr.width]="iconWidth" [attr.height]="iconHeight" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <ng-container *ngFor="let path of iconPaths">
+    <path  [attr.d]="path" />
+  </ng-container>
+</svg>

@@ -1,0 +1,5 @@
+
+.list-features li::before {
+  content: "-";
+  margin-right: 8px;
+}

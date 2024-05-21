@@ -36,6 +36,7 @@ import { FeatureFiveComponent } from './features/feature-five/feature-five.compo
 import { FeatureSixComponent } from './features/feature-six/feature-six.component';
 import { FeatureSevenComponent } from './features/feature-seven/feature-seven.component';
 import { FeatureEightComponent } from './features/feature-eight/feature-eight.component';
+import { SvgIconComponent } from './svg-icon/svg-icon.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { FeatureEightComponent } from './features/feature-eight/feature-eight.co
     FeatureSixComponent,
     FeatureSevenComponent,
     FeatureEightComponent,
+    SvgIconComponent,
   ],
   imports: [
     BrowserModule,
