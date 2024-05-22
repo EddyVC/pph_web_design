@@ -85,7 +85,13 @@ header {
   color: var(--secondary-color);
 }
 
+.right-header a:nth-child(even).active {
+  color: var(--primary-color);
+}
 
+.right-header a:nth-child(odd).active {
+  color: var(--secondary-color);
+}
 
 .left-header a:nth-child(even):hover {
   border-bottom: 1px solid var(--primary-color);
