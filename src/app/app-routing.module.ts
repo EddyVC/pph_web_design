@@ -15,6 +15,7 @@ import { FeatureSixComponent } from './features/feature-six/feature-six.componen
 import { FeatureSevenComponent } from './features/feature-seven/feature-seven.component';
 import { FeatureEightComponent } from './features/feature-eight/feature-eight.component';
 import { FeesPaidPageComponent } from './fees-paid-page/fees-paid-page.component';
+import { BlogsPageComponent } from './blogs-page/blogs-page.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -31,7 +32,11 @@ const routes: Routes = [
   { path: 'pph-sportsbook-software', component: FeatureSixComponent },
   { path: 'best-pph-sportsbook-&-bookie-software-premiere-pay-per-head', component: FeatureSevenComponent },
   { path: 'software-for-sportsbook', component: FeatureEightComponent },
+
+  // blogs
   { path: 'fees-paid', component: FeesPaidPageComponent },
+  { path: 'how-to-become-a-bookie', component: BlogsPageComponent },
+  { path: 'how-to-revolutionize-your-sportsbook-book-making-business', component: BlogsPageComponent }
 ];
 
 @NgModule({

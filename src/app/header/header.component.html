@@ -7,18 +7,19 @@
     <a (click)="scrollToTop()" routerLink="/payment" routerLinkActive="active">Payment Methods</a>
     <a (click)="scrollToTop()" routerLink="/pphSofware" routerLinkActive="active">PPH Software Reseller</a>
 
-    <div (mouseleave)="closeFeatureMenu()">
+    <div (mouseleave)="openCloseFeatureMenu()">
       <!-- item-menu  -->
-      <a [ngClass]="{'active-path-menu': isFeatureMenuActive() }" class="item-menu" (mouseenter)="openFeatureMenu()">
+      <a [ngClass]="{'active-path-menu': isFeatureMenuActive() }" class="item-menu"
+        (mouseenter)="openCloseFeatureMenu()">
         <span>Features&ensp;</span>
         <app-svg-icon [iconWidth]="'15px'" [iconHeight]="'15px'"
-          [ngClass]="{'svg-active-path-item-menu': isFeatureMenuActive(), 'svg-features': !isFeatureMenuActive()}"
+          [ngClass]="{'svg-active-path-item-menu': isFeatureMenuActive(), 'svg-item-menu': !isFeatureMenuActive()}"
           [iconPaths]="[isFeaturesOpen ? 'M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z' : 'M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z']"></app-svg-icon>
       </a>
       <!-- item-sub-menu  -->
       <ul *ngIf="isFeaturesOpen" class="ul-sub-menu-desktop">
         <li [ngClass]="{'active-path-menu': isSubMenuSelected(item.path) }" class="li-sub-menu-desktop"
-          *ngFor="let item of FEATURES" (click)="navigateSubMenu(item.path)">
+          *ngFor="let item of FEATURES" (click)="navigationSubMenu(item.path)">
           {{item.name}}
         </li>
       </ul>
@@ -32,7 +33,24 @@
 
   <div class="right-header">
     <a (click)="scrollToTop()" routerLink="/fees-paid" routerLinkActive="active">Fees Paid</a>
-    <a (click)="scrollToTop()" href="#">Blogs</a>
+
+    <div (mouseleave)="openCloseBlogsMenu()">
+      <!-- item-menu  -->
+      <a [ngClass]="{'active-path-menu': isBlogsMenuActive() }" class="item-menu" (mouseenter)="openCloseBlogsMenu()">
+        <span>Blogs&ensp;</span>
+        <app-svg-icon [iconWidth]="'15px'" [iconHeight]="'15px'"
+          [ngClass]="{'svg-active-path-item-menu': isBlogsMenuActive(), 'svg-item-menu': !isBlogsMenuActive()}"
+          [iconPaths]="[isBlogsOpen ? 'M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z' : 'M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z']"></app-svg-icon>
+      </a>
+      <!-- item-sub-menu  -->
+      <ul *ngIf="isBlogsOpen" class="ul-sub-menu-desktop">
+        <li [ngClass]="{'active-path-menu': isSubMenuSelected(item.path) }" class="li-sub-menu-desktop"
+          *ngFor="let item of BLOGS" (click)="navigationSubMenu(item.path)">
+          {{item.name}}
+        </li>
+      </ul>
+    </div>
+
     <a (click)="scrollToTop()" href="#">Sites Avaliables</a>
     <a (click)="scrollToTop()" href="https://epos.ibet.ag/" target="_blank">Epos</a>
     <a (click)="scrollToTop()" href="https://ibet.ag/" target="_blank">Player Login</a>
@@ -77,26 +95,44 @@
     <a (click)="scrollToTop()" routerLink="/payment" routerLinkActive="active">Payment Methods</a>
     <a (click)="scrollToTop()" routerLink="/pphSofware" routerLinkActive="active">PPH Software Reseller</a>
 
-    <div>
+    <div (click)="openCloseFeatureMenu()">
       <!-- item-menu  -->
       <a [ngClass]="{'active-path-menu': isFeatureMenuActive() }" class="item-menu"
-        (click)="isFeaturesOpen =!isFeaturesOpen">
+        >
         <span>Features&ensp;</span>
         <app-svg-icon [iconWidth]="'15px'" [iconHeight]="'15px'"
-          [ngClass]="{'svg-active-path-item-menu': isFeatureMenuActive(), 'svg-features': !isFeatureMenuActive()}"
+          [ngClass]="{'svg-active-path-item-menu': isFeatureMenuActive(), 'svg-item-menu': !isFeatureMenuActive()}"
           [iconPaths]="[isFeaturesOpen ? 'M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z' : 'M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z']"></app-svg-icon>
       </a>
       <!-- item-sub-menu  -->
       <ul *ngIf="isFeaturesOpen" class="ul-sub-menu-mobile">
         <li [ngClass]="{'active-path-menu': isSubMenuSelected(item.path) }" class="li-sub-menu-mobile"
-          *ngFor="let item of FEATURES" (click)="navigateSubMenu(item.path)">
+          *ngFor="let item of FEATURES" (click)="navigationSubMenu(item.path)">
           {{item.name}}
         </li>
       </ul>
     </div>
 
     <a (click)="scrollToTop()" routerLink="/fees-paid" routerLinkActive="active">Fees Paid</a>
-    <a (click)="scrollToTop()" href="#">Blogs</a>
+
+    <div (click)="openCloseBlogsMenu()">
+      <!-- item-menu  -->
+      <a [ngClass]="{'active-path-menu': isBlogsMenuActive() }" class="item-menu"
+        >
+        <span>Blogs&ensp;</span>
+        <app-svg-icon [iconWidth]="'15px'" [iconHeight]="'15px'"
+          [ngClass]="{'svg-active-path-item-menu': isBlogsMenuActive(), 'svg-item-menu': !isBlogsMenuActive()}"
+          [iconPaths]="[isBlogsOpen ? 'M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z' : 'M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z']"></app-svg-icon>
+      </a>
+      <!-- item-sub-menu  -->
+      <ul *ngIf="isBlogsOpen" class="ul-sub-menu-mobile">
+        <li [ngClass]="{'active-path-menu': isSubMenuSelected(item.path) }" class="li-sub-menu-mobile"
+          *ngFor="let item of BLOGS" (click)="navigationSubMenu(item.path)">
+          {{item.name}}
+        </li>
+      </ul>
+    </div>
+
     <a (click)="scrollToTop()" href="#">Sites Avaliables</a>
     <a (click)="scrollToTop()" href="https://epos.ibet.ag/" target="_blank">Epos</a>
     <a (click)="scrollToTop()" href="#">Player Login</a>

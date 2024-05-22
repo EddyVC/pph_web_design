@@ -38,6 +38,7 @@ import { FeatureSevenComponent } from './features/feature-seven/feature-seven.co
 import { FeatureEightComponent } from './features/feature-eight/feature-eight.component';
 import { SvgIconComponent } from './svg-icon/svg-icon.component';
 import { FeesPaidPageComponent } from './fees-paid-page/fees-paid-page.component';
+import { BlogsPageComponent } from './blogs-page/blogs-page.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { FeesPaidPageComponent } from './fees-paid-page/fees-paid-page.component
     FeatureEightComponent,
     SvgIconComponent,
     FeesPaidPageComponent,
+    BlogsPageComponent,
   ],
   imports: [
     BrowserModule,

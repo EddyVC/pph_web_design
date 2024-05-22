@@ -1,6 +1,6 @@
 import { Component, HostListener } from '@angular/core';
-import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
 
 @Component({
@@ -25,17 +25,36 @@ export class HeaderComponent {
     { name: 'Pph Software For Sportsbooks', path: 'pph-software-for-sportsbooks' },
     { name: 'Pph Sportsbook Software', path: 'pph-sportsbook-software' },
     { name: 'Best Pph Sportsbook & Bookie Software Premiere Pay Per Head', path: 'best-pph-sportsbook-&-bookie-software-premiere-pay-per-head' },
-    { name: 'Software For Sportsbook', path: 'software-for-sportsbook' },
-    // { name: 'Sportsbook Software', , path: '' },
+    { name: 'Software For Sportsbook', path: 'software-for-sportsbook' }
   ];
 
-  constructor(public appComponent: AppComponent, private router: Router, public location: Location) {
+  readonly BLOGS = [
+    { name: 'How to Become a Bookie', path: 'how-to-become-a-bookie' },
+    { name: 'How to Revolutionize Your Sportsbook Book Making Business', path: 'how-to-revolutionize-your-sportsbook-book-making-business' },
+    { name: 'How to stay ahead of the game in bookmaking', path: 'how-to-stay-ahead-of-the-game-in-bookmaking' },
+    { name: 'Pay Per Head', path: 'pay-per-head' },
+    { name: 'Pay Per Head Sportsbook Services for Local Bookies', path: 'pay-per-head-sportsbook-services-for-local-bookies' },
+    { name: 'Take your bookmaking services at a slow but steady pace', path: 'take-your-bookmaking-services-at-a-slow-but-steady-pace' },
+    { name: 'Sportsbook', path: 'sportsbook' },
+    { name: 'Real Reason Why The Best Pay Per Head gives you and your customers an exceptional edge in online games wagering!', path: 'real-reason-why-the-best-pay-per-head-gives-you-and-your-customers-an-exceptional-edge-in-online-games-wagering' },
+    { name: 'Reason Why The Best Pay Per Head gives you and your customers an exceptional edge in online games wagering!', path: 'reason-why-the-best-pay-per-head-gives-you-and-your-customers-an-exceptional-edge-in-online-games-wagering' },
+    { name: 'Why The Best Pay Per Head gives you and your customers a special edge in online games book wagering', path: 'why-the-best-pay-per-head-gives-you-and-your-customers-a-special-edge-in-online-games-book-wagering' },
+    { name: 'Why Your Online Bookie Business Needs Pay Per Head', path: 'why-your-online-bookie-business-needs-pay-per-head' },
+    { name: 'Pay Per Head Knowledge Base', path: 'pay-per-head-knowledge-base' },
+    { name: 'The Reason Why Are The Best Pay Per Head Software', path: 'the-reason-why-are-the-best-pay-per-head-software' },
+  ]
+
+  isBlogsOpen: boolean = false;
+
+  constructor(
+    public appComponent: AppComponent,
+    private router: Router,
+    public location: Location
+  ) {
   }
 
   ngOnInit(): void {
     this.domain = window.location.hostname;
-    console.log(this.FEATURES);
-
   }
 
   toggleSidebar() {
@@ -43,6 +62,7 @@ export class HeaderComponent {
     this.isMoreInfoOpen = false;
     this.isFeaturesOpen = false;
     this.isFeaturePath();
+    this.isBlogsPath();
     this.toggleIsOpaque();
   }
 
@@ -75,46 +95,47 @@ export class HeaderComponent {
     this.isSidebarOpen = false;
   }
 
-  navigateSubMenu(path: string) {
+  navigationSubMenu(path: string) {
     this.scrollToTop();
     this.router.navigateByUrl(path);
   }
 
   getMenuActive(subMenuItems: { name: string; path: string; }[]) {
     const locationPath = this.location.path().replace(/\//g, '');
-    return subMenuItems.filter(feature => feature.path === locationPath);
+    return subMenuItems.some(item => item.path === locationPath);
   }
 
-  // features and blog
   isSubMenuSelected(path: string) {
-    if (this.location.path().replaceAll('/', '') === path)
-      return true;
-
-    return false;
+    return !this.location.path().replaceAll('/', '').search(path)
   }
 
-  // feature
+  // start feature
   isFeatureMenuActive() {
-    const menuActive = this.getMenuActive(this.FEATURES);
-    if (menuActive.length > 0)
-      return true;
-
-    return false;
+    return this.getMenuActive(this.FEATURES);
   }
 
   isFeaturePath() {
-    const featurePath = this.getMenuActive(this.FEATURES);
-    if (featurePath.length > 0 && window.innerWidth < 769)
+    if (this.getMenuActive(this.FEATURES) && window.innerWidth < 769)
       this.isFeaturesOpen = true;
   }
 
-  openFeatureMenu() {
-    this.isFeaturesOpen = true;
+  openCloseFeatureMenu() {
+    this.isFeaturesOpen = !this.isFeaturesOpen
+  }
+  // end feature
+
+  // start blogs
+  isBlogsMenuActive() {
+    return this.getMenuActive(this.BLOGS)
   }
 
-  closeFeatureMenu() {
-    this.isFeaturesOpen = false;
+  isBlogsPath() {
+    if (this.getMenuActive(this.BLOGS) && window.innerWidth < 769)
+      this.isBlogsOpen = true;
   }
-  // feature
 
+  openCloseBlogsMenu() {
+    this.isBlogsOpen = !this.isBlogsOpen;
+  }
+  // end blogs
 }

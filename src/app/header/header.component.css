@@ -280,6 +280,8 @@ button {
   background-color: var(--primary-color-sub-menu-item);
   color: var(--light-text-color);
   width: 312px;
+  max-height: 450px;
+  overflow-y: auto;
 }
 
 .li-sub-menu-desktop {
@@ -299,6 +301,8 @@ button {
   padding-top: 15px !important;
   padding-bottom: 20px !important;
   color: var(--light-text-color);
+  max-height: 550px;
+  overflow-y: auto;
 }
 
 .li-sub-menu-mobile {
