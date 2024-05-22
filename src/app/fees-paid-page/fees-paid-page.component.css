@@ -1,0 +1,55 @@
+.container-fees-paid {
+  width: 100%;
+  padding: 10rem 9rem 5rem 9rem;
+  color: var(--dark-text-color);
+  text-align: center;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+@media only screen and (max-width: 600px) {
+  .container-fees-paid {
+    padding: 5rem 2rem;
+  }
+}
+
+.fees-paid-title {
+  margin-left: 0rem !important;
+}
+
+.fees-paid-sub-title {
+  font-size: 25px !important;
+  font-weight: 600;
+}
+
+.margin-details-fees-paid {
+  margin-top: 1rem;
+}
+
+.fees-paid {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.fees-paid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.7) 100%);
+}
+
+.fees-paid img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+  z-index: -1;
+}
