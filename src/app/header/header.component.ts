@@ -34,6 +34,8 @@ export class HeaderComponent {
 
   ngOnInit(): void {
     this.domain = window.location.hostname;
+    console.log(this.FEATURES);
+
   }
 
   toggleSidebar() {
@@ -57,6 +59,7 @@ export class HeaderComponent {
       this.isOpaque = true;
     }
   }
+
   toggleIsOpaque() {
     this.isOpaque = true;
   }
@@ -72,46 +75,46 @@ export class HeaderComponent {
     this.isSidebarOpen = false;
   }
 
-  getFeature(featurePath: string) {
-    if (this.isSidebarOpen)
-      this.isSidebarOpen = !this.isSidebarOpen;
+  navigateSubMenu(path: string) {
+    this.scrollToTop();
+    this.router.navigateByUrl(path);
+  }
 
-    this.isFeaturePath();
-    window.scrollTo(0, 0);
-    this.router.navigateByUrl(featurePath);
+  getMenuActive(subMenuItems: { name: string; path: string; }[]) {
+    const locationPath = this.location.path().replace(/\//g, '');
+    return subMenuItems.filter(feature => feature.path === locationPath);
+  }
+
+  // features and blog
+  isSubMenuSelected(path: string) {
+    if (this.location.path().replaceAll('/', '') === path)
+      return true;
+
+    return false;
+  }
+
+  // feature
+  isFeatureMenuActive() {
+    const menuActive = this.getMenuActive(this.FEATURES);
+    if (menuActive.length > 0)
+      return true;
+
+    return false;
   }
 
   isFeaturePath() {
-    const locationPath = this.location.path().replaceAll('/', '');
-    const isFeatureActive = this.FEATURES.filter(feature => feature.path === locationPath);
-
-    if (isFeatureActive.length > 0 && window.innerWidth < 769)
+    const featurePath = this.getMenuActive(this.FEATURES);
+    if (featurePath.length > 0 && window.innerWidth < 769)
       this.isFeaturesOpen = true;
   }
 
-  openFeatures() {
+  openFeatureMenu() {
     this.isFeaturesOpen = true;
   }
 
-  closeFeatures() {
+  closeFeatureMenu() {
     this.isFeaturesOpen = false;
   }
-
-  isFeatureSelected(){
-    const locationPath = this.location.path().replaceAll('/', '');
-    const isFeatureActive = this.FEATURES.filter(feature => feature.path === locationPath);
-
-    if (isFeatureActive.length > 0)
-      return true;
-
-    return false;
-  }
-
-  isSubMenuSelected(path:string){
-    if(this.location.path().replaceAll('/', '') === path)
-      return true;
-
-    return false;
-  }
+  // feature
 
 }

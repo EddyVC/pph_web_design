@@ -7,17 +7,18 @@
     <a (click)="scrollToTop()" routerLink="/payment" routerLinkActive="active">Payment Methods</a>
     <a (click)="scrollToTop()" routerLink="/pphSofware" routerLinkActive="active">PPH Software Reseller</a>
 
-    <div (mouseleave)="closeFeatures()">
-      <a [ngClass]="{'active-path-subMenu': isFeatureSelected() }" class="features"
-        (mouseenter)="openFeatures()">
+    <div (mouseleave)="closeFeatureMenu()">
+      <!-- item-menu  -->
+      <a [ngClass]="{'active-path-menu': isFeatureMenuActive() }" class="item-menu" (mouseenter)="openFeatureMenu()">
         <span>Features&ensp;</span>
         <app-svg-icon [iconWidth]="'15px'" [iconHeight]="'15px'"
-          [ngClass]="{'svg-active-path-features': isFeatureSelected(), 'svg-features': !isFeatureSelected()}"
+          [ngClass]="{'svg-active-path-item-menu': isFeatureMenuActive(), 'svg-features': !isFeatureMenuActive()}"
           [iconPaths]="[isFeaturesOpen ? 'M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z' : 'M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z']"></app-svg-icon>
       </a>
-      <ul *ngIf="isFeaturesOpen" class="list-features-desktop">
-        <li [ngClass]="{'active-path-subMenu': isSubMenuSelected(item.path) }"
-          class="item-list-features-desktop" *ngFor="let item of FEATURES" (click)="getFeature(item.path)">
+      <!-- item-sub-menu  -->
+      <ul *ngIf="isFeaturesOpen" class="ul-sub-menu-desktop">
+        <li [ngClass]="{'active-path-menu': isSubMenuSelected(item.path) }" class="li-sub-menu-desktop"
+          *ngFor="let item of FEATURES" (click)="navigateSubMenu(item.path)">
           {{item.name}}
         </li>
       </ul>
@@ -77,17 +78,18 @@
     <a (click)="scrollToTop()" routerLink="/pphSofware" routerLinkActive="active">PPH Software Reseller</a>
 
     <div>
-      <a [ngClass]="{'active-path-subMenu': isFeatureSelected() }" class="features"
-        (mouseenter)="openFeatures()">
+      <!-- item-menu  -->
+      <a [ngClass]="{'active-path-menu': isFeatureMenuActive() }" class="item-menu"
+        (click)="isFeaturesOpen =!isFeaturesOpen">
         <span>Features&ensp;</span>
         <app-svg-icon [iconWidth]="'15px'" [iconHeight]="'15px'"
-          [ngClass]="{'svg-active-path-features': isFeatureSelected(), 'svg-features': !isFeatureSelected()}"
+          [ngClass]="{'svg-active-path-item-menu': isFeatureMenuActive(), 'svg-features': !isFeatureMenuActive()}"
           [iconPaths]="[isFeaturesOpen ? 'M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z' : 'M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z']"></app-svg-icon>
       </a>
-
-      <ul *ngIf="isFeaturesOpen" class="list-features-mobile">
-        <li [ngClass]="{'active-path-subMenu': isSubMenuSelected(item.path) }" class="item-list-features-mobile"
-          *ngFor="let item of FEATURES" (click)="getFeature(item.path)">
+      <!-- item-sub-menu  -->
+      <ul *ngIf="isFeaturesOpen" class="ul-sub-menu-mobile">
+        <li [ngClass]="{'active-path-menu': isSubMenuSelected(item.path) }" class="li-sub-menu-mobile"
+          *ngFor="let item of FEATURES" (click)="navigateSubMenu(item.path)">
           {{item.name}}
         </li>
       </ul>

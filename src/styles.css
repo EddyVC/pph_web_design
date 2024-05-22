@@ -5,6 +5,8 @@
   --dark-text-color: #fff !important;
   --text-color-secondary: #9b9b9b !important;
 
+  --primary-color-sub-menu-item: #232323 !important;
+
   --light-text-color: #fff !important;
   --primary-color-circle: #3ec91b !important;
   --secondary-color-circle: #b2c31d !important;
@@ -220,12 +222,23 @@ video {
   object-fit: cover;
 }
 
+/* start svg navbar */
+.svg-item-menu path {
+  fill: var(--light-text-color);
+}
+
+.svg-active-path-item-menu path {
+  fill: var(--primary-color);
+}
+/* end svg navbar */
+
 /* start features */
 .container__features {
   width: 100%;
   padding: 10rem 9rem 5rem 9rem;
   color: var(--dark-text-color);
   text-align: center;
+  justify-content: space-between;
 }
 
 @media only screen and (max-width: 600px) {
@@ -245,7 +258,6 @@ video {
 
 .features-title {
   margin-left: 0rem !important;
-  /* height: 4rem; */
 }
 
 .btn-click-here-features {
@@ -260,14 +272,6 @@ video {
 .btn-click-here-features:hover {
   background: linear-gradient(270deg, var(--primary-color-dark) 0%, var(--secondary-color-dark) 100%);
   backdrop-filter: blur(125px);
-}
-
-.btn-click-here-features-mobile {
-  color: var(--light-text-color);
-  padding: 1rem 2rem;
-  border: 1px solid var(--primary-color);
-  border-radius: 4px;
-  font-size: 12px;
 }
 
 .tel-features {
@@ -290,10 +294,6 @@ video {
   fill: var(--light-text-color);
 }
 
-.svg-active-path-features path {
-  fill: var(--primary-color);
-}
-
 .container-icon-question-features {
   display: flex;
   align-items: baseline;
@@ -303,5 +303,4 @@ video {
 .frequently-questions-title-feature{
   font-size: 45px !important;
 }
-
 /* end features */
