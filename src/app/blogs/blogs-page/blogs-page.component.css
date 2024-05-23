@@ -1,0 +1,110 @@
+.container-blogs {
+  width: 100%;
+  padding: 0rem 9rem 5rem 9rem;
+  color: var(--dark-text-color);
+  text-align: center;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+.blogs-sub-title {
+  font-size: 25px !important;
+  font-weight: 600;
+}
+
+.text-left-blogs {
+  text-align: left !important;
+  margin-left: 0px !important;
+}
+
+.margin-details-blogs {
+  margin-top: 1.5rem;
+}
+
+.blogs-sub-title-description {
+  font-size: 20px !important;
+  font-weight: 400;
+}
+
+.btn-click-blogs {
+  color: var(--light-text-color);
+  padding: 1rem 2rem;
+  width: 250px;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.btn-click-blogs:hover {
+  background: linear-gradient(270deg, var(--primary-color-dark) 0%, var(--secondary-color-dark) 100%);
+  backdrop-filter: blur(125px);
+}
+
+.dark-text-description {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.light-text-description {
+  color: white;
+}
+
+.container-img-blog {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60%;
+}
+
+.container-img-blog::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.container-img-blog img {
+  max-width: 100%;
+  height: 100%;
+  width: 100%;
+}
+
+.blogs-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+  width: 50% !important;
+  margin-left: 0rem !important;
+}
+
+@media only screen and (max-width: 882px) {
+  .blogs-title {
+    width: 90% !important;
+  }
+  .container-img-blog {
+    height: 30rem !important;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .container-img-blog {
+    height: auto;
+  }
+  .container-blogs {
+    padding: 2rem;
+  }
+  .blogs-title {
+    width: 90% !important;
+  }
+}
+
+a {
+  text-decoration: underline;
+  text-decoration-style: solid;
+}

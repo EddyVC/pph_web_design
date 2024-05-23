@@ -247,6 +247,10 @@ video {
   backdrop-filter: blur(125px);
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 /* start svg navbar */
 .svg-item-menu path {
   fill: var(--light-text-color);
@@ -267,7 +271,7 @@ video {
   justify-content: space-between;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
   .container__features {
     padding: 5rem 2rem;
   }
