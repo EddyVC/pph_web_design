@@ -1,0 +1,120 @@
+.container-sites-avaliables {
+  width: 100%;
+  padding: 10rem 9rem 5rem 9rem;
+  color: var(--dark-text-color);
+  text-align: center;
+  justify-content: space-between;
+  z-index: 1;
+  color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  .container-sites-avaliables {
+    padding: 5rem 2rem;
+  }
+}
+
+.text-left-sites-avaliables {
+  text-align: left !important;
+  margin-left: 0px !important;
+}
+
+.iframe-sites-avaliables {
+  width: 100%;
+  height: 600px;
+  border: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.select-option {
+  color: black;
+  width: 100%;
+}
+
+.select-sites-avaliables {
+  color: black;
+  height: 2.5rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.select-sites-avaliables option {
+  max-height: 200px !important;
+  /* Establece la altura máxima que deseas */
+  overflow-y: auto;
+  /* Agrega una barra de desplazamiento vertical si es necesario */
+}
+
+select {
+  width: 100%;
+}
+
+
+/* //// */
+.custom-select {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+}
+
+.select-selected {
+  background-color: #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: var(--primary-color-sub-menu-item);
+}
+
+.select-items {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: none;
+  max-height: 20rem;
+  overflow-y: auto;
+  width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .select-items {
+    max-height: 30rem;
+  }
+}
+
+
+.select-items.open {
+  display: block;
+}
+
+.select-items div {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.select-items div:hover {
+  background-color: #f2f2f2;
+}
+
+.list-site {
+  color: black;
+  text-align: left;
+  width: 100%;
+  padding-left: 10px;
+}
+
+.site-selected {
+  background-color: #f2f2f2;
+}
+
+.container-input {
+  width: 100%;
+}
+
+.container-input {
+  width: 100%;
+}
+ input:focus {
+  border: solid 0.5px; /* Define aquí el borde que deseas cuando el input está enfocado */
+}

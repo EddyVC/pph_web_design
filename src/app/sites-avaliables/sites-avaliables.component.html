@@ -1,0 +1,34 @@
+<div class="container-sites-avaliables">
+
+  <h2 class="page-title text-left-sites-avaliables">PAY PER HEAD SOFTWARE</h2>
+  <br>
+  <p class="text-left-sites-avaliables">List of sites available (select ones to show the site below)</p>
+
+  <div class="custom-select" id="tuDropdownId">
+
+    <div (click)="toggleDropdown()" style="display: flex;background-color: var(--primary-color-sub-menu-item); justify-content: space-between; padding: 10px 20px;  border-top-left-radius: 10px;
+      border-top-right-radius: 10px;">
+      {{ siteSelected }}
+      <app-svg-icon [iconWidth]="'15px'" [iconHeight]="'15px'" [ngClass]="'svg-item-menu'"
+        [iconPaths]="[showDropdown ? 'M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z' : 'M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z']"></app-svg-icon>
+    </div>
+
+    <div *ngIf="showDropdown" class="container-input"
+      style="background-color: white; padding-left: 20px; padding-right: 20px">
+      <div style=" padding-top: 10px; padding-bottom: 10px;">
+        <input (input)="filterSites()"
+          style="background-color: #f4f7f9; border: solid 0.5px; border-radius: 5px !important; width: 100%; height: 2.5rem; color: black; padding-left: 15px; padding-right: 15px; "
+          [(ngModel)]="searchSite" type="text">
+      </div>
+    </div>
+
+    <div class="select-items" [ngClass]="{'open': showDropdown}">
+
+      <div *ngFor="let option of sites" class="list-site" [ngClass]="{'site-selected': siteSelected === option.name}"
+        (click)="getSite(option)"><span style="padding-left: 20px;">{{ option.name }}</span></div>
+    </div>
+  </div>
+
+  <iframe class="iframe-sites-avaliables" [src]="urlZanitazer" allowfullscreen></iframe>
+
+</div>

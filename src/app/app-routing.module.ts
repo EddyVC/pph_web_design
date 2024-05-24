@@ -18,6 +18,7 @@ import { FeesPaidPageComponent } from './fees-paid-page/fees-paid-page.component
 import { BlogsPageComponent } from './blogs/blogs-page/blogs-page.component';
 import { PphSoftwarePowerfulPageComponent } from './blogs/pph-software-powerful-page/pph-software-powerful-page.component';
 import { ChoosePphServicePageComponent } from './blogs/choose-pph-service-page/choose-pph-service-page.component';
+import { SitesAvaliablesComponent } from './sites-avaliables/sites-avaliables.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -35,8 +36,6 @@ const routes: Routes = [
   { path: 'best-pph-sportsbook-&-bookie-software-premiere-pay-per-head', component: FeatureSevenComponent },
   { path: 'software-for-sportsbook', component: FeatureEightComponent },
   { path: 'fees-paid', component: FeesPaidPageComponent },
-
-    // blogs
   { path: 'how-to-become-a-bookie', component: BlogsPageComponent },
   { path: 'how-to-revolutionize-your-sportsbook-book-making-business', component: BlogsPageComponent },
   { path: 'how-to-stay-ahead-of-the-game-in-bookmaking', component: BlogsPageComponent },
@@ -51,8 +50,8 @@ const routes: Routes = [
   { path: 'pay-per-head-knowledge-base', component: BlogsPageComponent },
   { path: 'the-reason-why-are-the-best-pay-per-head-software', component: BlogsPageComponent },
   { path: 'pph-software-powerful-tool', component: PphSoftwarePowerfulPageComponent },
-  { path: 'choose-pph-service', component: ChoosePphServicePageComponent }
-
+  { path: 'choose-pph-service', component: ChoosePphServicePageComponent },
+  { path: 'sites-avaliables', component: SitesAvaliablesComponent }
 ];
 
 @NgModule({
