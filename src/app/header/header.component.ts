@@ -84,7 +84,10 @@ export class HeaderComponent {
   }
 
   isSubMenuSelected(path: string) {
-    return !this.location.path().replaceAll('/', '').search(path)
+    if(this.location.path().replaceAll('/', '') === path)
+      return true
+
+    return false;
   }
 
   // start feature
