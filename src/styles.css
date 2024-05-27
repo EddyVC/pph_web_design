@@ -310,3 +310,15 @@ video {
 }
 
 /* end features */
+
+
+
+/* ////////////////////////// */
+
+.text-left{
+  text-align: left !important;
+  margin-left: 0px !important;
+}
+
+
+/* ////////////////////////// */

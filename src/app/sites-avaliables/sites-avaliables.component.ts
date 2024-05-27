@@ -53,7 +53,7 @@ export class SitesAvaliablesComponent {
 
   // Función para verificar si el clic fue dentro del dropdown
   isDropdownClicked(event: MouseEvent) {
-    const dropdownElement = document.getElementById('tuDropdownId'); // Reemplaza 'tuDropdownId' con el id de tu dropdown
+    const dropdownElement = document.getElementById('containerSelect');
     return dropdownElement && dropdownElement.contains(event.target as Node);
   }
 
