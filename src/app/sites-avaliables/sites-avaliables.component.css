@@ -1,19 +1,3 @@
-.container-sites-avaliables {
-  width: 100%;
-  padding: 10rem 9rem 5rem 9rem;
-  color: var(--dark-text-color);
-  text-align: center;
-  justify-content: space-between;
-  z-index: 1;
-  color: var(--dark-text-color);
-}
-
-@media only screen and (max-width: 600px) {
-  .container-sites-avaliables {
-    padding: 5rem 2rem;
-  }
-}
-
 .container-select {
   width: 100%;
   position: relative;
@@ -52,8 +36,8 @@
 .options-select {
   position: absolute;
   background-color: var(--dark-text-color);
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
   display: none;
   max-height: 20rem;
   overflow-y: auto;

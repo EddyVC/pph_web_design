@@ -1,1 +1,10 @@
 
+.container-icon-question-features {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+}
+
+.frequently-questions-title-feature {
+  font-size: 45px !important;
+}
