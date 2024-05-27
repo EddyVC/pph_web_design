@@ -42,6 +42,7 @@ import { BlogsPageComponent } from './blogs/blogs-page/blogs-page.component';
 import { ChoosePphServicePageComponent } from './blogs/choose-pph-service-page/choose-pph-service-page.component';
 import { PphSoftwarePowerfulPageComponent } from './blogs/pph-software-powerful-page/pph-software-powerful-page.component';
 import { SitesAvaliablesComponent } from './sites-avaliables/sites-avaliables.component';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { SitesAvaliablesComponent } from './sites-avaliables/sites-avaliables.co
     ChoosePphServicePageComponent,
     PphSoftwarePowerfulPageComponent,
     SitesAvaliablesComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

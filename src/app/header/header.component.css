@@ -113,7 +113,7 @@ header {
 .center-header a {
   color: var(--dark-text-color);
   font-family: Bebas Neue;
-  font-size: 25px;
+  font-size: 30px;
   text-decoration: none;
 
 }
@@ -133,7 +133,7 @@ header {
   position: fixed;
   background-color: #000000;
   padding-top: 80px;
-  transition: width 0.7s;
+  transition: width 0.3s;
   z-index: 9;
   /* Agrega una transición para animar el cambio de ancho */
 }

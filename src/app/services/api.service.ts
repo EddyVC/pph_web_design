@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { Observable, finalize } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { RespInformation } from '../models/Info.models';
 import { AuthenticationDto, LoginUserDto, PlayerDto, ResponseSignupDto, SignUpDto } from '../models/Login.models';
-import { catchError } from 'rxjs/operators';
+import { LoaderComponent } from '../loader/loader.component';
+import { LoaderService } from './loader.service';
+
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, private loaderService: LoaderService) { }
 
   // sendAgent(idAgent:any):  Observable<any>{
   //   const body = {
@@ -30,6 +32,7 @@ export class ApiService {
     const apiUrl = environment.ApiUrl + 'PphOptions/getPphOptions';
 
     return this.httpClient.post<RespInformation>(apiUrl, body);
+
   }
 
   getPphDesign(page: string, type: string): Observable<RespInformation> {
@@ -48,11 +51,13 @@ export class ApiService {
     t.IdSite = '1';
     const encode = btoa(f.AccountName + ':' + f.Password);
     const headers = new HttpHeaders({
-        Authorization: 'Token ' + encode,
-        'Content-Type': 'application/json'
+      Authorization: 'Token ' + encode,
+      'Content-Type': 'application/json'
     });
     const options = { headers };
-    const apiUrl = 'https://fxapi.bridgehost.net/api/Player/PlayerLogin';
+
+    const apiUrl = environment.ApiUrl + 'Player/PlayerLogin';
+
     return this.httpClient.post<PlayerDto>(apiUrl, t, options)
   }
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiService } from './services/api.service';
 import { RespInformation } from './models/Info.models';
+import { LoaderService } from './services/loader.service';
 
 @Component({
   selector: 'app-root',
@@ -12,15 +13,17 @@ export class AppComponent {
 
   domain: string = '';
   showModal: boolean = false;
+  showLoader: boolean = false;
 
   ngOnInit(): void {
     this.domain = window.location.hostname;
     this.loadPageDesign();
   }
 
-  constructor(private infoService: ApiService) {
+  constructor(private infoService: ApiService, private loaderService: LoaderService) {
+    this.getLoader();
   }
-  
+
   DesignResp: RespInformation[] = [];
 
   loadPageDesign() {
@@ -31,9 +34,9 @@ export class AppComponent {
           console.log('this.DesignResp', this.DesignResp)
         }
       },
-      error: (err: any) => {},
+      error: (err: any) => { },
       complete: () => {
-        if (this.DesignResp.length == 0 ) {
+        if (this.DesignResp.length == 0) {
           this.loadCss("https://scores.bridgehost.net/templates/TemplateGreenOrange/styles.css");
         } else {
           this.loadCss(this.DesignResp[0].Style);
@@ -50,11 +53,20 @@ export class AppComponent {
     document.head.appendChild(link);
   }
 
-  activeScroll( switching : boolean = false) {
-    if(switching){
+  activeScroll(switching: boolean = false) {
+    if (switching) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
     }
   }
+
+  getLoader() {
+    this.loaderService.loaderState$.subscribe(show => {
+      console.log('show',show);
+
+      this.showLoader = show;
+    });
+  }
+
 }
