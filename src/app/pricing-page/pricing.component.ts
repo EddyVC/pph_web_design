@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+
+// services
 import { ApiService } from '../services/api.service';
+import { LoaderService } from '../services/loader.service';
 
 @Component({
   selector: 'app-pricing',
@@ -8,19 +11,22 @@ import { ApiService } from '../services/api.service';
 })
 export class PricingComponent {
 
-  ngOnInit(): void {
+  InformationPrice : string= '';
 
-    this.loadInformationPrice()
-    
+  constructor(private infoService: ApiService, private loaderService: LoaderService) {
+    this.loaderService.showLoader(true);
   }
 
-  constructor(private infoService: ApiService) {}
+  async ngOnInit() {
+   await this.loadInformationPrice()
+    this.loaderService.showLoader(false);
+  }
 
-  InformationPrice : string= '';
+
 
   async loadInformationPrice() {
     const data = await this.infoService.getInformation('GENERAL','price').toPromise();
-  
+
     if (Array.isArray(data)) {
       this.InformationPrice = data[0].Value;
     } else {

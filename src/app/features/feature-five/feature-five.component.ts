@@ -1,5 +1,13 @@
 import { Component } from '@angular/core';
+
+// models
+import { RespInformation } from '../../models/Info.models';
+
+// services
 import { ApiService } from '../../services/api.service';
+import { LoaderService } from '../../services/loader.service';
+
+// components
 import { AppComponent } from '../../app.component';
 
 @Component({
@@ -10,14 +18,30 @@ import { AppComponent } from '../../app.component';
 export class FeatureFiveComponent {
 
   InformationPrice: string = '';
+  InformationResp: RespInformation[] = [];
 
   constructor(
     private appComponent: AppComponent,
-    private infoService: ApiService
-  ) { }
+    private infoService: ApiService,
+    private loaderService: LoaderService
+  ) {
+    this.loaderService.showLoader(true);
+  }
 
   ngOnInit(): void {
+    this.loadInformation();
     this.loadInformationPrice();
+    this.loaderService.showLoader(false);
+  }
+
+  async loadInformation() {
+    await this.infoService.getInformation('GENERAL', 'pph-software-for-sportsbooks')
+      .subscribe((response: RespInformation[]) => {
+
+        if (response.length > 0)
+          this.InformationResp = response;
+
+      })
   }
 
   async loadInformationPrice() {

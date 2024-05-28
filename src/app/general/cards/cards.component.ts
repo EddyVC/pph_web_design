@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
-import { ApiService } from '../../services/api.service';
+
+// models
 import { RespInformation } from '../../models/Info.models';
+
+// services
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-cards',
@@ -10,22 +14,24 @@ import { RespInformation } from '../../models/Info.models';
 })
 export class CardsComponent {
 
-  domain :string=''
+  domain: string = ''
+
+  constructor(private infoService: ApiService) { }
 
   ngOnInit(): void {
 
     this.loadInformation()
     this.domain = window.location.hostname;
-    
+
   }
 
-  constructor(private infoService: ApiService) {}
 
-  InformationResp : RespInformation[] = [];
+
+  InformationResp: RespInformation[] = [];
 
   async loadInformation() {
-    const data = await this.infoService.getInformation('GENERAL','cards').toPromise();
-  
+    const data = await this.infoService.getInformation('GENERAL', 'cards').toPromise();
+
     if (Array.isArray(data)) {
       this.InformationResp = data;
       this.replaceTextInInformation();
@@ -42,7 +48,8 @@ export class CardsComponent {
       if (item && item.Value) {
         item.Value = item.Value.replace(/\[ddd\]/g, this.domain);
       }
-    });}
+    });
+  }
 
   customOptions: OwlOptions = {
     loop: true,

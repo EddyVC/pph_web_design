@@ -1,31 +1,23 @@
 <div class="container__global">
 
-  <h2 class="page-title text-center">Best PPH Sportsbook & Bookie Software Premiere Pay Per Head</h2>
+  <h2 class="page-title text-center">{{InformationResp[0]?.Value}}</h2>
 
-  <h2 class="page-title text-center">Best PPH Sportsbook & Bookie Software Premiere Pay Per Head Solution</h2>
+  <h2 class="page-title text-center">{{InformationResp[1]?.Value}}</h2>
 
-  <div class="margin-top-1">Best PPH Sportsbook & Bookie Software Premier Pay Per Head</div>
+  <div class="margin-top-1">{{InformationResp[2]?.Value}}</div>
 
   <div class="margin-top-2">
-    <p class="text-left">PPH Software for Sportbooks. 1-week free trial top sportsbook solution. 7PPH.com
-      Software gives you reliable,
-      quality PPH service like no other Pay Per Head.</p>
+    <p class="text-left">{{InformationResp[3]?.Value}}</p>
   </div>
 
   <div class="margin-top-1">
     <ul class="list-features text-left">
-      <li>Horsebook for Bookies</li>
-      <li>Live betting</li>
-      <li>Bet alerts</li>
-      <li>Line setting</li>
-      <li>Player activity tracking</li>
-      <li>Real-time reporting</li>
-      <li>Player account management</li>
+      <li *ngFor="let item of listPage"> {{item}} </li>
     </ul>
   </div>
 
   <div class="margin-top-1 text-left">
-    <p>And much more!</p>
+    <p>{{InformationResp[5]?.Value}}</p>
   </div>
 
 </div>

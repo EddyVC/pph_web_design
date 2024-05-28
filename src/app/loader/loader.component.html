@@ -1,4 +1,4 @@
-<div *ngIf="showLoader" class="loader-container">
+<div *ngIf="showLoader"  [hidden]="!showLoader" class="loader-container">
   <div class="loader"></div>
   <span class="text-loader">LOADING</span>
 </div>

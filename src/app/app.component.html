@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header *ngIf="!showLoader"></app-header>
 <app-loader [showLoader]="showLoader"></app-loader>
 <app-sign-up *ngIf="showModal"></app-sign-up>
 <router-outlet></router-outlet>

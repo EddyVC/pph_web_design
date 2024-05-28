@@ -1,8 +1,10 @@
 import { Component, HostListener } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
-import { AppComponent } from '../app.component';
 import { SUBMENUBLOG, SUBMENUFEARTUES } from '../global/header.global';
+
+// components
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-header',
@@ -12,12 +14,12 @@ import { SUBMENUBLOG, SUBMENUFEARTUES } from '../global/header.global';
 
 export class HeaderComponent {
 
-  domain: string = '';
   isOpaque: boolean = false;
   isBlogsOpen: boolean = false;
   isSidebarOpen: boolean = false;
   isMoreInfoOpen: boolean = false;
   isFeaturesOpen: boolean = false;
+  domain: string = window.location.hostname;
 
   blogsSubMenu: { name: string; path: string; dataExtra: boolean }[] = [];
   featruresSubMenu: { name: string; path: string }[] = [];
@@ -29,10 +31,6 @@ export class HeaderComponent {
   ) {
     this.blogsSubMenu = SUBMENUBLOG;
     this.featruresSubMenu = SUBMENUFEARTUES;
-  }
-
-  ngOnInit(): void {
-    this.domain = window.location.hostname;
   }
 
   toggleSidebar() {

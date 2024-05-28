@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../services/api.service';
+
+// models
 import { RespInformation } from '../models/Info.models';
+
+//services
+import { ApiService } from '../services/api.service';
+
+//components
 import { AppComponent } from '../app.component';
 
 @Component({
@@ -9,99 +15,82 @@ import { AppComponent } from '../app.component';
   styleUrl: './footer.component.css',
 })
 export class FooterComponent implements OnInit {
-  // email = 'cs@redfigures.ag';
-  InformationResp : RespInformation[] = [];
-  InformatioFooterResp : RespInformation[] = [];
-  phoneNumber : string = ''
-  email : string = ''
-  available : string = ''
-  location : string = ''
-  InformationPrice : string= '';
-  DesignResp: RespInformation[] = [];
+
   logo: string = '';
-  domain: string='';
-  
-  constructor(private infoService: ApiService, public appComponent: AppComponent) {}
+  email: string = ''
+  location: string = ''
+  available: string = ''
+  phoneNumber: string = ''
+  InformationPrice: string = '';
+  DesignResp: RespInformation[] = [];
+  InformatioFooterResp: RespInformation = new RespInformation();
+
+  domain: string = window.location.hostname;
+
+  constructor(private infoService: ApiService, public appComponent: AppComponent) { }
 
   ngOnInit(): void {
     this.loadPageDesign();
     this.loadInformation();
     this.loadInformationPrice();
     this.loadInformationFooter();
-    this.domain = window.location.hostname;
   }
 
-  loadPageDesign() {
-    this.infoService.getPphDesign(this.domain, 'design').subscribe({
-      next: data => {
-        if (Array.isArray(data)) {
-          this.DesignResp = data;
+  async loadPageDesign() {
+    await this.infoService.getPphDesign(this.domain, 'design')
+      .subscribe((response: RespInformation[]) => {
+
+        if (response.length > 0){
+          this.DesignResp = response;
+          this.logo = response[0].Logo;
         }
-      },
-      error: (err: any) => { },
-      complete: () => {
-        if (this.DesignResp.length == 0) {
-          this.logo = "";
-        } else {
-          this.logo = this.DesignResp[0].Logo;
-        }
-      },
-    });
+
+      })
   }
 
   async loadInformation() {
-    const data = await this.infoService.getInformation('GENERAL','contact').toPromise();
-  
-    if (Array.isArray(data)) {
-      this.InformationResp = data;
+    await this.infoService.getPphDesign('GENERAL', 'contact')
+      .subscribe((response: RespInformation[]) => {
 
-      this.phoneNumber = data[0].Value;
-      this.email = data[1].Value;
-      this.available = data[2].Value;
-      this.location = data[3].Value;
-    } else {
-      // Manejar el caso en el que data no es un array
-    }
+        if (response.length > 0) {
+          this.phoneNumber = response[0].Value;
+          this.email = response[1].Value;
+          this.available = response[2].Value;
+          this.location = response[3].Value;
+        }
+
+      })
   }
 
   async loadInformationPrice() {
-    const data = await this.infoService.getInformation('GENERAL','price').toPromise();
-  
-    if (Array.isArray(data)) {
-      this.InformationPrice = data[0].Value;
-    } else {
-      // Manejar el caso en el que data no es un array
-    }
+    await this.infoService.getInformation('GENERAL', 'price')
+      .subscribe((response: RespInformation[]) => {
+
+        if (response.length > 0)
+          this.InformationPrice = response[0].Value;
+
+      })
   }
-
-
 
   async loadInformationFooter() {
-    const data = await this.infoService.getInformation('GENERAL','footer').toPromise();
-  
-    if (Array.isArray(data)) {
-      this.InformatioFooterResp = data;
-      this.replaceTextInInformation();
-    } else {
-      // Manejar el caso en el que data no es un array
-    }
+    await this.infoService.getInformation('GENERAL', 'footer')
+      .subscribe((response: RespInformation[]) => {
+
+        if (response.length > 0) {
+          this.InformatioFooterResp = response[0];
+          this.InformatioFooterResp.Value = this.InformatioFooterResp.Value.replace(/\[ddd\]/g, this.domain);
+        }
+
+      })
   }
 
+  openModal() {
+    this.appComponent.showModal = true;
+    this.appComponent.activeScroll(true);
+  }
 
-  replaceTextInInformation() {
-    this.InformatioFooterResp.forEach(item => {
-      if (item && item.Value) {
-        item.Value = item.Value.replace(/\[ddd\]/g, this.domain);
-      }
-    });}
-
-    openModal() {
-      this.appComponent.showModal = true;
-      this.appComponent.activeScroll(true);
-    }
-
-    scrollToTop() {
-      window.scrollTo(0, 0); 
-    }
+  scrollToTop() {
+    window.scrollTo(0, 0);
+  }
 
 }

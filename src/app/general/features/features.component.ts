@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../../services/api.service';
+
+// models
 import { RespInformation } from '../../models/Info.models';
+
+// services
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-features',
@@ -13,7 +17,7 @@ export class FeaturesComponent {
   ngOnInit(): void {
 
     this.loadInformation()
-    
+
   }
 
   constructor(private infoService: ApiService) {}
@@ -22,7 +26,7 @@ export class FeaturesComponent {
 
   async loadInformation() {
     const data = await this.infoService.getInformation('GENERAL','features').toPromise();
-  
+
     if (Array.isArray(data)) {
       this.InformationResp = data;
     } else {

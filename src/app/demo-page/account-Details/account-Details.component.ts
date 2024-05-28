@@ -1,45 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../services/api.service';
+
+// models
 import { RespInformation } from '../../models/Info.models';
+// services
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-account-Details',
   templateUrl: './account-Details.component.html',
   styleUrls: ['./account-Details.component.css']
 })
+
 export class AccountDetailsComponent implements OnInit {
 
-  domain: string='';
+  InformationResp: RespInformation[] = [];
+  domain: string = window.location.hostname;
 
+  constructor(private infoService: ApiService) { }
 
   ngOnInit(): void {
-
     this.loadInformation()
-    this.domain = window.location.hostname;
-
-    
   }
-  constructor(private infoService: ApiService) {
-  }
-
-  InformationResp : RespInformation[] = [];
 
   async loadInformation() {
-    const data = await this.infoService.getInformation('GENERAL','demo').toPromise();
-    if (Array.isArray(data)) {
-      this.InformationResp = data;
-      this.replaceTextInInformation();
 
-    } else {
-      // Manejar el caso en el que data no es un array
-    }
+    await this.infoService.getInformation('GENERAL', 'demo')
+      .subscribe((response: RespInformation[]) => {
+        if (response.length > 0) {
+          this.InformationResp = response;
+          this.InformationResp[0].Value = this.InformationResp[0].Value.replace(/\[ddd\]/g, this.domain);
+        }
+      })
+
   }
 
-
-  replaceTextInInformation() {
-    this.InformationResp.forEach(item => {
-      if (item && item.Value) {
-        item.Value = item.Value.replace(/\[ddd\]/g, this.domain);
-      }
-    });}
 }

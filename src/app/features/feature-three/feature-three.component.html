@@ -1,6 +1,6 @@
 <div class="container__global">
 
-  <h2 class="page-title text-center">PPH SOFTWARE FOR BOOKIES</h2>
+  <h2 class="page-title text-center">{{InformationResp[0]?.Value}}</h2>
 
   <div class="container-hr-border-titles">
     <hr class="hr-border-titles">
@@ -10,16 +10,14 @@
     <h2 class="banner-Price">{{InformationPrice}}</h2>
   </div>
 
-  <p>7PPH is the best Bookie Pay Per Head Service in the industry that provides comprehensive Pay Per Head Bookie
-    Solutions for only $5 per week per player.</p>
+  <p>{{InformationResp[1]?.Value}}</p>
 
   <div class="margin-top-1">
-    <p>PPH Software for Bookies, Live Betting, Poker, Live Casino Games, eSports and Horse racing. With 1-Week, No-Risk
-      Free Trial there’s no better time to sign up.</p>
+    <p>{{InformationResp[2]?.Value}}</p>
   </div>
 
   <div class="margin-top-2">
-    <a class="tel-features">+1-855 296-9171</a>
+    <a class="tel-features"> {{phoneNumber}} </a>
   </div>
 
   <div class="margin-top-1">

@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
-import { ApiService } from './services/api.service';
+
+// models
 import { RespInformation } from './models/Info.models';
+
+// service
+import { ApiService } from './services/api.service';
 import { LoaderService } from './services/loader.service';
 
 @Component({
@@ -9,40 +13,34 @@ import { LoaderService } from './services/loader.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'ppg-design';
 
-  domain: string = '';
   showModal: boolean = false;
   showLoader: boolean = false;
 
-  ngOnInit(): void {
-    this.domain = window.location.hostname;
-    this.loadPageDesign();
-  }
+  DesignResp: RespInformation[] = [];
+  domain: string = window.location.hostname;
 
   constructor(private infoService: ApiService, private loaderService: LoaderService) {
     this.getLoader();
   }
 
-  DesignResp: RespInformation[] = [];
+  ngOnInit(): void {
+    this.loadPageDesign();
+  }
 
-  loadPageDesign() {
-    this.infoService.getPphDesign(this.domain, 'design').subscribe({
-      next: data => {
-        if (Array.isArray(data)) {
+  async loadPageDesign() {
+    await this.infoService.getPphDesign(this.domain, 'design')
+      .subscribe((data: RespInformation[]) => {
+
+        if (data.length > 0) {
+          this.loadCss(data[0].Style);
           this.DesignResp = data;
-          console.log('this.DesignResp', this.DesignResp)
         }
-      },
-      error: (err: any) => { },
-      complete: () => {
-        if (this.DesignResp.length == 0) {
+
+        if (this.DesignResp.length == 0)
           this.loadCss("https://scores.bridgehost.net/templates/TemplateGreenOrange/styles.css");
-        } else {
-          this.loadCss(this.DesignResp[0].Style);
-        }
-      },
-    });
+
+      })
   }
 
   // Función para cargar CSS dinámicamente
@@ -63,8 +61,6 @@ export class AppComponent {
 
   getLoader() {
     this.loaderService.loaderState$.subscribe(show => {
-      console.log('show',show);
-
       this.showLoader = show;
     });
   }

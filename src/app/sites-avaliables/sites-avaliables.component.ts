@@ -1,6 +1,6 @@
 import { Component, HostListener } from '@angular/core';
-import { SITESAVALIABLES } from '../global/sites-avaliables.global';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { SITESAVALIABLES } from '../global/sites-avaliables.global';
 
 @Component({
   selector: 'app-sites-avaliables',
@@ -43,6 +43,7 @@ export class SitesAvaliablesComponent {
     this.sites = objetosEncontrados
 
   }
+
   // Función para manejar el clic fuera del dropdown
   @HostListener('document:click', ['$event'])
   clickOutside(event: MouseEvent) {

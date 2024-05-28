@@ -1,18 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, finalize } from 'rxjs';
+import { Observable, catchError, of } from 'rxjs';
+
+// env
 import { environment } from '../../environments/environment';
+
+// models
 import { RespInformation } from '../models/Info.models';
 import { AuthenticationDto, LoginUserDto, PlayerDto, ResponseSignupDto, SignUpDto } from '../models/Login.models';
-import { LoaderComponent } from '../loader/loader.component';
-import { LoaderService } from './loader.service';
 
 @Injectable({
   providedIn: 'root',
 })
+
 export class ApiService {
 
-  constructor(private httpClient: HttpClient, private loaderService: LoaderService) { }
+  constructor(private httpClient: HttpClient) { }
 
   // sendAgent(idAgent:any):  Observable<any>{
   //   const body = {
@@ -23,7 +26,7 @@ export class ApiService {
   //   return this.httpClient.post<AgentHierarchy[]>(apiUrl ,body)
   // }
 
-  getInformation(page: string, type: string): Observable<RespInformation> {
+  getInformation(page: string, type: string): Observable<RespInformation[]> {
     const body = {
       page: page,
       type: type,
@@ -31,11 +34,16 @@ export class ApiService {
 
     const apiUrl = environment.ApiUrl + 'PphOptions/getPphOptions';
 
-    return this.httpClient.post<RespInformation>(apiUrl, body);
-
+    return this.httpClient.post<RespInformation[]>(apiUrl, body).pipe(
+      catchError(error => {
+        console.error('Error en la solicitud HTTP:', error);
+        // Devuelve un observable vacío o un valor predeterminado
+        return of([]);
+      })
+    );
   }
 
-  getPphDesign(page: string, type: string): Observable<RespInformation> {
+  getPphDesign(page: string, type: string): Observable<RespInformation[]> {
     const body = {
       page: page,
       type: type,
@@ -43,7 +51,13 @@ export class ApiService {
 
     const apiUrl = environment.ApiUrl + 'PphOptions/getPphDesign';
 
-    return this.httpClient.post<RespInformation>(apiUrl, body);
+    return this.httpClient.post<RespInformation[]>(apiUrl, body).pipe(
+      catchError(error => {
+        console.error('Error en la solicitud HTTP:', error);
+        // Devuelve un observable vacío o un valor predeterminado
+        return of([]);
+      })
+    );
   }
 
   Login(t: LoginUserDto, f: AuthenticationDto): Observable<PlayerDto> {

@@ -1,6 +1,14 @@
 import { Component } from '@angular/core';
-import { AppComponent } from '../../app.component';
+
+// models
+import { RespInformation } from '../../models/Info.models';
+
+// services
 import { ApiService } from '../../services/api.service';
+import { LoaderService } from '../../services/loader.service';
+
+// components
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-feature-six',
@@ -9,15 +17,44 @@ import { ApiService } from '../../services/api.service';
 })
 export class FeatureSixComponent {
 
+  phoneNumber: string = '';
   InformationPrice: string = '';
+  InformationResp: RespInformation[] = [];
 
   constructor(
     private appComponent: AppComponent,
-    private infoService: ApiService
-  ) { }
+    private infoService: ApiService,
+    private loaderService: LoaderService
+  ) {
+    this.loaderService.showLoader(true);
+  }
 
   ngOnInit(): void {
+    this.loadInformation();
     this.loadInformationPrice();
+    this.loadInformationContact();
+    this.loaderService.showLoader(false);
+  }
+
+  async loadInformationContact() {
+    await this.infoService.getPphDesign('GENERAL', 'contact')
+      .subscribe((response: RespInformation[]) => {
+
+        if (response.length > 0) {
+          this.phoneNumber = response[0].Value;
+        }
+
+      })
+  }
+
+  async loadInformation() {
+    await this.infoService.getInformation('GENERAL', 'pph-software-for-sportsbooks')
+      .subscribe((response: RespInformation[]) => {
+
+        if (response.length > 0)
+          this.InformationResp = response;
+
+      })
   }
 
   async loadInformationPrice() {

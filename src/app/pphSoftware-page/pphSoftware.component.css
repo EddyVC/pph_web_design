@@ -1,13 +1,4 @@
-.banner-title{
-    color: var(--dark-text-color);
-    font-family: Bebas Neue;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-align: center;
-    padding-top: 80px;
-}
+
 .page-cards{
     color: var(--light-text-color);
     flex: 1;
@@ -15,16 +6,26 @@
 }
 
 .container__software{
-    height: 100dvh;
+    height: 100vh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
 
+.container__software{
+  padding-top: 10rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .container__software {
+    padding-top: 5rem;
+  }
+}
+
 .container__software p {
     color: var(--light-text-color);
-    font-size: 14px;
+    font-size: 16px;
     padding: 0 1rem;
 }
 .card {
@@ -55,11 +56,4 @@
     height: 100%;
     font-size: 30px;
     font-weight: 700;
-}
-
-@media screen and (min-width: 1024px) {
-
-    .banner-title{
-        font-size: 60px;
-    }
 }

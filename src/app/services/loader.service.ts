@@ -13,7 +13,7 @@ export class LoaderService {
     if (!show) {
       setTimeout(() => {
         this.loaderSubject.next(show);
-      }, 1000);
+      }, 1200);
     }
     else
       this.loaderSubject.next(show);
