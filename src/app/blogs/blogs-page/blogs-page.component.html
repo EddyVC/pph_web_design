@@ -1,12 +1,12 @@
 <div class="container-img">
-  <h2 [ngStyle]="(isLongTitle() ? {'font-size': '50px'} : {})" class="page-title blogs-title">{{titleBlog}}</h2>
+  <h2 [ngStyle]="(isLongTitle() ? {'font-size': '50px'} : {})" class="page-title blogs-title">{{pageData.title}}</h2>
   <img src="assets/img/how-to-become-a-bookie-blogs.jpg" alt="how-to-become-a-bookie blogs">
 </div>
 
 <div class="container__global container-blogs">
 
   <!-- start pay-per-head info extra  -->
-  <div *ngIf="isDataExtraBlogs && pathBlog === 'pay-per-head'">
+  <div *ngIf="pageData.dataExtra && pageData.path === 'pay-per-head'">
     <ul class="margin-top-2">
       <li class="text-left cursor-pointer">- <a routerLink="/pph-software-powerful-tool">Pay per head software is
           a powerful tool</a></li>
@@ -17,51 +17,28 @@
   <!-- end pay-per-head info extra  -->
 
   <div class="margin-top-2">
-    <h4 class="blogs-sub-title text-left">{{InformationResp[0]?.Value}}</h4>
-  </div>
-
-  <br>
-
-  <div class="margin-top-1">
-    <h4 class="blogs-sub-title-description text-left">{{InformationResp[1]?.Value}}</h4>
-  </div>
-
-  <div class="margin-top-1">
-
-    <p class="text-left margin-top-1">
-      {{InformationResp[2]?.Value}}
-    </p>
-
-    <p class="text-left margin-top-1">
-      {{InformationResp[3]?.Value}}
-    </p>
-
-    <p class="text-left margin-top-1">
-      {{InformationResp[4]?.Value}}
-    </p>
-
-    <p class="text-left margin-top-1">{{InformationResp[5]?.Value}}</p>
-
-    <p class="text-left margin-top-1">
-      {{InformationResp[6]?.Value}}
-    </p>
-    <p class="text-left margin-top-1 dark-text-description">
-      {{InformationResp[7]?.Value}}
-    </p>
-    <p class="text-left margin-top-1 dark-text-description">
-      {{InformationResp[8]?.Value}}
-    </p>
-    <p class="text-left margin-top-1 dark-text-description">
-      {{InformationResp[9]?.Value}}
-    </p>
-    <p class="text-left margin-top-1 dark-text-description">
-      {{InformationResp[10]?.Value}}
-    </p>
-    <p class="text-left margin-top-1 dark-text-description">{{InformationResp[11]?.Value}}
+    <h4 class="blogs-sub-title text-left">{{this.pageData.description_0}}</h4>
   </div>
 
   <div class="margin-top-2">
-    <h4 class="blogs-sub-title">{{InformationResp[12]?.Value}}</h4>
+    <h4 class="blogs-sub-title-description text-left">{{this.pageData.description_1}}</h4>
+  </div>
+
+  <div class="margin-top-1">
+    <p class="text-left margin-top-1"> {{this.pageData.description_2}} </p>
+    <p class="text-left margin-top-1"> {{this.pageData.description_3}} </p>
+    <p class="text-left margin-top-1"> {{this.pageData.description_4}} </p>
+    <p class="text-left margin-top-1">{{this.pageData.description_5}}</p>
+    <p class="text-left margin-top-1">{{this.pageData.description_6}}</p>
+    <p class="text-left margin-top-1 dark-text-description">{{this.pageData.description_7}}</p>
+    <p class="text-left margin-top-1 dark-text-description">{{this.pageData.description_8}}</p>
+    <p class="text-left margin-top-1 dark-text-description">{{this.pageData.description_9}}</p>
+    <p class="text-left margin-top-1 dark-text-description">{{this.pageData.description_10}}</p>
+    <p class="text-left margin-top-1 dark-text-description">{{this.pageData.description_11}}</p>
+  </div>
+
+  <div class="margin-top-2">
+    <h4 class="blogs-sub-title">{{this.pageData.description_12}}</h4>
   </div>
 
   <div class="margin-top-1">

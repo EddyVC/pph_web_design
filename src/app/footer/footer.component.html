@@ -14,17 +14,17 @@
       <div class="container-info-contact">
         <div class="location">
           <h3>Location</h3>
-          <p>{{location}}</p>
+          <p>{{pageData.location}}</p>
         </div>
         <div class="contact">
           <h3>Contact</h3>
-          <p>{{email}}</p>
-          <p>{{phoneNumber}}</p>
+          <p>{{pageData.email}}</p>
+          <p>{{pageData.phoneNumber}}</p>
 
         </div>
         <div class="trading-house">
           <h3>Trading House</h3>
-          <p>{{available}}</p>
+          <p>{{pageData.available}}</p>
         </div>
         <div class="talk-us">
           <h3>Talk Us</h3>
@@ -41,11 +41,11 @@
     <div class="container-footer-buttom">
       <div class="container-info-logo">
         <p> {{InformatioFooterResp.Value}}</p>
-        <div class="container-logo" *ngIf="logo != ''">
-          <img [src]='logo' alt="logo">
+        <div class="container-logo" *ngIf="pageData.logo != ''">
+          <img [src]='pageData.logo' alt="logo">
         </div>
-        <div class="container-logo" *ngIf="logo == ''">
-          <a routerLink="/">{{domain}}</a>
+        <div class="container-logo" *ngIf="pageData.logo == ''">
+          <a routerLink="/">{{pageData.domain}}</a>
         </div>
       </div>
 

@@ -8,24 +8,20 @@ import { ApiService } from '../services/api.service';
 
 //components
 import { AppComponent } from '../app.component';
+import { FooterPageData } from '../models/pages-data.model';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css',
 })
+
 export class FooterComponent implements OnInit {
 
-  logo: string = '';
-  email: string = ''
-  location: string = ''
-  available: string = ''
-  phoneNumber: string = ''
-  InformationPrice: string = '';
+  pageData: FooterPageData  = new FooterPageData();
+
   DesignResp: RespInformation[] = [];
   InformatioFooterResp: RespInformation = new RespInformation();
-
-  domain: string = window.location.hostname;
 
   constructor(private infoService: ApiService, public appComponent: AppComponent) { }
 
@@ -36,16 +32,22 @@ export class FooterComponent implements OnInit {
     this.loadInformationFooter();
   }
 
-  async loadPageDesign() {
-    await this.infoService.getPphDesign(this.domain, 'design')
-      .subscribe((response: RespInformation[]) => {
-
-        if (response.length > 0){
-          this.DesignResp = response;
-          this.logo = response[0].Logo;
+  loadPageDesign() {
+    this.infoService.getPphDesign(this.pageData.domain, 'design').subscribe({
+      next: data => {
+        if (Array.isArray(data)) {
+          this.DesignResp = data;
         }
-
-      })
+      },
+      error: (err: any) => { },
+      complete: () => {
+        if (this.DesignResp.length == 0) {
+          this.pageData.logo = "";
+        } else {
+          this.pageData.logo = this.DesignResp[0].Logo;
+        }
+      },
+    });
   }
 
   async loadInformation() {
@@ -53,10 +55,10 @@ export class FooterComponent implements OnInit {
       .subscribe((response: RespInformation[]) => {
 
         if (response.length > 0) {
-          this.phoneNumber = response[0].Value;
-          this.email = response[1].Value;
-          this.available = response[2].Value;
-          this.location = response[3].Value;
+          this.pageData.phoneNumber = response[0].Value;
+          this.pageData.email = response[1].Value;
+          this.pageData.available = response[2].Value;
+          this.pageData.location = response[3].Value;
         }
 
       })
@@ -67,7 +69,7 @@ export class FooterComponent implements OnInit {
       .subscribe((response: RespInformation[]) => {
 
         if (response.length > 0)
-          this.InformationPrice = response[0].Value;
+          this.pageData.price = response[0].Value;
 
       })
   }
@@ -78,7 +80,7 @@ export class FooterComponent implements OnInit {
 
         if (response.length > 0) {
           this.InformatioFooterResp = response[0];
-          this.InformatioFooterResp.Value = this.InformatioFooterResp.Value.replace(/\[ddd\]/g, this.domain);
+          this.InformatioFooterResp.Value = this.InformatioFooterResp.Value.replace(/\[ddd\]/g, this.pageData.domain);
         }
 
       })

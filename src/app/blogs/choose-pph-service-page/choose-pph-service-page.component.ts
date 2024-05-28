@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 // models
 import { RespInformation } from '../../models/Info.models';
+import { ChoosePPHServicePageData } from '../../models/pages-data.model';
 
 // services
 import { ApiService } from '../../services/api.service';
@@ -12,10 +13,10 @@ import { LoaderService } from '../../services/loader.service';
   templateUrl: './choose-pph-service-page.component.html',
   styleUrl: './choose-pph-service-page.component.css'
 })
+
 export class ChoosePphServicePageComponent {
 
-  InformationResp: RespInformation[] = [];
-  listPage: Array<string> = [];
+  pageData: ChoosePPHServicePageData = new ChoosePPHServicePageData();
 
   constructor(
     private infoService: ApiService,
@@ -34,9 +35,14 @@ export class ChoosePphServicePageComponent {
     await this.infoService.getInformation('GENERAL', 'choose-pph-service')
       .subscribe((response: RespInformation[]) => {
 
-        if (response.length > 0){
-          this.listPage = response[3].Value.split(',')
-          this.InformationResp = response;
+        if (response.length > 0) {
+          this.pageData.title = response[0].Value;
+          this.pageData.description_0 = response[1].Value;
+          this.pageData.description_1 = response[2].Value;
+          this.pageData.list = response[3].Value.split(',');
+          this.pageData.description_2 = response[4].Value;
+          this.pageData.description_3 = response[5].Value;
+          this.pageData.description_4 = response[6].Value;
         }
 
       })
