@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 // models
 import { RespInformation } from '../../models/Info.models';
+import { FeatureOnePageData } from '../../models/pages-data.model';
 
 // services
 import { ApiService } from '../../services/api.service';
@@ -17,9 +18,7 @@ import { AppComponent } from '../../app.component';
 })
 export class FeatureOneComponent {
 
-  phoneNumber: string = '';
-  InformationPrice: string = '';
-  InformationResp: RespInformation[] = [];
+  pageData: FeatureOnePageData = new FeatureOnePageData();
 
   constructor(
     private appComponent: AppComponent,
@@ -39,8 +38,11 @@ export class FeatureOneComponent {
     await this.infoService.getInformation('GENERAL', 'pay-per-head-software')
       .subscribe((response: RespInformation[]) => {
 
-        if (response.length > 0)
-          this.InformationResp = response;
+        if (response.length > 0){
+          this.pageData.title = response[0].Value;
+          this.pageData.description_0 = response[1].Value;
+          this.pageData.description_1 = response[2].Value;
+        }
 
       })
   }
@@ -50,7 +52,7 @@ export class FeatureOneComponent {
       .subscribe((response: RespInformation[]) => {
 
         if (response.length > 0)
-          this.InformationPrice = response[0].Value;
+          this.pageData.price = response[0].Value;
 
       })
   }
@@ -60,7 +62,7 @@ export class FeatureOneComponent {
       .subscribe((response: RespInformation[]) => {
 
         if (response.length > 0) {
-          this.phoneNumber = response[0].Value;
+          this.pageData.phone_number = response[0].Value;
         }
 
       })

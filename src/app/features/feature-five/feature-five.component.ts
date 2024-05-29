@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 // models
 import { RespInformation } from '../../models/Info.models';
+import { FeatureFivePageData, FrequentlyQuestions } from '../../models/pages-data.model';
 
 // services
 import { ApiService } from '../../services/api.service';
@@ -17,8 +18,8 @@ import { AppComponent } from '../../app.component';
 })
 export class FeatureFiveComponent {
 
-  InformationPrice: string = '';
-  InformationResp: RespInformation[] = [];
+  pageData: FeatureFivePageData = new FeatureFivePageData();
+  frequentlyQuestions: FrequentlyQuestions = new FrequentlyQuestions();
 
   constructor(
     private appComponent: AppComponent,
@@ -31,6 +32,7 @@ export class FeatureFiveComponent {
   ngOnInit(): void {
     this.loadInformation();
     this.loadInformationPrice();
+    this.loadFrequentlyQuestions();
     this.loaderService.showLoader(false);
   }
 
@@ -38,21 +40,43 @@ export class FeatureFiveComponent {
     await this.infoService.getInformation('GENERAL', 'pph-software-for-sportsbooks')
       .subscribe((response: RespInformation[]) => {
 
-        if (response.length > 0)
-          this.InformationResp = response;
+        if (response.length > 0) {
+          this.pageData.title = response[0].Value;
+          this.pageData.description_0 = response[1].Value
+          this.pageData.description_1 = response[2].Value
+        }
 
       })
   }
 
   async loadInformationPrice() {
-    const data = await this.infoService.getInformation('GENERAL', 'price').toPromise();
+    await this.infoService.getInformation('GENERAL', 'price')
+      .subscribe((response: RespInformation[]) => {
 
-    if (Array.isArray(data)) {
-      this.InformationPrice = data[0].Value;
-    } else {
-      // Manejar el caso en el que data no es un array
-    }
+        if (response.length > 0)
+          this.pageData.price = response[0].Value;
 
+      })
+  }
+
+  async loadFrequentlyQuestions() {
+    await this.infoService.getInformation('GENERAL', 'frequently-asked-questions')
+      .subscribe((response: RespInformation[]) => {
+
+        if (response.length > 0) {
+          this.frequentlyQuestions.title = response[0].Value;
+
+          response.shift(); // se borra el title(Frequently Asked Questions) del array
+          this.frequentlyQuestions.frequently_questions = response.map((item) => {
+            return {
+              question: item.Title,
+              description: item.Value
+            }
+          })
+
+        }
+
+      })
   }
 
   openModal() {

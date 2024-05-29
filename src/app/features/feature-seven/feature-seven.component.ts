@@ -6,6 +6,7 @@ import { RespInformation } from '../../models/Info.models';
 // services
 import { ApiService } from '../../services/api.service';
 import { LoaderService } from '../../services/loader.service';
+import { FeatureSevenPageData } from '../../models/pages-data.model';
 
 @Component({
   selector: 'app-feature-seven',
@@ -14,8 +15,7 @@ import { LoaderService } from '../../services/loader.service';
 })
 export class FeatureSevenComponent {
 
-  InformationResp: RespInformation[] = [];
-  listPage: Array<string> = [];
+  pageData: FeatureSevenPageData= new FeatureSevenPageData();
 
   constructor(
     private infoService: ApiService,
@@ -34,8 +34,12 @@ export class FeatureSevenComponent {
       .subscribe((response: RespInformation[]) => {
 
         if (response.length > 0) {
-          this.listPage = response[4].Value.split(',');
-          this.InformationResp = response;
+          this.pageData.title_1 = response[0].Value;
+          this.pageData.title_2 = response[1].Value;
+          this.pageData.description_0 = response[2].Value;
+          this.pageData.description_1 = response[3].Value;
+          this.pageData.list = response[4].Value.split(',');
+          this.pageData.description_2 = response[5].Value;
         }
 
       })

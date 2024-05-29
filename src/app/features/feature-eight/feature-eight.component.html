@@ -1,63 +1,27 @@
 <div class="container__global">
 
-  <h3 class="page-title text-left">{{InformationResp[0]?.Value}}</h3>
-  <p class="text-left">We are a premium provider of powerful yet affordable sportsbook software for online
-    sports betting and casino
-    websites since 2003. Industry leaders of Software providers for Sportsbooks, Bookies and Online Casinos. Sign Up
-    Now and Learn How you can provide your customers with the best <a routerLink="/"><strong>PPH Software</strong></a>
-    in
-    the market.</p>
+  <h3 class="page-title text-left">{{featureEightPageData.title_1}}</h3>
+  <p class="text-left">{{featureEightPageData.description_0}}</p>
 
   <div class="margin-top-2">
-    <h2 class="page-title text-left">{{InformationResp[2]?.Value}}</h2>
-    <p class="text-left">
-      {{InformationResp[3]?.Value}}
-    </p>
+    <h2 class="page-title text-left">{{featureEightPageData.title_2}}</h2>
+    <p class="text-left">  {{featureEightPageData.description_1}}  </p>
   </div>
 
   <div class="margin-top-2">
-    <h3 class="page-title text-left frequently-questions-title-feature">{{InformationResp[4]?.Value}}</h3>
+    <h3 class="page-title text-left frequently-questions-title-feature">{{frequentlyQuestions.title}}</h3>
   </div>
 
-  <div class="margin-top-1">
+  <div *ngFor="let item of frequentlyQuestions.frequently_questions" class="margin-top-1">
 
     <div class="container-icon-question-features">
       <app-svg-icon [iconWidth]="'22px'" [iconHeight]="'15px'" [iconClass]="'svg-white'"
         [iconPaths]="[ 'M128 32C92.7 32 64 60.7 64 96V352h64V96H512V352h64V96c0-35.3-28.7-64-64-64H128zM19.2 384C8.6 384 0 392.6 0 403.2C0 445.6 34.4 480 76.8 480H563.2c42.4 0 76.8-34.4 76.8-76.8c0-10.6-8.6-19.2-19.2-19.2H19.2z']"></app-svg-icon>
-      <strong>&ensp;{{InformationResp[5]?.Value}}</strong>
+      <strong>&ensp;{{item.question}}</strong>
     </div>
 
-    <p class="text-left">{{InformationResp[6]?.Value}}</p>
-  </div>
+    <p class="text-left">{{item.description}}</p>
 
-  <div class="margin-top-1">
-    <div class="container-icon-question-features">
-      <app-svg-icon [iconWidth]="'22px'" [iconHeight]="'15px'" [iconClass]="'svg-white'"
-        [iconPaths]="[ 'M128 32C92.7 32 64 60.7 64 96V352h64V96H512V352h64V96c0-35.3-28.7-64-64-64H128zM19.2 384C8.6 384 0 392.6 0 403.2C0 445.6 34.4 480 76.8 480H563.2c42.4 0 76.8-34.4 76.8-76.8c0-10.6-8.6-19.2-19.2-19.2H19.2z']"></app-svg-icon>
-      <strong>&ensp;{{InformationResp[7]?.Value}}</strong>
-    </div>
-
-    <p class="text-left">{{InformationResp[8]?.Value}}</p>
-  </div>
-
-  <div class="margin-top-1">
-    <div class="container-icon-question-features">
-      <app-svg-icon [iconWidth]="'22px'" [iconHeight]="'15px'" [iconClass]="'svg-white'"
-        [iconPaths]="[ 'M128 32C92.7 32 64 60.7 64 96V352h64V96H512V352h64V96c0-35.3-28.7-64-64-64H128zM19.2 384C8.6 384 0 392.6 0 403.2C0 445.6 34.4 480 76.8 480H563.2c42.4 0 76.8-34.4 76.8-76.8c0-10.6-8.6-19.2-19.2-19.2H19.2z']"></app-svg-icon>
-      <strong>&ensp;{{InformationResp[9]?.Value}}</strong>
-    </div>
-
-    <p class="text-left">{{InformationResp[10]?.Value}}</p>
-  </div>
-
-  <div class="margin-top-1">
-    <div class="container-icon-question-features">
-      <app-svg-icon [iconWidth]="'22px'" [iconHeight]="'15px'" [iconClass]="'svg-white'"
-        [iconPaths]="[ 'M128 32C92.7 32 64 60.7 64 96V352h64V96H512V352h64V96c0-35.3-28.7-64-64-64H128zM19.2 384C8.6 384 0 392.6 0 403.2C0 445.6 34.4 480 76.8 480H563.2c42.4 0 76.8-34.4 76.8-76.8c0-10.6-8.6-19.2-19.2-19.2H19.2z']"></app-svg-icon>
-      <strong>&ensp;{{InformationResp[11]?.Value}}</strong>
-    </div>
-
-    <p class="text-left">{{InformationResp[12]?.Value}}</p>
   </div>
 
 </div>

@@ -3,7 +3,7 @@ export class FooterPageData {
   price: string = '';
   email: string = '';
   location: string = '';
-  phoneNumber: string = '';
+  phone_number: string = '';
   available: string = '';
   domain: string = '';
 }
@@ -29,7 +29,7 @@ export class BlogsPageData {
   dataExtra: boolean = false;
 }
 
-export class ChoosePPHServicePageData{
+export class ChoosePPHServicePageData {
   title: string = '';
   description_0: string = '';
   description_1: string = '';
@@ -37,4 +37,93 @@ export class ChoosePPHServicePageData{
   description_3: string = '';
   description_4: string = '';
   list: Array<string> = [];
+}
+
+
+export class PPHSoftwarePowefulPageData {
+  title: string = '';
+  description_0: string = '';
+  description_1: string = '';
+}
+
+export class FeesPaidPageData {
+  title: string = '';
+  sub_title: string = '';
+  phone_number: string = '';
+  description_0: string = '';
+  description_1: string = '';
+  description_2: string = '';
+}
+
+export class FeatureOnePageData {
+  title: string = '';
+  price: string = '';
+  phone_number: string = '';
+  description_0: string = '';
+  description_1: string = '';
+}
+
+export class FeatureTwoPageData {
+  title: string = '';
+  price: string = '';
+  phone_number: string = '';
+  description_0: string = '';
+  description_1: string = '';
+}
+
+export class FeatureThreePageData {
+  title: string = '';
+  price: string = '';
+  phone_number: string = '';
+  description_0: string = '';
+  description_1: string = '';
+}
+
+export class FeatureFourPageData {
+  title: string = '';
+  sub_title: string = '';
+  description_0: string = '';
+  description_1: string = '';
+  description_2: string = '';
+}
+
+export class FeatureFivePageData {
+  title: string = '';
+  price: string = '';
+  description_0: string = '';
+  description_1: string = '';
+}
+
+export class FeatureSixPageData {
+  title: string = '';
+  price: string = '';
+  phone_number: string = '';
+  description_0: string = '';
+  description_1: string = '';
+}
+
+export class FeatureSevenPageData {
+  title_1: string = '';
+  title_2: string = '';
+  description_0: string = '';
+  description_1: string = '';
+  description_2: string = '';
+  list: Array<string> = [];
+}
+
+export class FeatureEightPageData {
+  title_1: string = '';
+  title_2: string = '';
+  description_0: string = '';
+  description_1: string = '';
+}
+
+
+export class Questions {
+  question: string = '';
+  description: string = ''
+}
+export class FrequentlyQuestions {
+  title: string = '';
+  frequently_questions: Array<Questions> = [];
 }

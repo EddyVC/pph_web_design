@@ -9,16 +9,17 @@ import { LoaderService } from '../services/loader.service';
 
 //components
 import { AppComponent } from '../app.component';
+import { FeesPaidPageData } from '../models/pages-data.model';
 
 @Component({
   selector: 'app-fees-paid-page',
   templateUrl: './fees-paid-page.component.html',
   styleUrl: './fees-paid-page.component.css'
 })
+
 export class FeesPaidPageComponent {
 
-  phoneNumber: string = '';
-  InformationResp: RespInformation[] = [];
+  pageData: FeesPaidPageData = new FeesPaidPageData();
 
   constructor(
     private appComponent: AppComponent,
@@ -40,7 +41,11 @@ export class FeesPaidPageComponent {
       .subscribe((response: RespInformation[]) => {
 
         if (response.length > 0) {
-          this.InformationResp = response;
+          this.pageData.title = response[0].Value;
+          this.pageData.sub_title = response[1].Value;
+          this.pageData.description_0 = response[2].Value;
+          this.pageData.description_1 = response[3].Value;
+          this.pageData.description_2 = response[4].Value;
         }
 
       });
@@ -51,7 +56,7 @@ export class FeesPaidPageComponent {
       .subscribe((response: RespInformation[]) => {
 
         if (response.length > 0) {
-          this.phoneNumber = response[0].Value;
+          this.pageData.phone_number = response[0].Value;
         }
 
       })

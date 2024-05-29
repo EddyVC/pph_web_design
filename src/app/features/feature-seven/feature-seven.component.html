@@ -1,23 +1,23 @@
 <div class="container__global">
 
-  <h2 class="page-title text-center">{{InformationResp[0]?.Value}}</h2>
+  <h2 class="page-title text-center">{{pageData.title_1}}</h2>
 
-  <h2 class="page-title text-center">{{InformationResp[1]?.Value}}</h2>
+  <h2 class="page-title text-center">{{pageData.title_2}}</h2>
 
-  <div class="margin-top-1">{{InformationResp[2]?.Value}}</div>
+  <div class="margin-top-1">{{pageData.description_0}}</div>
 
   <div class="margin-top-2">
-    <p class="text-left">{{InformationResp[3]?.Value}}</p>
+    <p class="text-left">{{pageData.description_1}}</p>
   </div>
 
   <div class="margin-top-1">
     <ul class="list-features text-left">
-      <li *ngFor="let item of listPage"> {{item}} </li>
+      <li *ngFor="let item of pageData.list"> {{item}} </li>
     </ul>
   </div>
 
   <div class="margin-top-1 text-left">
-    <p>{{InformationResp[5]?.Value}}</p>
+    <p>{{pageData.description_2}}</p>
   </div>
 
 </div>

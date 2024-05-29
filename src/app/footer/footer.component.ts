@@ -55,7 +55,7 @@ export class FooterComponent implements OnInit {
       .subscribe((response: RespInformation[]) => {
 
         if (response.length > 0) {
-          this.pageData.phoneNumber = response[0].Value;
+          this.pageData.phone_number = response[0].Value;
           this.pageData.email = response[1].Value;
           this.pageData.available = response[2].Value;
           this.pageData.location = response[3].Value;

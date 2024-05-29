@@ -4,30 +4,30 @@
 
   <div class="container__global" style="z-index: 1;">
 
-    <h2 class="page-title text-center"> {{InformationResp[0]?.Value}} </h2>
+    <h2 class="page-title text-center"> {{pageData.title}} </h2>
 
     <div class="container-hr-border-titles">
       <hr class="hr-border-titles">
     </div>
 
     <div class="margin-top-2">
-      <h3 class="fees-paid-sub-title"> {{InformationResp[1]?.Value}} </h3>
+      <h3 class="fees-paid-sub-title"> {{pageData.sub_title}} </h3>
     </div>
 
     <div class="margin-top-1">
-      <p>{{InformationResp[2]?.Value}}</p>
+      <p>{{pageData.description_0}}</p>
     </div>
 
     <div class="margin-top-1">
-      <p>{{InformationResp[3]?.Value}}</p>
+      <p>{{pageData.description_1}}</p>
     </div>
 
     <div class="margin-top-1">
-      <p>{{InformationResp[4]?.Value}}</p>
+      <p>{{pageData.description_2}}</p>
     </div>
 
     <div class="margin-top-2">
-      <a class="tel-features "> {{phoneNumber}} </a>
+      <a class="tel-features "> {{pageData.phone_number}} </a>
     </div>
 
     <div class="margin-top-1">

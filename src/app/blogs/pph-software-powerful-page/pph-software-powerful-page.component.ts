@@ -6,6 +6,7 @@ import { RespInformation } from '../../models/Info.models';
 //services
 import { ApiService } from '../../services/api.service';
 import { LoaderService } from '../../services/loader.service';
+import { PPHSoftwarePowefulPageData } from '../../models/pages-data.model';
 
 
 @Component({
@@ -16,11 +17,12 @@ import { LoaderService } from '../../services/loader.service';
 export class PphSoftwarePowerfulPageComponent {
 
   InformationResp: RespInformation[] = [];
+  pageData: PPHSoftwarePowefulPageData = new PPHSoftwarePowefulPageData();
 
   constructor(
     private infoService: ApiService,
     private loaderService: LoaderService
-  ){
+  ) {
     window.scrollTo(0, 0);
     this.loaderService.showLoader(true);
   }
@@ -34,8 +36,11 @@ export class PphSoftwarePowerfulPageComponent {
     await this.infoService.getInformation('GENERAL', 'pph-software-powerful-tool')
       .subscribe((response: RespInformation[]) => {
 
-        if (response.length > 0)
-          this.InformationResp = response;
+        if (response.length > 0) {
+          this.pageData.title = response[0].Value;
+          this.pageData.description_0 = response[1].Value;
+          this.pageData.description_1 = response[2].Value;
+        }
 
       })
   }

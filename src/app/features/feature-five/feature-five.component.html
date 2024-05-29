@@ -1,60 +1,31 @@
 <div class="container__global">
 
-  <h2 class="page-title text-left">{{InformationResp[0]?.Value}}</h2>
+  <h2 class="page-title text-left">{{pageData.title}}</h2>
 
-  <p class="text-left">{{InformationResp[1]?.Value}}.</p>
+  <p class="text-left">{{pageData.description_0}}.</p>
 
   <div class="margin-top-1">
-    <p class="text-left">{{InformationResp[2]?.Value}}</p>
+    <p class="text-left">{{pageData.description_1}}</p>
   </div>
 
   <div class="margin-top-2">
-    <h3 class="page-title text-left frequently-questions-title-feature">{{InformationResp[3]?.Value}}</h3>
+    <h3 class="page-title text-left frequently-questions-title-feature">{{frequentlyQuestions.title}}</h3>
   </div>
 
-  <div class="margin-top-1">
+  <div *ngFor="let item of frequentlyQuestions.frequently_questions" class="margin-top-1">
 
     <div class="container-icon-question-features">
       <app-svg-icon [iconWidth]="'22px'" [iconHeight]="'15px'" [iconClass]="'svg-white'"
         [iconPaths]="[ 'M128 32C92.7 32 64 60.7 64 96V352h64V96H512V352h64V96c0-35.3-28.7-64-64-64H128zM19.2 384C8.6 384 0 392.6 0 403.2C0 445.6 34.4 480 76.8 480H563.2c42.4 0 76.8-34.4 76.8-76.8c0-10.6-8.6-19.2-19.2-19.2H19.2z']"></app-svg-icon>
-      <strong>&ensp;{{InformationResp[4]?.Value}}</strong>
+      <strong>&ensp;{{item.question}}</strong>
     </div>
 
-    <p class="text-left">{{InformationResp[5]?.Value}}</p>
-  </div>
+    <p class="text-left">{{item.description}}</p>
 
-  <div class="margin-top-1">
-    <div class="container-icon-question-features">
-      <app-svg-icon [iconWidth]="'22px'" [iconHeight]="'15px'" [iconClass]="'svg-white'"
-        [iconPaths]="[ 'M128 32C92.7 32 64 60.7 64 96V352h64V96H512V352h64V96c0-35.3-28.7-64-64-64H128zM19.2 384C8.6 384 0 392.6 0 403.2C0 445.6 34.4 480 76.8 480H563.2c42.4 0 76.8-34.4 76.8-76.8c0-10.6-8.6-19.2-19.2-19.2H19.2z']"></app-svg-icon>
-      <strong>&ensp;{{InformationResp[6]?.Value}}</strong>
-    </div>
-
-    <p class="text-left">{{InformationResp[7]?.Value}}</p>
-  </div>
-
-  <div class="margin-top-1">
-    <div class="container-icon-question-features">
-      <app-svg-icon [iconWidth]="'22px'" [iconHeight]="'15px'" [iconClass]="'svg-white'"
-        [iconPaths]="[ 'M128 32C92.7 32 64 60.7 64 96V352h64V96H512V352h64V96c0-35.3-28.7-64-64-64H128zM19.2 384C8.6 384 0 392.6 0 403.2C0 445.6 34.4 480 76.8 480H563.2c42.4 0 76.8-34.4 76.8-76.8c0-10.6-8.6-19.2-19.2-19.2H19.2z']"></app-svg-icon>
-      <strong>&ensp;{{InformationResp[8]?.Value}}</strong>
-    </div>
-
-    <p class="text-left">{{InformationResp[9]?.Value}}</p>
-  </div>
-
-  <div class="margin-top-1">
-    <div class="container-icon-question-features">
-      <app-svg-icon [iconWidth]="'22px'" [iconHeight]="'15px'" [iconClass]="'svg-white'"
-        [iconPaths]="[ 'M128 32C92.7 32 64 60.7 64 96V352h64V96H512V352h64V96c0-35.3-28.7-64-64-64H128zM19.2 384C8.6 384 0 392.6 0 403.2C0 445.6 34.4 480 76.8 480H563.2c42.4 0 76.8-34.4 76.8-76.8c0-10.6-8.6-19.2-19.2-19.2H19.2z']"></app-svg-icon>
-      <strong>&ensp;{{InformationResp[10]?.Value}}</strong>
-    </div>
-
-    <p class="text-left">{{InformationResp[11]?.Value}}</p>
   </div>
 
   <div class="margin-top-2">
-    <h2 class="banner-Price">{{InformationPrice}}</h2>
+    <h2 class="banner-Price">{{pageData.price}}</h2>
   </div>
 
   <div>
