@@ -52,7 +52,6 @@ export class BlogsPageComponent {
   async loadInformation() {
     await this.infoService.getInformation('GENERAL', 'blog-description')
       .subscribe((response: RespInformation[]) => {
-        console.log(response);
 
         if (response.length > 0) {
           this.pageData.description_0 = response[0].Value;
@@ -68,7 +67,6 @@ export class BlogsPageComponent {
           this.pageData.description_10 = response[10].Value;
           this.pageData.description_11 = response[11].Value;
           this.pageData.description_11 = response[12].Value;
-          // this.pageData.description_12 = response[12].Value;
         }
 
 

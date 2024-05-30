@@ -15,19 +15,14 @@ import { ApiService } from '../../services/api.service';
 export class CardsComponent {
 
   domain: string = ''
+  InformationResp: RespInformation[] = [];
 
   constructor(private infoService: ApiService) { }
 
   ngOnInit(): void {
-
     this.loadInformation()
     this.domain = window.location.hostname;
-
   }
-
-
-
-  InformationResp: RespInformation[] = [];
 
   async loadInformation() {
     const data = await this.infoService.getInformation('GENERAL', 'cards').toPromise();
@@ -35,13 +30,10 @@ export class CardsComponent {
     if (Array.isArray(data)) {
       this.InformationResp = data;
       this.replaceTextInInformation();
-      console.log('DATA', this.InformationResp);
-
     } else {
       // Manejar el caso en el que data no es un array
     }
   }
-
 
   replaceTextInInformation() {
     this.InformationResp.forEach(item => {

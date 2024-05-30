@@ -1,4 +1,4 @@
-console.log("prueba")
+// console.log("prueba")
 
 
 /*--------------------
@@ -41,7 +41,7 @@ const dispose = (scroll) => {
       }
     }
   })
-} 
+}
 dispose(0)
 
 
@@ -49,7 +49,7 @@ dispose(0)
 Wheel
 --------------------*/
 const handleMouseWheel = (e) => {
-  scrollY -= e.deltaY  
+  scrollY -= e.deltaY
 }
 
 
@@ -125,7 +125,7 @@ render()
 
 
 /*--------------------
-API 
+API
 --------------------*/
 
   const url = 'https://liveadmin.bridgehost.net/api/PphOptions/getPphOptions';
@@ -148,10 +148,10 @@ API
   })
       .then(response => response.json())
       .then(responseService => {
-          console.log(responseService);
+          // console.log(responseService);
       })
       .catch(error => {
-          console.error('Error:', error);
+          // console.error('Error:', error);
       });
 
 // ******************************** HTTP Cards
@@ -169,10 +169,10 @@ API
     })
         .then(response => response.json())
         .then(responseCard => {
-            console.log(responseCard);
+            // console.log(responseCard);
         })
         .catch(error => {
-            console.error('Error:', error);
+            // console.error('Error:', error);
         });
 
 // ******************************** HTTP Features
@@ -181,7 +181,7 @@ API
           "page": null,
           "type": "features"
       };
-  
+
         fetch(url, {
           method: 'POST',
           headers: {
@@ -191,10 +191,10 @@ API
       })
           .then(response => response.json())
           .then(responseFeatures => {
-              console.log(responseFeatures);
+              // console.log(responseFeatures);
           })
           .catch(error => {
-              console.error('Error:', error);
+              // console.error('Error:', error);
           });
 
 
@@ -203,7 +203,7 @@ API
             "page": null,
             "type": "price"
         };
-    
+
           fetch(url, {
             method: 'POST',
             headers: {
@@ -213,18 +213,18 @@ API
         })
             .then(response => response.json())
             .then(responsePrice => {
-                console.log(responsePrice);
+                // console.log(responsePrice);
             })
             .catch(error => {
-                console.error('Error:', error);
+                // console.error('Error:', error);
             });
-  
+
 // ******************************** HTTP Contact
             const dataContact = {
               "page": null,
               "type": "contact"
           };
-      
+
             fetch(url, {
               method: 'POST',
               headers: {
@@ -234,10 +234,10 @@ API
           })
               .then(response => response.json())
               .then(responseContact => {
-                  console.log(responseContact);
+                  // console.log(responseContact);
               })
               .catch(error => {
-                  console.error('Error:', error);
+                  // console.error('Error:', error);
               });
 
 

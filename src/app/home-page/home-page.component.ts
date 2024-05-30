@@ -59,7 +59,7 @@ export class HomePageComponent {
   ngAfterViewInit() {
     const videoPromotionalDektop = `<video id="bg-video" loop muted autoplay playsinline><source src="https://scores.bridgehost.net/video/PromotionVideoDesktop.mp4" type="video/mp4">Your browser does not support the video tag.</video>`;
     this.desktopVideo.nativeElement.innerHTML = videoPromotionalDektop;
-    const videoPromotionalMobile = `<video id="bg-vide" loop muted autoplay playsinline><source src="https://scores.bridgehost.net/video/PromotionVideoMobile.mp4" type="video/mp4">Your browser does not support the video tag.</video>`;
+    const videoPromotionalMobile = `<video loop muted autoplay playsinline><source src="https://scores.bridgehost.net/video/PromotionVideoMobile.mp4" type="video/mp4">Your browser does not support the video tag.</video>`;
     this.movileVideo.nativeElement.innerHTML = videoPromotionalMobile;
     setTimeout(() => {
       if (this.video) {
