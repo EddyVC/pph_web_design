@@ -40,7 +40,7 @@ export class SitesAvaliablesPageComponent {
   }
 
   filterSites() {
-
+    this.searchSite = this.searchSite.toLowerCase();
     let term = this.searchSite;
     var objetosEncontrados = this.sortSites.filter(function (objeto) {
       return objeto.name.includes(term);
