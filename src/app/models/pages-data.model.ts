@@ -127,3 +127,8 @@ export class FrequentlyQuestions {
   title: string = '';
   frequently_questions: Array<Questions> = [];
 }
+
+export class Site {
+  name: string = '';
+  path: string = '';
+}

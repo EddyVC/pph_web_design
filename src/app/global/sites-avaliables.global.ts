@@ -1,4 +1,6 @@
-export const SITESAVALIABLES = [
+import { Site } from "../models/pages-data.model";
+
+export const SITES_AVALIABLES: Site[] = [
   {
     name: "ibet.ag",
     path: "https://ibet.ag/"
@@ -416,7 +418,7 @@ export const SITESAVALIABLES = [
     path: 'https://totalwager.bet/'
   },
   {
-    name: 'uwtelecom.net<',
+    name: 'uwtelecom.net',
     path: 'https://uwtelecom.net/'
   },
   {
@@ -472,7 +474,7 @@ export const SITESAVALIABLES = [
     path: 'https://betirish24.com/'
   },
   {
-    name: '>betmonaco.win',
+    name: 'betmonaco.win',
     path: 'https://betmonaco.win/'
   },
   {

@@ -34,10 +34,6 @@
     font-weight: 700;
 }
 
-.card__methods p {
-    font-size: 12px;
-}
-
 .card__methods span{
     color: var(--primary-color-circle);
 }

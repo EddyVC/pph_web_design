@@ -1,5 +1,5 @@
 <div class="container-img">
-  <h2 [ngStyle]="(isLongTitle() ? {'font-size': '50px'} : {})" class="page-title blogs-title">{{pageData.title}}</h2>
+  <h2 [ngStyle]="(isLongTitle() ? {'font-size': '45px'} : {})" class="page-title blogs-title">{{pageData.title}}</h2>
   <img src="assets/img/how-to-become-a-bookie-blogs.jpg" alt="how-to-become-a-bookie blogs">
 </div>
 
@@ -8,33 +8,33 @@
   <!-- start pay-per-head info extra  -->
   <div *ngIf="pageData.dataExtra && pageData.path === 'pay-per-head'">
     <ul class="margin-top-2">
-      <li class="text-left cursor-pointer">- <a routerLink="/pph-software-powerful-tool">Pay per head software is
+      <li class="text-left-justify cursor-pointer">- <a routerLink="/pph-software-powerful-tool">Pay per head software is
           a powerful tool</a></li>
-      <li class="text-left cursor-pointer margin-top-1">- <a routerLink="/choose-pph-service">How to
+      <li class="text-left-justify cursor-pointer margin-top-1">- <a routerLink="/choose-pph-service">How to
           choose the pay per head service that's right for you</a></li>
     </ul>
   </div>
   <!-- end pay-per-head info extra  -->
 
   <div class="margin-top-2">
-    <h4 class="blogs-sub-title text-left">{{this.pageData.description_0}}</h4>
+    <h4 class="blogs-sub-title text-left-justify">{{this.pageData.description_0}}</h4>
   </div>
 
   <div class="margin-top-2">
-    <h4 class="blogs-sub-title-description text-left">{{this.pageData.description_1}}</h4>
+    <h4 class="blogs-sub-title-description text-left-justify">{{this.pageData.description_1}}</h4>
   </div>
 
   <div class="margin-top-1">
-    <p class="text-left margin-top-1"> {{this.pageData.description_2}} </p>
-    <p class="text-left margin-top-1"> {{this.pageData.description_3}} </p>
-    <p class="text-left margin-top-1"> {{this.pageData.description_4}} </p>
-    <p class="text-left margin-top-1">{{this.pageData.description_5}}</p>
-    <p class="text-left margin-top-1">{{this.pageData.description_6}}</p>
-    <p class="text-left margin-top-1 dark-text-description">{{this.pageData.description_7}}</p>
-    <p class="text-left margin-top-1 dark-text-description">{{this.pageData.description_8}}</p>
-    <p class="text-left margin-top-1 dark-text-description">{{this.pageData.description_9}}</p>
-    <p class="text-left margin-top-1 dark-text-description">{{this.pageData.description_10}}</p>
-    <p class="text-left margin-top-1 dark-text-description">{{this.pageData.description_11}}</p>
+    <p class="text-left-justify text-justify margin-top-1" style="text-align: justify;"> {{this.pageData.description_2}} </p>
+    <p class="text-left-justify text-justify margin-top-1"> {{this.pageData.description_3}} </p>
+    <p class="text-left-justify text-justify margin-top-1"> {{this.pageData.description_4}} </p>
+    <p class="text-left-justify text-justify margin-top-1">{{this.pageData.description_5}}</p>
+    <p class="text-left-justify text-justify margin-top-1">{{this.pageData.description_6}}</p>
+    <p class="text-left-justify text-justify margin-top-1 dark-text-description">{{this.pageData.description_7}}</p>
+    <p class="text-left-justify text-justify margin-top-1 dark-text-description">{{this.pageData.description_8}}</p>
+    <p class="text-left-justify text-justify margin-top-1 dark-text-description">{{this.pageData.description_9}}</p>
+    <p class="text-left-justify text-justify margin-top-1 dark-text-description">{{this.pageData.description_10}}</p>
+    <p class="text-left-justify text-justify margin-top-1 dark-text-description">{{this.pageData.description_11}}</p>
   </div>
 
   <div class="margin-top-2">

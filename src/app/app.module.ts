@@ -41,8 +41,8 @@ import { FeesPaidPageComponent } from './fees-paid-page/fees-paid-page.component
 import { BlogsPageComponent } from './blogs/blogs-page/blogs-page.component';
 import { ChoosePphServicePageComponent } from './blogs/choose-pph-service-page/choose-pph-service-page.component';
 import { PphSoftwarePowerfulPageComponent } from './blogs/pph-software-powerful-page/pph-software-powerful-page.component';
-import { SitesAvaliablesComponent } from './sites-avaliables/sites-avaliables.component';
 import { LoaderComponent } from './loader/loader.component';
+import { SitesAvaliablesPageComponent } from './sites-avaliables-page/sites-avaliables-page.component';
 
 @NgModule({
   declarations: [
@@ -74,8 +74,8 @@ import { LoaderComponent } from './loader/loader.component';
     BlogsPageComponent,
     ChoosePphServicePageComponent,
     PphSoftwarePowerfulPageComponent,
-    SitesAvaliablesComponent,
     LoaderComponent,
+    SitesAvaliablesPageComponent,
   ],
   imports: [
     BrowserModule,
