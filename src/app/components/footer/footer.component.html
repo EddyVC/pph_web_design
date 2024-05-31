@@ -1,0 +1,80 @@
+<footer class="page-services">
+  <div class="circle-gradient"></div>
+  <div class="circle-gradient-2"></div>
+
+  <div class="container-footer">
+    <div class="container-footer-top">
+      <div class="title-contact">
+        <div class="title-contact-info">
+          <h2>DROP US</h2>
+          <h3>A LINE</h3>
+        </div>
+      </div>
+
+      <div class="container-info-contact">
+        <div class="location">
+          <h3>Location</h3>
+          <p>{{pageData.location}}</p>
+        </div>
+        <div class="contact">
+          <h3>Contact</h3>
+          <p>{{pageData.email}}</p>
+          <p>{{pageData.phone_number}}</p>
+
+        </div>
+        <div class="trading-house">
+          <h3>Trading House</h3>
+          <p>{{pageData.available}}</p>
+        </div>
+        <div class="talk-us">
+          <h3>Talk Us</h3>
+          <p>Facebook</p>
+          <p>Instagram</p>
+          <p>Twitter</p>
+
+        </div>
+      </div>
+
+      <!-- <div class="contact-empty-field"></div> -->
+
+    </div>
+    <div class="container-footer-buttom">
+      <div class="container-info-logo">
+        <p  class="text-left-justify"> {{InformatioFooterResp.Value}}</p>
+        <div class="container-logo" *ngIf="pageData.logo != ''">
+          <img [src]='pageData.logo' alt="logo">
+        </div>
+        <div class="container-logo" *ngIf="pageData.logo == ''">
+          <a routerLink="/">{{pageData.domain}}</a>
+        </div>
+      </div>
+
+      <div class="container-footer-links">
+        <div class="container-sign-up-footer">
+          <h2>SET UP YOUR BUSINNES TODAY</h2>
+          <button (click)="openModal()" class="footer-btn-sign-up">Sign up now</button>
+        </div>
+        <div class="container-links">
+          <div class="footer-links">
+            <div class="links-info">
+              <a (click)="scrollToTop()" routerLink="/" routerLinkActive="active">Home</a>
+              <a (click)="scrollToTop()" routerLink="/demos" routerLinkActive="active">Demos</a>
+              <a (click)="scrollToTop()" routerLink="/pricing" routerLinkActive="active">Pricing</a>
+            </div>
+            <div class="links-info">
+              <a (click)="scrollToTop()" routerLink="/payment" routerLinkActive="active">Payment Methods</a>
+              <a (click)="scrollToTop()" routerLink="/pphSofware" routerLinkActive="active">PPH Software Reseller</a>
+              <a (click)="scrollToTop()" routerLink="/fees-paid" routerLinkActive="active">Fees Paid</a>
+            </div>
+            <div class="links-info">
+              <a (click)="scrollToTop()" routerLink="/sites-avaliables" routerLinkActive="active">Sites Avaliables</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-copyright">
+        <p>© 2024 .Powered by Best PPH Software: Payperhead.net</p>
+      </div>
+    </div>
+  </div>
+</footer>

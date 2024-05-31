@@ -1,65 +1,71 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { HomePageComponent } from './home-page/home-page.component';
-// import { DemosComponent } from './demos/demos.component';
-import { PricingComponent } from './pricing-page/pricing.component';
-import { ServicesComponent } from './general/services/services.component';
-import { FeaturesComponent } from './general/features/features.component';
-import { gsap } from 'gsap';
-import { CardsComponent } from './general/cards/cards.component';
-import { CarouselModule } from 'ngx-owl-carousel-o';
-import { PaymentMethodsComponent } from './general/payment-methods/payment-methods.component';
-import { HttpClientModule } from '@angular/common/http';
-import { AccountDetailsComponent } from './demo-page/account-Details/account-Details.component';
-import { DemosComponent } from './demo-page/demos.component';
-import { PaymentComponent } from './payment-page/payment.component';
-import { PphSoftwareComponent } from './pphSoftware-page/pphSoftware.component';
-import { EposComponent } from './epos-page/epos.component';
 
+// routes
+import { AppRoutingModule } from './app-routing.module';
+
+// carousel
+import { CarouselModule } from 'ngx-owl-carousel-o';
+
+// videogular
 import { VgCoreModule } from '@videogular/ngx-videogular/core';
 import { VgControlsModule } from '@videogular/ngx-videogular/controls';
-import { VgOverlayPlayModule } from '@videogular/ngx-videogular/overlay-play';
 import { VgBufferingModule } from '@videogular/ngx-videogular/buffering';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { FormsModule } from '@angular/forms';
+import { VgOverlayPlayModule } from '@videogular/ngx-videogular/overlay-play';
+
+// pages
+import { DemosComponent } from './pages/demos/demos.component';
+import { FeesPaidComponent } from './pages/fees-paid/fees-paid.component';
+import { PaymentComponent } from './pages/payment/payment.component';
+import { BlogsPageComponent } from './pages/blogs/blogs.component';
+import { PphSoftwareComponent } from './pages/pph-software/pph-software.component';
+import { SitesAvaliablesPageComponent } from './pages/sites-avaliables/sites-avaliables.component';
+import { ChoosePphServicePageComponent } from './pages/choose-pph-service/choose-pph-service.component';
+import { PphSoftwarePowerfulPageComponent } from './pages/pph-software-powerful/pph-software-powerful.component';
+
+//components
+import { AppComponent } from './app.component';
+import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { CardsComponent } from './components/cards/cards.component';
+import { PricingComponent } from './pages/pricing/pricing.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
 import { FeatureOneComponent } from './features/feature-one/feature-one.component';
 import { FeatureTwoComponent } from './features/feature-two/feature-two.component';
-import { FeatureThreeComponent } from './features/feature-three/feature-three.component';
+import { FeatureSixComponent } from './features/feature-six/feature-six.component';
 import { FeatureFourComponent } from './features/feature-four/feature-four.component';
 import { FeatureFiveComponent } from './features/feature-five/feature-five.component';
-import { FeatureSixComponent } from './features/feature-six/feature-six.component';
+import { OurServicesComponent } from './components/our-services/our-services.component';
+import { OurFeaturesComponent } from './components/our-features/our-features.component';
+import { FeatureThreeComponent } from './features/feature-three/feature-three.component';
 import { FeatureSevenComponent } from './features/feature-seven/feature-seven.component';
 import { FeatureEightComponent } from './features/feature-eight/feature-eight.component';
-import { SvgIconComponent } from './svg-icon/svg-icon.component';
-import { FeesPaidPageComponent } from './fees-paid-page/fees-paid-page.component';
-import { BlogsPageComponent } from './blogs/blogs-page/blogs-page.component';
-import { ChoosePphServicePageComponent } from './blogs/choose-pph-service-page/choose-pph-service-page.component';
-import { PphSoftwarePowerfulPageComponent } from './blogs/pph-software-powerful-page/pph-software-powerful-page.component';
-import { LoaderComponent } from './loader/loader.component';
-import { SitesAvaliablesPageComponent } from './sites-avaliables-page/sites-avaliables-page.component';
+import { PaymentMethodsComponent } from './components/payment-methods/payment-methods.component';
+import { HomeComponent } from './pages/home/home.component';
+import { AccountDetailsComponent } from './components/account-details/account-details.component';
+import { FrequentlyAskedQuestionsComponent } from './components/frequently-asked-questions/frequently-asked-questions.component';
+import { FeaturesComponent } from './pages/features/features.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomePageComponent,
+    HomeComponent,
     DemosComponent,
     PricingComponent,
-    ServicesComponent,
-    FeaturesComponent,
+    OurServicesComponent,
+    OurFeaturesComponent,
     CardsComponent,
     PaymentMethodsComponent,
     AccountDetailsComponent,
     PaymentComponent,
     PphSoftwareComponent,
-    EposComponent,
     SignUpComponent,
     FeatureOneComponent,
     FeatureTwoComponent,
@@ -69,13 +75,14 @@ import { SitesAvaliablesPageComponent } from './sites-avaliables-page/sites-aval
     FeatureSixComponent,
     FeatureSevenComponent,
     FeatureEightComponent,
-    SvgIconComponent,
-    FeesPaidPageComponent,
+    FeesPaidComponent,
     BlogsPageComponent,
     ChoosePphServicePageComponent,
     PphSoftwarePowerfulPageComponent,
     LoaderComponent,
     SitesAvaliablesPageComponent,
+    FrequentlyAskedQuestionsComponent,
+    FeaturesComponent,
   ],
   imports: [
     BrowserModule,

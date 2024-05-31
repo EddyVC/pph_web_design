@@ -1,0 +1,180 @@
+<div class="container__global">
+
+  <div *ngIf="path_route === 'pay-per-head-software'">
+
+    <h2 class="page-title text-center"> {{featureOne.title}} </h2>
+
+    <div class="container-hr-border-titles">
+      <hr class="hr-border-titles">
+    </div>
+
+    <div class="margin-top-1">
+      <h2 class="banner-Price">{{featureOne.price}}</h2>
+    </div>
+
+    <p>{{featureOne.description_0}}</p>
+
+    <div class="margin-top-1">
+      <p>{{featureOne.description_1}}</p>
+    </div>
+
+    <div class="margin-top-2">
+      <a class="tel-features "> {{featureOne.phone_number}} </a>
+    </div>
+
+    <div class="margin-top-1">
+      <button (click)="openModal()" class="btn-click-here ">CLICK HERE TO SIGN UP</button>
+    </div>
+
+  </div>
+
+  <div *ngIf="path_route === 'best-pay-per-head-software'">
+    <h2 class="page-title text-center">{{featureTwo.title}}</h2>
+
+    <div class="container-hr-border-titles">
+      <hr class="hr-border-titles">
+    </div>
+
+    <div class="margin-top-1">
+      <h2 class="banner-Price">{{featureTwo.price}}</h2>
+    </div>
+
+    <p>{{featureTwo.description_0}}</p>
+
+    <div class="margin-top-1">
+      <p>{{featureTwo.description_1}}</p>
+    </div>
+
+    <div class="margin-top-2">
+      <a class="tel-features"> {{featureTwo.phone_number}} </a>
+    </div>
+
+    <div class="margin-top-1">
+      <button (click)="openModal()" class="btn-click-here">CLICK HERE TO SIGN UP</button>
+    </div>
+  </div>
+
+  <div *ngIf="path_route === 'pph-software-for-bookies'">
+    <h2 class="page-title text-center"> {{featureThree.title}} </h2>
+
+    <div class="container-hr-border-titles">
+      <hr class="hr-border-titles">
+    </div>
+
+    <div class="margin-top-1">
+      <h2 class="banner-Price">{{featureThree.price}}</h2>
+    </div>
+
+    <p>{{featureThree.description_0}}</p>
+
+    <div class="margin-top-1">
+      <p>{{featureThree.description_1}}</p>
+    </div>
+
+    <div class="margin-top-2">
+      <a class="tel-features "> {{featureThree.phone_number}} </a>
+    </div>
+
+    <div class="margin-top-1">
+      <button (click)="openModal()" class="btn-click-here ">CLICK HERE TO SIGN UP</button>
+    </div>
+  </div>
+
+  <div *ngIf="path_route === 'payperhead'">
+    <h2 class="page-title text-left-justify pay-per-head-title">{{featureFour.title}}</h2>
+    <p class="text-left-justify">{{featureFour.sub_title}}</p>
+
+    <div class="margin-top-1">
+      <p class="text-left-justify">{{featureFour.description_0}} </p>
+    </div>
+
+    <div class="margin-top-1">
+      <p class="text-left-justify"> {{featureFour.description_1}} </p>
+    </div>
+
+    <div class="margin-top-1">
+      <p class="text-left-justify"> {{featureFour.description_2}} </p>
+    </div>
+  </div>
+
+  <div *ngIf="path_route === 'pph-software-for-sportsbooks'">
+    <h2 class="page-title text-left">{{featureFive.title}}</h2>
+
+    <p class="text-left-justify">{{featureFive.description_0}}.</p>
+
+    <div class="margin-top-1">
+      <p class="text-left-justify">{{featureFive.description_1}}</p>
+    </div>
+
+    <app-frequently-asked-questions></app-frequently-asked-questions>
+
+    <div class="margin-top-2">
+      <h2 class="banner-Price">{{featureFive.price}}</h2>
+    </div>
+
+    <div>
+      <button (click)="openModal()" class="btn-click-here">CLICK HERE TO SIGN UP</button>
+    </div>
+  </div>
+
+  <div *ngIf="path_route === 'pph-sportsbook-software'">
+    <h2 class="page-title text-center">{{featureSix.title}}</h2>
+
+    <div class="container-hr-border-titles">
+      <hr class="hr-border-titles">
+    </div>
+
+    <div class="margin-top-1">
+      <h2 class="banner-Price">{{featureSix.price}}</h2>
+    </div>
+
+    <p>{{featureSix.description_0}}</p>
+
+    <div class="margin-top-1">
+      <p>{{featureSix.description_1}}</p>
+    </div>
+
+    <div class="margin-top-2">
+      <a class="tel-features"> {{featureSix.phone_number}} </a>
+    </div>
+
+    <div class="margin-top-1">
+      <button (click)="openModal()" class="btn-click-here">CLICK HERE TO SIGN UP</button>
+    </div>
+  </div>
+
+  <div *ngIf="path_route === 'best-pph-sportsbook-&-bookie-software-premiere-pay-per-head'">
+    <h2 class="page-title text-center">{{featureSeven.title_1}}</h2>
+
+    <h2 class="page-title text-center">{{featureSeven.title_2}}</h2>
+
+    <div class="margin-top-1">{{featureSeven.description_0}}</div>
+
+    <div class="margin-top-2">
+      <p class="text-left-justify">{{featureSeven.description_1}}</p>
+    </div>
+
+    <div class="margin-top-1">
+      <ul class="list-features text-left-justify">
+        <li *ngFor="let item of featureSeven.list"> {{item}} </li>
+      </ul>
+    </div>
+
+    <div class="margin-top-1 text-left-justify">
+      <p>{{featureSeven.description_2}}</p>
+    </div>
+  </div>
+
+  <div *ngIf="path_route==='software-for-sportsbook'">
+    <h3 class="page-title text-left">{{featureEight.title_1}}</h3>
+    <p class="text-left-justify">{{featureEight.description_0}}</p>
+
+    <div class="margin-top-2">
+      <h2 class="page-title text-left">{{featureEight.title_2}}</h2>
+      <p class="text-left-justify">  {{featureEight.description_1}}  </p>
+    </div>
+
+    <app-frequently-asked-questions></app-frequently-asked-questions>
+  </div>
+
+</div>

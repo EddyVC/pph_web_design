@@ -1,0 +1,136 @@
+<header class="header-desktop" [ngClass]="{'opaque-header': isOpaque, 'transparent-header': !isOpaque}">
+  <div class="left-header">
+    <a (click)="scrollToTop()" routerLink="/" routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a (click)="scrollToTop()" routerLink="/demos" routerLinkActive="active">Demos</a>
+    <a (click)="scrollToTop()" routerLink="/pricing" routerLinkActive="active">Pricing</a>
+    <a (click)="scrollToTop()" routerLink="/payment" routerLinkActive="active">Payment Methods</a>
+    <a (click)="scrollToTop()" routerLink="/pphSofware" routerLinkActive="active">PPH Software Reseller</a>
+
+    <div (mouseleave)="openCloseFeatureMenu()">
+      <!-- item-menu  -->
+      <a [ngClass]="{'active-path-menu': isFeatureMenuActive() }" class="item-menu"
+        (mouseenter)="openCloseFeatureMenu()">
+        <span>Features&ensp;</span>
+        <i *ngIf="isFeaturesOpen" class="fa-solid fa-chevron-up"></i>
+        <i *ngIf="!isFeaturesOpen" class="fa-solid fa-chevron-down"></i>
+       </a>
+      <!-- item-sub-menu  -->
+      <ul *ngIf="isFeaturesOpen" class="ul-sub-menu-desktop">
+        <li [ngClass]="{'active-path-menu': isSubMenuSelected(item.path) }" class="li-sub-menu-desktop"
+          *ngFor="let item of featruresSubMenu" (click)="navigationSubMenu(item.path)">
+          {{item.name}}
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="center-header">
+    <a href="#">{{domain}}</a>
+  </div>
+
+  <div class="right-header">
+    <a (click)="scrollToTop()" routerLink="/fees-paid" routerLinkActive="active">Fees Paid</a>
+
+    <div (mouseleave)="openCloseBlogsMenu()">
+      <!-- item-menu  -->
+      <a [ngClass]="{'active-path-menu': isBlogsMenuActive() }" class="item-menu" (mouseenter)="openCloseBlogsMenu()">
+        <span>Blogs&ensp;</span>
+        <i *ngIf="isBlogsOpen" class="fa-solid fa-chevron-up"></i>
+        <i *ngIf="!isBlogsOpen" class="fa-solid fa-chevron-down"></i>
+      </a>
+      <!-- item-sub-menu  -->
+      <ul *ngIf="isBlogsOpen" class="ul-sub-menu-desktop">
+        <li [ngClass]="{'active-path-menu': isSubMenuSelected(item.path) }" class="li-sub-menu-desktop"
+          *ngFor="let item of blogsSubMenu" (click)="navigationSubMenu(item.path)">
+          {{item.name}}
+        </li>
+      </ul>
+    </div>
+
+    <a (click)="scrollToTop()" routerLink="/sites-avaliables" routerLinkActive="active">Sites Avaliables</a>
+    <a (click)="scrollToTop()" href="https://epos.ibet.ag/" target="_blank">Epos</a>
+    <a (click)="scrollToTop()" href="https://ibet.ag/" target="_blank">Player Login</a>
+    <a (click)="scrollToTop()" href="https://redfigures.ag/" target="_blank">Agents Login</a>
+    <button (click)="openModal()" class="btn__signUp">Sign Up</button>
+  </div>
+</header>
+
+<header class="header-mobile" [ngClass]="{'opaque-header': isOpaque, 'transparent-header': !isOpaque}">
+  <div class="left-header">
+    <div class="left-header">
+      <button class="fas fa-bars fa-2x" (click)="toggleSidebar()"></button>
+    </div>
+  </div>
+
+  <div class="center-header">
+    <a routerLink="/">Payperhead.net</a>
+  </div>
+
+  <div class="right-header">
+    <button class="fas fa-ellipsis-vertical fa-2x" (click)="toggleMoreInfo()"></button>
+  </div>
+
+</header>
+
+<div class="more-info-header" [ngClass]="{'closed-more': !isMoreInfoOpen}">
+  <a href="tel:+1-855 296-9171" class="TagMenu"><i class="fa fa-mobile" aria-hidden="true"></i> +1-855
+    296-9171</a>
+  <a href="mailto:cs@redfigures.ag" class="TagMenu"><i class="fa fa-envelope" aria-hidden="true"></i>
+    csredfigures.ag</a>
+  <a href="https://goo.gl/maps/7snErmvbfFzYEPdj9" class="TagMenu"><i class="fa fa-map-marker" aria-hidden="true"></i>
+    Costa Rica</a>
+</div>
+
+<div class="overlay" [ngClass]="{'visible': isSidebarOpen}" (click)="toggleSidebar()"></div>
+<div class="sidebar" [ngClass]="{'closed': !isSidebarOpen}">
+  <div class="nav-mobile">
+    <a (click)="scrollToTop()" routerLink="/" routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a (click)="scrollToTop()" routerLink="/demos" routerLinkActive="active">Demos</a>
+    <a (click)="scrollToTop()" routerLink="/pricing" routerLinkActive="active">Pricing</a>
+    <a (click)="scrollToTop()" routerLink="/payment" routerLinkActive="active">Payment Methods</a>
+    <a (click)="scrollToTop()" routerLink="/pphSofware" routerLinkActive="active">PPH Software Reseller</a>
+
+    <div (click)="openCloseFeatureMenu()">
+      <!-- item-menu  -->
+      <a [ngClass]="{'active-path-menu': isFeatureMenuActive() }" class="item-menu">
+        <span>Features&ensp;</span>
+        <i *ngIf="isFeaturesOpen" class="fa-solid fa-chevron-up"></i>
+        <i *ngIf="!isFeaturesOpen" class="fa-solid fa-chevron-down"></i>
+        </a>
+      <!-- item-sub-menu  -->
+      <ul *ngIf="isFeaturesOpen" class="ul-sub-menu-mobile">
+        <li [ngClass]="{'active-path-menu': isSubMenuSelected(item.path) }" class="li-sub-menu-mobile"
+          *ngFor="let item of featruresSubMenu" (click)="navigationSubMenu(item.path)">
+          {{item.name}}
+        </li>
+      </ul>
+    </div>
+
+    <a (click)="scrollToTop()" routerLink="/fees-paid" routerLinkActive="active">Fees Paid</a>
+
+    <div (click)="openCloseBlogsMenu()">
+      <!-- item-menu  -->
+      <a [ngClass]="{'active-path-menu': isBlogsMenuActive() }" class="item-menu">
+        <span>Blogs&ensp;</span>
+        <i *ngIf="isFeaturesOpen" class="fa-solid fa-chevron-up"></i>
+        <i *ngIf="!isFeaturesOpen" class="fa-solid fa-chevron-down"></i>
+        </a>
+      <!-- item-sub-menu  -->
+      <ul *ngIf="isBlogsOpen" class="ul-sub-menu-mobile">
+        <li [ngClass]="{'active-path-menu': isSubMenuSelected(item.path) }" class="li-sub-menu-mobile"
+          *ngFor="let item of blogsSubMenu" (click)="navigationSubMenu(item.path)">
+          {{item.name}}
+        </li>
+      </ul>
+    </div>
+
+    <a (click)="scrollToTop()" routerLink="/sites-avaliables" routerLinkActive="active">Sites Avaliables</a>
+    <a (click)="scrollToTop()" href="https://epos.ibet.ag/" target="_blank">Epos</a>
+    <a (click)="scrollToTop()" href="#">Player Login</a>
+    <a (click)="scrollToTop()" href="#">Agents Login</a>
+    <button (click)="openModal()" class="btn__signUp">Sign Up</button>
+  </div>
+</div>

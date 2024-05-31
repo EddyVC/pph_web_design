@@ -1,0 +1,13 @@
+<div class="margin-top-2">
+  <h3 class="page-title text-left frequently-questions-title-feature">{{frequentlyQuestions.title}}</h3>
+</div>
+
+<div *ngFor="let item of frequentlyQuestions.frequently_questions" class="margin-top-1">
+
+  <div class="container-icon-question-features">
+    <i class="fa-solid fa-laptop"></i><strong>&ensp;{{item.question}}</strong>
+  </div>
+
+  <p class="text-left-justify">{{item.description}}</p>
+
+</div>
