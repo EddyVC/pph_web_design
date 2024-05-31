@@ -29,24 +29,16 @@ import { PphSoftwarePowerfulPageComponent } from './pages/pph-software-powerful/
 
 //components
 import { AppComponent } from './app.component';
+import { HomeComponent } from './pages/home/home.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { PricingComponent } from './pages/pricing/pricing.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
-import { FeatureOneComponent } from './features/feature-one/feature-one.component';
-import { FeatureTwoComponent } from './features/feature-two/feature-two.component';
-import { FeatureSixComponent } from './features/feature-six/feature-six.component';
-import { FeatureFourComponent } from './features/feature-four/feature-four.component';
-import { FeatureFiveComponent } from './features/feature-five/feature-five.component';
 import { OurServicesComponent } from './components/our-services/our-services.component';
 import { OurFeaturesComponent } from './components/our-features/our-features.component';
-import { FeatureThreeComponent } from './features/feature-three/feature-three.component';
-import { FeatureSevenComponent } from './features/feature-seven/feature-seven.component';
-import { FeatureEightComponent } from './features/feature-eight/feature-eight.component';
 import { PaymentMethodsComponent } from './components/payment-methods/payment-methods.component';
-import { HomeComponent } from './pages/home/home.component';
 import { AccountDetailsComponent } from './components/account-details/account-details.component';
 import { FrequentlyAskedQuestionsComponent } from './components/frequently-asked-questions/frequently-asked-questions.component';
 import { FeaturesComponent } from './pages/features/features.component';
@@ -67,14 +59,6 @@ import { FeaturesComponent } from './pages/features/features.component';
     PaymentComponent,
     PphSoftwareComponent,
     SignUpComponent,
-    FeatureOneComponent,
-    FeatureTwoComponent,
-    FeatureThreeComponent,
-    FeatureFourComponent,
-    FeatureFiveComponent,
-    FeatureSixComponent,
-    FeatureSevenComponent,
-    FeatureEightComponent,
     FeesPaidComponent,
     BlogsPageComponent,
     ChoosePphServicePageComponent,
