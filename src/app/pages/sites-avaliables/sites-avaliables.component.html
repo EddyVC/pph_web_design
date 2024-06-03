@@ -1,6 +1,6 @@
 <div class="container__global">
 
-  <h2 class="page-title title">PAY PER HEAD SOFTWARE</h2>
+  <h2 class="page-title title">PAY PER HEAD SOFTWARE {{loader}} </h2>
   <br>
   <p class="text-left-justify">List of sites available (select ones to show the site below)</p>
 
@@ -23,6 +23,12 @@
 
   </div>
 
-  <iframe [src]="urlZanitazer" allowfullscreen></iframe>
+  <div *ngIf="!loader" style="height: 600px">
+    <iframe [hidden]="loader" [src]="urlZanitazer" allowfullscreen></iframe>
+  </div>
+
+  <div *ngIf="loader" style="padding-top: 5rem;height: 600px">
+    <app-loader [showLoader]="loader" [isGlobal]="false"></app-loader>
+  </div>
 
 </div>

@@ -1,7 +1,13 @@
 import { Component, HostListener } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { SITES_AVALIABLES } from '../../global/sites-avaliables.global';
+
+//models
 import { Site } from '../../models/pages-data.model';
+import { RespInformation } from '../../models/Info.models';
+
+//services
+import { ApiService } from '../../services/api.service';
+import { LoaderService } from '../../services/loader.service';
 
 @Component({
   selector: 'app-sites-avaliables',
@@ -15,39 +21,71 @@ export class SitesAvaliablesPageComponent {
 
   searchSite: string = '';
   siteSelected: string = '';
+
+  loader: boolean = false;
   showDropdown: boolean = false;
 
   urlZanitazer: SafeResourceUrl;
 
-  constructor(public sanitizer: DomSanitizer) {
-    this.sortSites = [...SITES_AVALIABLES].sort(this.orderSites); //sitios ordenados de 0-9 y a-z
-    this.sites = this.sortSites;
+  constructor(public sanitizer: DomSanitizer, private infoService: ApiService, private loaderService: LoaderService) {
 
-    this.siteSelected = this.sites[0].name;
-    this.urlZanitazer = this.sanitizer.bypassSecurityTrustResourceUrl(this.sites[0].path);
+    this.urlZanitazer = this.sanitizer.bypassSecurityTrustResourceUrl('https://ibet.ag/');
+    this.loaderService.showLoader(true);
+    this.loadInformation();
+
+  }
+
+  async loadInformation() {
+    await this.infoService.getInformation('GENERAL', 'sites-avaliables')
+      .subscribe((response: RespInformation[]) => {
+
+        if (response.length > 0) {
+
+          response.map((response: RespInformation) => {
+            const siteTemp = new Site();
+            siteTemp.name = response.Title;
+            siteTemp.path = response.Value;
+            siteTemp.enable = response.detail === 'true';
+
+            this.sites.push(siteTemp);
+          })
+
+          // se ordena de 0-9 y a-z y se filtran los sitios activos
+          this.sites = this.sites.sort(this.orderSites).filter(site => site.enable === true);
+
+          this.sortSites = this.sites;
+
+          let defaultSite = this.sites[0];
+          this.siteSelected = defaultSite.name;
+          this.urlZanitazer = this.sanitizer.bypassSecurityTrustResourceUrl(defaultSite.path);
+
+          this.loaderService.showLoader(false);
+        }
+
+      })
+
+    this.showLoader();
   }
 
   getSite(site: Site) {
+    this.loader = true;
     this.sites = this.sortSites;
     this.searchSite = '';
     this.toggleDropdown();
     this.siteSelected = site.name;
     this.urlZanitazer = this.sanitizer.bypassSecurityTrustResourceUrl(site.path);
+    this.showLoader();
   }
 
   toggleDropdown() {
     this.showDropdown = !this.showDropdown;
   }
 
+  // entra al buscar un sitio
   filterSites() {
     this.searchSite = this.searchSite.toLowerCase();
     let term = this.searchSite;
-    var objetosEncontrados = this.sortSites.filter(function (objeto) {
-      return objeto.name.includes(term);
-    });
-
-    this.sites = objetosEncontrados;
-
+    this.sites = this.sortSites.filter((site: Site) => site.name.includes(term));
   }
 
   // Función para manejar el clic fuera del dropdown
@@ -94,6 +132,12 @@ export class SitesAvaliablesPageComponent {
       return 1;
     }
 
+  }
+
+  showLoader() {
+    setTimeout(() => {
+      this.loader = false;
+    }, 800);
   }
 
 

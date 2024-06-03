@@ -8,5 +8,6 @@ import { Component, Input } from '@angular/core';
 export class LoaderComponent {
 
   @Input() showLoader: boolean = false;
+  @Input() isGlobal: boolean = true;
 
 }

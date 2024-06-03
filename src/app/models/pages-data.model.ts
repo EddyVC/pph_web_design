@@ -131,4 +131,5 @@ export class FrequentlyQuestions {
 export class Site {
   name: string = '';
   path: string = '';
+  enable: boolean = true;
 }
