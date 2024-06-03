@@ -22,7 +22,7 @@ export class HeaderComponent {
   domain: string = window.location.hostname;
 
   blogsSubMenu: { name: string; path: string; dataExtra: boolean }[] = [];
-  featruresSubMenu: { name: string; path: string }[] = [];
+  featuresSubMenu: { name: string; path: string }[] = [];
 
   constructor(
     public appComponent: AppComponent,
@@ -30,7 +30,7 @@ export class HeaderComponent {
     public location: Location
   ) {
     this.blogsSubMenu = SUBMENUBLOG;
-    this.featruresSubMenu = SUBMENUFEARTUES;
+    this.featuresSubMenu = SUBMENUFEARTUES;
   }
 
   toggleSidebar() {
@@ -90,11 +90,11 @@ export class HeaderComponent {
 
   // start feature
   isFeatureMenuActive() {
-    return this.getMenuActive(this.featruresSubMenu);
+    return this.getMenuActive(this.featuresSubMenu);
   }
 
   isFeaturePath() {
-    if (this.getMenuActive(this.featruresSubMenu) && window.innerWidth < 769)
+    if (this.getMenuActive(this.featuresSubMenu) && window.innerWidth < 769)
       this.isFeaturesOpen = true;
   }
 

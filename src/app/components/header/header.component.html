@@ -18,7 +18,7 @@
       <!-- item-sub-menu  -->
       <ul *ngIf="isFeaturesOpen" class="ul-sub-menu-desktop">
         <li [ngClass]="{'active-path-menu': isSubMenuSelected(item.path) }" class="li-sub-menu-desktop"
-          *ngFor="let item of featruresSubMenu" (click)="navigationSubMenu(item.path)">
+          *ngFor="let item of featuresSubMenu" (click)="navigationSubMenu(item.path)">
           {{item.name}}
         </li>
       </ul>
@@ -103,7 +103,7 @@
       <!-- item-sub-menu  -->
       <ul *ngIf="isFeaturesOpen" class="ul-sub-menu-mobile">
         <li [ngClass]="{'active-path-menu': isSubMenuSelected(item.path) }" class="li-sub-menu-mobile"
-          *ngFor="let item of featruresSubMenu" (click)="navigationSubMenu(item.path)">
+          *ngFor="let item of featuresSubMenu" (click)="navigationSubMenu(item.path)">
           {{item.name}}
         </li>
       </ul>
