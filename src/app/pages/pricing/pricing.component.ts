@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+// models
+import { RespInformation } from '../../models/Info.models';
+
 // services
 import { ApiService } from '../../services/api.service';
 import { LoaderService } from '../../services/loader.service';
@@ -11,26 +14,26 @@ import { LoaderService } from '../../services/loader.service';
 })
 export class PricingComponent {
 
-  InformationPrice : string= '';
+  InformationPrice: string = '';
 
   constructor(private infoService: ApiService, private loaderService: LoaderService) {
     this.loaderService.showLoader(true);
   }
 
-  async ngOnInit() {
-   await this.loadInformationPrice()
-    this.loaderService.showLoader(false);
+  ngOnInit() {
+    this.loadInformationPrice();
   }
-
-
 
   async loadInformationPrice() {
-    const data = await this.infoService.getInformation('GENERAL','price').toPromise();
+    await this.infoService.getInformation('GENERAL', 'price')
+      .subscribe((response: RespInformation[]) => {
+        if (response.length > 0) {
 
-    if (Array.isArray(data)) {
-      this.InformationPrice = data[0].Value;
-    } else {
-      // Manejar el caso en el que data no es un array
-    }
+          this.InformationPrice = response[0].Value;
+          this.loaderService.showLoader(false);
+
+        }
+      })
   }
+
 }

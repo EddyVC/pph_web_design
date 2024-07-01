@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 // models
 import { RespInformation } from '../../models/Info.models';
-import { PPHSoftwarePowefulPageData } from '../../models/pages-data.model';
+import { PPHSoftwarePowefulPageData } from '../../models/data.model';
 
 //services
 import { ApiService } from '../../services/api.service';

@@ -1,10 +1,15 @@
 import { Component, HostListener } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+
+// global
 import { SUBMENUBLOG, SUBMENUFEARTUES } from '../../global/header.global';
 
 // components
 import { AppComponent } from '../../app.component';
+
+// models
+import { SubMenuHeader } from '../../models/data.model';
 
 @Component({
   selector: 'app-header',
@@ -21,8 +26,8 @@ export class HeaderComponent {
   isFeaturesOpen: boolean = false;
   domain: string = window.location.hostname;
 
-  blogsSubMenu: { name: string; path: string; dataExtra: boolean }[] = [];
-  featuresSubMenu: { name: string; path: string }[] = [];
+  blogsSubMenu: SubMenuHeader[] = [];
+  featuresSubMenu: SubMenuHeader[] = [];
 
   constructor(
     public appComponent: AppComponent,

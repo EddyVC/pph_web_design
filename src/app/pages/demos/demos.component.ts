@@ -1,4 +1,3 @@
-import { CAROUSEL_OPTIONS_DEMO } from '../../global/banners.global';
 import { Component } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
@@ -10,6 +9,9 @@ import { AuthenticationDto, LoginUserDto, PlayerDto } from '../../models/Login.m
 import { LoaderService } from '../../services/loader.service';
 import { ApiService } from '../../services/api.service';
 import { BANNER_DEMOS } from '../../global/banners.global';
+
+// global
+import { CAROUSEL_OPTIONS_DEMO } from '../../global/banners.global';
 
 @Component({
   selector: 'app-demos',
@@ -53,6 +55,77 @@ export class DemosComponent {
         const playerdata: PlayerDto = data;
         this.encryptPlayer = this.base64Encode(playerdata.IdPlayer + "|" + playerdata.IdCall);
       });
+  }
+
+  loginAgentSite() {
+    // URL a la que se enviará el formulario
+    const url = 'https://agents.redfigures.ag/Default.aspx';
+
+    // Datos del formulario
+    const formData = new FormData();
+    formData.append('Account', 'uagent');
+    formData.append('Password', 'test123');
+
+    // Configuración del fetch
+    const opcionesFetch = {
+      method: 'POST',
+      body: formData,
+    };
+
+    // Realizar la solicitud POST
+    fetch(url, opcionesFetch)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Ocurrió un problema al enviar el formulario.');
+        }
+        return response.text();
+      })
+      .then(data => {
+        console.log('Respuesta del servidor:', data);
+        // Aquí puedes manejar la respuesta del servidor si es necesario
+      })
+      .catch(error => {
+        console.error('Error al enviar el formulario:', error);
+        // Aquí puedes manejar errores o mostrar un mensaje al usuario
+      });
+  }
+
+  loginPlayerSite(version: string) {
+
+    let urlLogin = '';
+    const formData = new FormData();
+    formData.append('Account', 'uagent');
+    formData.append('Password', 'test123');
+
+    const opcionesFetch = {
+      method: 'POST',
+      body: formData,
+    };
+
+    if (version === 'mobile') {
+      urlLogin = 'https://mobile.ibet.ag/Login.aspx';
+    }
+    if (version === 'desktop') {
+      urlLogin = 'https://wager.ibet.ag/Login.aspx';
+    }
+
+    // Realizar la solicitud POST
+    fetch(urlLogin, opcionesFetch)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Ocurrió un problema al enviar el formulario.');
+        }
+        return response.text();
+      })
+      .then(data => {
+        console.log('Respuesta del servidor:', data);
+        // Aquí puedes manejar la respuesta del servidor si es necesario
+      })
+      .catch(error => {
+        console.error('Error al enviar el formulario:', error);
+        // Aquí puedes manejar errores o mostrar un mensaje al usuario
+      });
+
   }
 
 }

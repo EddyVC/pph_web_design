@@ -2,7 +2,7 @@ import { Component, HostListener } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 //models
-import { Site } from '../../models/pages-data.model';
+import { Site } from '../../models/data.model';
 import { RespInformation } from '../../models/Info.models';
 
 //services

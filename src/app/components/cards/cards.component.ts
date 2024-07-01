@@ -6,6 +6,7 @@ import { RespInformation } from '../../models/Info.models';
 
 // services
 import { ApiService } from '../../services/api.service';
+import { CARDS_OPTIONS } from '../../global/banners.global';
 
 @Component({
   selector: 'app-cards',
@@ -14,20 +15,22 @@ import { ApiService } from '../../services/api.service';
 })
 export class CardsComponent {
 
-  domain: string = ''
+  price: string = '';
+  domain: string = window.location.hostname;;
   InformationResp: RespInformation[] = [];
+  customOptions: OwlOptions = CARDS_OPTIONS;
 
-  constructor(private infoService: ApiService) { }
+  constructor(private infoService: ApiService) {}
 
   ngOnInit(): void {
-    this.loadInformation()
-    this.domain = window.location.hostname;
+    this.loadInformation();
   }
 
   async loadInformation() {
     const data = await this.infoService.getInformation('GENERAL', 'cards').toPromise();
 
     if (Array.isArray(data)) {
+      this.price = await this.loadInformationPrice();
       this.InformationResp = data;
       this.replaceTextInInformation();
     } else {
@@ -39,33 +42,22 @@ export class CardsComponent {
     this.InformationResp.forEach(item => {
       if (item && item.Value) {
         item.Value = item.Value.replace(/\[ddd\]/g, this.domain);
+        item.Value = item.Value.replace(/\$5/g, this.price);
       }
     });
   }
 
-  customOptions: OwlOptions = {
-    loop: true,
-    mouseDrag: true,
-    touchDrag: true,
-    pullDrag: false,
-    dots: false,
-    navSpeed: 700,
-    navText: ['', ''],
-    responsive: {
-      0: {
-        items: 1
-      },
-      740: {
-        items: 2
-      },
-      940: {
-        items: 3
-      },
-      1024: {
-        items: 4
-      }
-    },
-    nav: false
+  async loadInformationPrice() {
+    let price: string = '';
+    await this.infoService.getInformation('GENERAL', 'price').toPromise()
+      .then((response: any) => {
+
+        if (response.length > 0)
+          price = response[0].Value;
+
+      })
+    return price;
   }
+
 
 }

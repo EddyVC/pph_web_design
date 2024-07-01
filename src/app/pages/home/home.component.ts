@@ -25,8 +25,8 @@ import { AppComponent } from '../../app.component';
 export class HomeComponent {
 
   video: string = '';
+  price: string = '';
   domain: string = '';
-  InformationPrice: string = '';
 
   DesignResp: RespInformation = new RespInformation();
   InformationResp: RespInformation = new RespInformation();
@@ -51,12 +51,10 @@ export class HomeComponent {
   }
 
   ngOnInit(): void {
-
     this.loadPageDesign();
     this.loadInformation();
-    this.loadInformationPrice();
-
     this.loaderService.showLoader(false);
+
   }
 
   ngAfterViewInit() {
@@ -90,25 +88,28 @@ export class HomeComponent {
 
   async loadInformation() {
     await this.infoService.getInformation('GENERAL', 'home')
-      .subscribe((response: RespInformation[]) => {
+      .subscribe(async (response: RespInformation[]) => {
 
         if (response.length > 0) {
           this.InformationResp = response[0];
-          this.InformationResp.Value = this.InformationResp.Value.replace(/\[ddd\]/g, this.domain)
+          this.price = await this.loadInformationPrice();
+          this.InformationResp.Value = this.InformationResp.Value.replace(/\$5/g, this.price);
+          this.InformationResp.Value = this.InformationResp.Value.replace(/\[ddd\]/g, this.domain);
         }
 
       })
   }
 
-
   async loadInformationPrice() {
-    await this.infoService.getInformation('GENERAL', 'price')
-      .subscribe((response: RespInformation[]) => {
+    let price: string = '';
+    await this.infoService.getInformation('GENERAL', 'price').toPromise()
+      .then((response: any) => {
 
         if (response.length > 0)
-          this.InformationPrice = response[0].Value;
+          price = response[0].Value;
 
       })
+    return price;
   }
 
   openModal() {

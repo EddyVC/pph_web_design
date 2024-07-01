@@ -6,11 +6,13 @@ export class FooterPageData {
   phone_number: string = '';
   available: string = '';
   domain: string = '';
+  description: string = '';
 }
 
 export class BlogsPageData {
   path: string = '';
   title: string = '';
+  price: string = '';
   sub_title_1: string = '';
   sub_title_2: string = '';
   description_0: string = '';
@@ -38,7 +40,6 @@ export class ChoosePPHServicePageData {
   description_4: string = '';
   list: Array<string> = [];
 }
-
 
 export class PPHSoftwarePowefulPageData {
   title: string = '';
@@ -118,11 +119,11 @@ export class FeatureEightPageData {
   description_1: string = '';
 }
 
-
 export class Questions {
   question: string = '';
   description: string = ''
 }
+
 export class FrequentlyQuestions {
   title: string = '';
   frequently_questions: Array<Questions> = [];
@@ -132,4 +133,16 @@ export class Site {
   name: string = '';
   path: string = '';
   enable: boolean = true;
+}
+
+export class SubMenuHeader {
+  name: string = '';
+  path: string = '';
+  dataExtra?: boolean = false
+}
+
+export class PPHSoftwarePageData {
+  price: string = '';
+  title: string = '';
+  description: string = '';
 }

@@ -112,3 +112,28 @@ export const CAROUSEL_OPTIONS_PPHSOFTWARE = {
   },
   nav: false
 }
+
+export const CARDS_OPTIONS = {
+  loop: true,
+  mouseDrag: true,
+  touchDrag: true,
+  pullDrag: false,
+  dots: false,
+  navSpeed: 700,
+  navText: ['', ''],
+  responsive: {
+    0: {
+      items: 1
+    },
+    740: {
+      items: 2
+    },
+    940: {
+      items: 3
+    },
+    1024: {
+      items: 4
+    }
+  },
+  nav: false
+}

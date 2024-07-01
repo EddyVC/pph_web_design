@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { Location } from '@angular/common';
+
+// global
 import { SUBMENUBLOG } from '../../global/header.global';
 
 //models
+import { BlogsPageData } from '../../models/data.model';
 import { RespInformation } from '../../models/Info.models';
-import { BlogsPageData } from '../../models/pages-data.model';
 
 // services
 import { ApiService } from '../../services/api.service';
@@ -29,17 +31,13 @@ export class BlogsPageComponent {
   }
 
   ngOnInit(): void {
-
-    this.loadInformation();
-
+    window.scrollTo(0, 0);
     const locationPath = this.location.path().replace(/\//g, '');
     const blog = SUBMENUBLOG.filter(blog => blog.path === locationPath)[0];
     this.pageData.path = blog.path;
     this.pageData.title = blog.name;
     this.pageData.dataExtra = blog.dataExtra;
-    window.scrollTo(0, 0);
-
-    this.loaderService.showLoader(false);
+    this.loadInformation();
   }
 
   isLongTitle() {
@@ -51,7 +49,7 @@ export class BlogsPageComponent {
 
   async loadInformation() {
     await this.infoService.getInformation('GENERAL', 'blog-description')
-      .subscribe((response: RespInformation[]) => {
+      .subscribe(async (response: RespInformation[]) => {
 
         if (response.length > 0) {
           this.pageData.description_0 = response[0].Value;
@@ -63,14 +61,30 @@ export class BlogsPageComponent {
           this.pageData.description_6 = response[6].Value;
           this.pageData.description_7 = response[7].Value;
           this.pageData.description_8 = response[8].Value;
-          this.pageData.description_9 = response[9].Value;
           this.pageData.description_10 = response[10].Value;
           this.pageData.description_11 = response[11].Value;
           this.pageData.description_11 = response[12].Value;
+
+          this.pageData.price = await this.loadInformationPrice();
+          this.pageData.description_9 = response[9].Value.replace(/\$5/, this.pageData.price);
+
+          this.loaderService.showLoader(false);
         }
 
 
       })
+  }
+
+  async loadInformationPrice() {
+    let price: string = '';
+    await this.infoService.getInformation('GENERAL', 'price').toPromise()
+      .then((response: any) => {
+
+        if (response.length > 0)
+          price = response[0].Value;
+
+      })
+    return price;
   }
 
 }

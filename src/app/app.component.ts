@@ -20,11 +20,10 @@ export class AppComponent {
   DesignResp: RespInformation[] = [];
   domain: string = window.location.hostname;
 
-  constructor(private infoService: ApiService, private loaderService: LoaderService) {
-    this.getLoader();
-  }
+  constructor(private infoService: ApiService, private loaderService: LoaderService) { }
 
   ngOnInit(): void {
+    this.getLoader();
     this.loadPageDesign();
   }
 

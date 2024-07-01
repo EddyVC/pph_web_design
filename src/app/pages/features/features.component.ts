@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FeatureEightPageData, FeatureFivePageData, FeatureFourPageData, FeatureOnePageData, FeatureSevenPageData, FeatureSixPageData, FeatureThreePageData, FeatureTwoPageData, FrequentlyQuestions } from '../../models/pages-data.model';
+import { FeatureEightPageData, FeatureFivePageData, FeatureFourPageData, FeatureOnePageData, FeatureSevenPageData, FeatureSixPageData, FeatureThreePageData, FeatureTwoPageData, FrequentlyQuestions } from '../../models/data.model';
 import { AppComponent } from '../../app.component';
 import { ApiService } from '../../services/api.service';
 import { LoaderService } from '../../services/loader.service';
@@ -14,13 +14,14 @@ import { Router } from '@angular/router';
 export class FeaturesComponent {
 
   path_route: string = '';
+
   featureOne: FeatureOnePageData = new FeatureOnePageData();
   featureTwo: FeatureTwoPageData = new FeatureTwoPageData();
   featureThree: FeatureThreePageData = new FeatureThreePageData();
-  featureFour:FeatureFourPageData = new FeatureFourPageData();
+  featureFour: FeatureFourPageData = new FeatureFourPageData();
   featureFive: FeatureFivePageData = new FeatureFivePageData();
   featureSix: FeatureSixPageData = new FeatureSixPageData();
-  featureSeven: FeatureSevenPageData= new FeatureSevenPageData();
+  featureSeven: FeatureSevenPageData = new FeatureSevenPageData();
   featureEight: FeatureEightPageData = new FeatureEightPageData();
   frequentlyQuestions: FrequentlyQuestions = new FrequentlyQuestions();
 
@@ -41,18 +42,6 @@ export class FeaturesComponent {
   openModal() {
     this.appComponent.showModal = true;
     this.appComponent.activeScroll(true);
-  }
-
-  async loadInformationPrice() {
-    let price: string = '';
-    await this.infoService.getInformation('GENERAL', 'price').toPromise()
-      .then((response: any) => {
-
-        if (response.length > 0)
-          price = response[0].Value;
-
-      })
-    return price;
   }
 
   async loadInformationContact() {
@@ -100,8 +89,6 @@ export class FeaturesComponent {
 
             this.featureOne.price = await this.loadInformationPrice();
             this.featureOne.phone_number = await this.loadInformationContact();
-
-            this.loaderService.showLoader(false);
           }
 
         })
@@ -118,121 +105,121 @@ export class FeaturesComponent {
 
             this.featureTwo.price = await this.loadInformationPrice();
             this.featureTwo.phone_number = await this.loadInformationContact();
-
-            this.loaderService.showLoader(false);
           }
 
         })
     }
 
-    if(this.path_route === 'pph-software-for-bookies'){
+    if (this.path_route === 'pph-software-for-bookies') {
       await this.infoService.getInformation('GENERAL', 'pph-software-for-bookies')
-      .subscribe(async (response: RespInformation[]) => {
+        .subscribe(async (response: RespInformation[]) => {
 
-        if (response.length > 0) {
-          this.featureThree.title = response[0].Value;
-          this.featureThree.description_0 = response[1].Value;
-          this.featureThree.description_1 = response[2].Value;
+          if (response.length > 0) {
+            this.featureThree.title = response[0].Value;
+            this.featureThree.description_1 = response[2].Value;
+            this.featureThree.phone_number = await this.loadInformationContact();
 
-          this.featureThree.price = await this.loadInformationPrice();
-          this.featureThree.phone_number = await this.loadInformationContact();
+            this.featureThree.price = await this.loadInformationPrice();
+            this.featureThree.description_0 = response[1].Value.replace(/\$5/, this.featureThree.price);
+          }
 
-          this.loaderService.showLoader(false);
-        }
-
-      })
+        })
     }
 
-    if(this.path_route === 'payperhead'){
+    if (this.path_route === 'payperhead') {
       await this.infoService.getInformation('GENERAL', 'payperhead')
-      .subscribe((response: RespInformation[]) => {
+        .subscribe(async (response: RespInformation[]) => {
 
-        if (response.length > 0){
-          this.featureFour.title = response[0].Value;
-          this.featureFour.sub_title = response[1].Value;
-          this.featureFour.description_0 = response[2].Value;
-          this.featureFour.description_1 = response[3].Value;
-          this.featureFour.description_2 = response[4].Value;
+          if (response.length > 0) {
+            let price = await this.loadInformationPrice();
+            this.featureFour.title = response[0].Value;
+            this.featureFour.sub_title = response[1].Value;
+            this.featureFour.description_0 = response[2].Value.replace(/\$5/, price);
+            this.featureFour.description_1 = response[3].Value;
+            this.featureFour.description_2 = response[4].Value;
+          }
 
-          this.loaderService.showLoader(false);
-        }
-
-      })
+        })
     }
 
-    if(this.path_route === 'pph-software-for-sportsbooks'){
+    if (this.path_route === 'pph-software-for-sportsbooks') {
       await this.infoService.getInformation('GENERAL', 'pph-software-for-sportsbooks')
-      .subscribe(async (response: RespInformation[]) => {
+        .subscribe(async (response: RespInformation[]) => {
 
-        if (response.length > 0) {
-          this.featureFive.title = response[0].Value;
-          this.featureFive.description_0 = response[1].Value;
-          this.featureFive.description_1 = response[2].Value;
+          if (response.length > 0) {
+            this.featureFive.title = response[0].Value;
+            this.featureFive.description_0 = response[1].Value;
+            this.featureFive.description_1 = response[2].Value;
 
-          this.featureFive.price = await this.loadInformationPrice();
-          this.loadFrequentlyQuestions();
+            this.featureFive.price = await this.loadInformationPrice();
+            await this.loadFrequentlyQuestions();
+          }
 
-          this.loaderService.showLoader(false);
-        }
-
-      })
+        })
     }
 
-    if(this.path_route === 'pph-sportsbook-software') {
+    if (this.path_route === 'pph-sportsbook-software') {
       await this.infoService.getInformation('GENERAL', 'pph-software-for-sportsbooks')
-      .subscribe(async(response: RespInformation[]) => {
+        .subscribe(async (response: RespInformation[]) => {
 
-        if (response.length > 0){
-          this.featureSix.title = response[0].Value;
-          this.featureSix.description_0 = response[1].Value;
-          this.featureSix.description_1 = response[2].Value;
+          if (response.length > 0) {
+            this.featureSix.title = response[0].Value;
+            this.featureSix.description_0 = response[1].Value;
+            this.featureSix.description_1 = response[2].Value;
 
-          this.featureSix.price = await this.loadInformationPrice();
-          this.featureSix.phone_number = await this.loadInformationContact();
+            this.featureSix.price = await this.loadInformationPrice();
+            this.featureSix.phone_number = await this.loadInformationContact();
+          }
 
-          this.loaderService.showLoader(false);
-
-        }
-
-      })
+        })
     }
 
-    if(this.path_route === 'best-pph-sportsbook-&-bookie-software-premiere-pay-per-head'){
+    if (this.path_route === 'best-pph-sportsbook-&-bookie-software-premiere-pay-per-head') {
       await this.infoService.getInformation('GENERAL', 'software-premiere-pay-per-head')
-      .subscribe((response: RespInformation[]) => {
+        .subscribe((response: RespInformation[]) => {
 
-        if (response.length > 0) {
-          this.featureSeven.title_1 = response[0].Value;
-          this.featureSeven.title_2 = response[1].Value;
-          this.featureSeven.description_0 = response[2].Value;
-          this.featureSeven.description_1 = response[3].Value;
-          this.featureSeven.list = response[4].Value.split(',');
-          this.featureSeven.description_2 = response[5].Value;
+          if (response.length > 0) {
+            this.featureSeven.title_1 = response[0].Value;
+            this.featureSeven.title_2 = response[1].Value;
+            this.featureSeven.description_0 = response[2].Value;
+            this.featureSeven.description_1 = response[3].Value;
+            this.featureSeven.list = response[4].Value.split(',');
+            this.featureSeven.description_2 = response[5].Value;
+          }
 
-          this.loaderService.showLoader(false);
-        }
-
-      })
+        })
     }
 
     if (this.path_route === 'software-for-sportsbook') {
       await this.infoService.getInformation('GENERAL', 'software-for-sportsbook')
-      .subscribe((response: RespInformation[]) => {
+        .subscribe(async(response: RespInformation[]) => {
 
-        if (response.length > 0){
-          this.featureEight.title_1 = response[0].Value;
-          this.featureEight.title_2 = response[2].Value;
-          this.featureEight.description_0 = response[1].Value;
-          this.featureEight.description_1 = response[3].Value;
+          if (response.length > 0) {
+            this.featureEight.title_1 = response[0].Value;
+            this.featureEight.title_2 = response[2].Value;
+            this.featureEight.description_0 = response[1].Value;
+            this.featureEight.description_1 = response[3].Value;
 
-          this.loadFrequentlyQuestions();
+            await this.loadFrequentlyQuestions();
+          }
 
-          this.loaderService.showLoader(false);
-        }
-
-      })
+        })
     }
 
+    this.loaderService.showLoader(false);
+
+  }
+
+  async loadInformationPrice() {
+    let price: string = '';
+    await this.infoService.getInformation('GENERAL', 'price').toPromise()
+      .then((response: any) => {
+
+        if (response.length > 0)
+          price = response[0].Value;
+
+      })
+    return price;
   }
 
 

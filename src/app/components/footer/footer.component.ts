@@ -8,7 +8,8 @@ import { ApiService } from '../../services/api.service';
 
 //components
 import { AppComponent } from '../../app.component';
-import { FooterPageData } from '../../models/pages-data.model';
+import { FooterPageData } from '../../models/data.model';
+import { LoaderService } from '../../services/loader.service';
 
 @Component({
   selector: 'app-footer',
@@ -18,22 +19,26 @@ import { FooterPageData } from '../../models/pages-data.model';
 
 export class FooterComponent implements OnInit {
 
-  pageData: FooterPageData  = new FooterPageData();
-
   DesignResp: RespInformation[] = [];
-  InformatioFooterResp: RespInformation = new RespInformation();
+  pageData: FooterPageData = new FooterPageData();
 
-  constructor(private infoService: ApiService, public appComponent: AppComponent) { }
+  constructor(
+    private infoService: ApiService,
+    public appComponent: AppComponent,
+    private loaderService: LoaderService
+  ) {
+    this.loaderService.showLoader(true);
+    this.pageData.domain = window.location.hostname;
+  }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.loadPageDesign();
     this.loadInformation();
-    this.loadInformationPrice();
     this.loadInformationFooter();
   }
 
-  loadPageDesign() {
-    this.infoService.getPphDesign(this.pageData.domain, 'design').subscribe({
+  async loadPageDesign() {
+    await this.infoService.getPphDesign(this.pageData.domain, 'design').subscribe({
       next: data => {
         if (Array.isArray(data)) {
           this.DesignResp = data;
@@ -64,26 +69,32 @@ export class FooterComponent implements OnInit {
       })
   }
 
-  async loadInformationPrice() {
-    await this.infoService.getInformation('GENERAL', 'price')
-      .subscribe((response: RespInformation[]) => {
-
-        if (response.length > 0)
-          this.pageData.price = response[0].Value;
-
-      })
-  }
-
   async loadInformationFooter() {
     await this.infoService.getInformation('GENERAL', 'footer')
-      .subscribe((response: RespInformation[]) => {
+      .subscribe(async (response: RespInformation[]) => {
 
         if (response.length > 0) {
-          this.InformatioFooterResp = response[0];
-          this.InformatioFooterResp.Value = this.InformatioFooterResp.Value.replace(/\[ddd\]/g, this.pageData.domain);
+          this.pageData.description = response[0].Value;
+          this.pageData.price = await this.loadInformationPrice();
+          this.pageData.description = this.pageData.description.replace(/\[ddd\]/g, this.pageData.domain);
+          this.pageData.description = this.pageData.description.replace(/\$5/g, this.pageData.price);
         }
 
       })
+
+    this.loaderService.showLoader(true);
+  }
+
+  async loadInformationPrice() {
+    let price: string = '';
+    await this.infoService.getInformation('GENERAL', 'price').toPromise()
+      .then((response: any) => {
+
+        if (response.length > 0)
+          price = response[0].Value;
+
+      })
+    return price;
   }
 
   openModal() {

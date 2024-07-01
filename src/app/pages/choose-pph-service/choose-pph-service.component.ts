@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 // models
 import { RespInformation } from '../../models/Info.models';
-import { ChoosePPHServicePageData } from '../../models/pages-data.model';
+import { ChoosePPHServicePageData } from '../../models/data.model';
 
 // services
 import { ApiService } from '../../services/api.service';
@@ -28,7 +28,6 @@ export class ChoosePphServicePageComponent {
 
   ngOnInit(): void {
     this.loadInformation();
-    this.loaderService.showLoader(false);
   }
 
   async loadInformation() {
@@ -43,6 +42,8 @@ export class ChoosePphServicePageComponent {
           this.pageData.description_2 = response[4].Value;
           this.pageData.description_3 = response[5].Value;
           this.pageData.description_4 = response[6].Value;
+
+          this.loaderService.showLoader(false);
         }
 
       })

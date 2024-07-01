@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 // models
 import { RespInformation } from '../../models/Info.models';
-import { FrequentlyQuestions } from '../../models/pages-data.model';
+import { FrequentlyQuestions } from '../../models/data.model';
 
 // services
 import { ApiService } from '../../services/api.service';
