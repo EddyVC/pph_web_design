@@ -18,7 +18,7 @@ export class DemosComponent {
   currentUser: PlayerDto = new PlayerDto();
 
   ngOnInit(): void {
-    this.login();
+    //this.login();
     this.banners = [
       { id: 1, url: '../../assets/img/demo-banners/AGENT.png', desktop: true },
       { id: 2, url: '../../assets/img/demo-banners/PLAYER.png', desktop: true },

@@ -40,7 +40,7 @@
         </div>
         <div class="container-footer-buttom">
             <div class="container-info-logo">
-                <p> {{InformatioFooterResp[0].Value}}</p>
+                <p> {{InformatioFooterResp[0]?.Value}}</p>
                 <div class="container-logo" *ngIf="logo != ''">
                     <img [src]='logo' alt="logo">
                 </div>

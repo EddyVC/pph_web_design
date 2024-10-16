@@ -215,13 +215,25 @@
 
 .containerDemos__links {
     display: flex;
-    width: 100%;
-    justify-content: center;
-    padding: 2rem 0;
-    gap: 4rem;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Permite que los elementos se apilen */
+    justify-content: center; /* Centra los iframes */
+    align-items: center; /* Centra verticalmente */
+    gap: 20px; /* Espaciado entre los iframes */
+    margin: 20px; /* Espaciado externo */
 }
 
+.containerDemos__links iframe {
+    width: 300px; /* Ancho fijo para los iframes */
+    height: 180px; /* Altura fija para los iframes */
+    border: none; /* Sin borde */
+}
+
+@media (max-width: 768px) {
+    .containerDemos__links iframe {
+        width: 100%; /* Cambia a 100% en pantallas pequeñas */
+        height: 100px; /* Ajusta la altura si es necesario */
+    }
+}
 /* BTNS DEMO */
 
 .btn__demo {
@@ -357,10 +369,6 @@
 
     .right-info {
         width: 60%;
-    }
-
-    .containerDemos__links {
-        padding: 2rem;
     }
 
     .btn__demo {

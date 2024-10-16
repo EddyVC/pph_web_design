@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Login</title>
+</head>
+
+<style>
+    body {
+        text-align: center;
+    }
+
+    .button-login {
+        background: linear-gradient(270deg, rgb(0, 17, 255) 30.41%, rgb(0, 150, 170) 70.89%);
+        border-radius: 5px;
+        color: white;
+        height: 60px;
+        width: 180px;
+        font-family: poppins, sans-serif;
+        font-size: 18px;
+        border: none;
+        transition: height 0.3s ease, width 0.3s ease;
+        /* Agregar la transición */
+    }
+
+    .button-login:hover {
+        height: 65px;
+        width: 185px;
+    }
+</style>
+
+
+<body>
+
+    <div class="mobile-version">
+        <form target="_blank" autocomplete="off" role="form" method="post" action="https://mobile.ibet.ag/login.aspx"
+            id="form-mobile" name="loginForm" class="navbar-form navbar-right spaces form-login-mobile">
+            <input value="" name="IdBook" type="hidden">
+            <div class="form-group">
+                <input value="ug1" hidden id="username-mobile" spellcheck="false" autocorrect="off" autocapitalize="off"
+                    name="Account" required placeholder="Username" type="text">
+                <input value="2024" hidden id="password-mobile" spellcheck="false" autocorrect="off"
+                    autocapitalize="off" onkeyup="javascript:this.value=this.value.toUpperCase();" name="Password"
+                    required placeholder="Password" type="password">
+                <button style="cursor: pointer;" class="button-login" type="submit">
+                    Player Demo </button>
+            </div>
+        </form>
+    </div>
+
+    <div class="desktop-version">
+        <form target="_blank" autocomplete="off" role="form" method="post" action="https://wager.ibet.ag/login.aspx"
+            id="form-desktop" name="loginForm" class="navbar-form navbar-right spaces form-login-mobile">
+            <input value="" name="IdBook" type="hidden">
+            <div class="form-group">
+                <input value="ug1" hidden id="username-desktop" spellcheck="false" autocorrect="off"
+                    autocapitalize="off" name="Account" required placeholder="Username" type="text">
+                <input value="2024" hidden id="password-desktop" spellcheck="false" autocorrect="off"
+                    autocapitalize="off" onkeyup="javascript:this.value=this.value.toUpperCase();" name="Password"
+                    required placeholder="Password" type="password">
+                <button style="cursor: pointer;" class="button-login" type="submit">
+                    Player Demo </button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Obtener los parámetros de la URL
+        const params = new URLSearchParams(window.location.search);
+        const version = params.get('version'); // 'version' es el nombre del parámetro
+        // Mostrar la versión correspondiente
+        if (version === 'mobile') {
+            document.querySelector('.mobile-version').style.display = 'block';
+            document.querySelector('.desktop-version').style.display = 'none';
+        } else if (version === 'desktop') {
+            document.querySelector('.desktop-version').style.display = 'block';
+            document.querySelector('.mobile-version').style.display = 'none';
+        } 
+    </script>
+
+</body>
+
+</html>

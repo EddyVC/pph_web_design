@@ -55,7 +55,7 @@
     color: var(--dark-text-color);
     text-align: center;
     font-size: 30px;
-    font-weight: 700;
+    /* font-weight: 700; */
 }
 
 .right-info p {
@@ -115,4 +115,22 @@
     .right-info {
         width: 60%;
     }
+    .page__title {
+        color: var(--dark-text-color);
+        font-family: Bebas Neue;
+        font-size: 60px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-align: center;
+    }
+}
+
+
+.page__title {
+    color: var(--dark-text-color);
+    font-family: Bebas Neue;
+    font-size: 30px;
+    margin-left: 0;
+    text-align: center;
 }

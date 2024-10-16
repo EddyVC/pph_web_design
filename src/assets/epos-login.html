@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epos Login</title>
+</head>
+
+<style>
+    body {
+        text-align: center;
+    }
+
+    .button-login {
+        background: linear-gradient(270deg, #3ec91b 30.41%, #b2c31d 70.89%);
+        border-radius: 5px;
+        color: white;
+        height: 60px;
+        width: 180px;
+        font-family: poppins, sans-serif;
+        font-size: 18px;
+        border: none;
+        transition: height 0.3s ease, width 0.3s ease;
+        /* Agregar la transición */
+    }
+
+    .button-login:hover {
+        height: 65px;
+        width: 185px;
+    }
+</style>
+
+
+<body>
+
+    <form target="_blank" autocomplete="off" role="form" method="post" action="https://epos.ibet.ag/Login.aspx"
+        id="form-mobile" name="loginForm" class="navbar-form navbar-right spaces form-login-mobile">
+
+        <div class="form-group">
+            <input id="Username" class="myinput" name="Account" readonly="readonly" type="hidden" value="UG1">
+            <input id="Password" class="myinput" name="Password" readonly="readonly" type="hidden" value="2024">
+
+            <button style="cursor: pointer;" class="button-login" type="submit">
+                Epos Demo
+            </button>
+        </div>
+    </form>
+
+</body>
+
+</html>

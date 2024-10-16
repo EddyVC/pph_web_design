@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Login</title>
+</head>
+
+<style>
+    body {
+        text-align: center;
+    }
+
+    .button-login {
+        background: linear-gradient(270deg, red 30.41%, rgb(95, 0, 0) 70.89%);
+        border-radius: 5px;
+        color: white;
+        height: 60px;
+        width: 180px;
+        font-family: poppins, sans-serif;
+        font-size: 18px;
+        border: none;
+        transition: height 0.3s ease, width 0.3s ease;
+        /* Agregar la transición */
+    }
+
+    .button-login:hover {
+        height: 65px;
+        width: 185px;
+    }
+</style>
+
+
+<body>
+
+    <form target="_blank" autocomplete="off" role="form" method="post"
+        action="https://agents.redfigures.ag/Default.aspx" id="form-mobile" name="loginForm"
+        class="navbar-form navbar-right spaces form-login-mobile">
+        <input value="" name="IdBook" type="hidden">
+        <div class="form-group">
+            <input value="uagent" hidden id="Account" spellcheck="false" autocorrect="off" autocapitalize="off"
+                name="Account" required placeholder="Username" type="text">
+            <input value="test1" hidden id="password" spellcheck="false" autocorrect="off" autocapitalize="off"
+                onkeyup="javascript:this.value=this.value.toUpperCase();" name="Password" required
+                placeholder="Password" type="password">
+            <button style="cursor: pointer;" class="button-login" type="submit">
+                Agent Demo </button>
+        </div>
+    </form>
+
+</body>
+
+</html>

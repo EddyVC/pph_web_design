@@ -16,7 +16,7 @@ import { CardsComponent } from './general/cards/cards.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { PaymentMethodsComponent } from './general/payment-methods/payment-methods.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AccountDetailsComponent } from './demo-page/account-Details/account-Details.component';
+import { AccountDetailsComponent } from './account-Details/account-Details.component';
 import { DemosComponent } from './demo-page/demos.component';
 import { PaymentComponent } from './payment-page/payment.component';
 import { PphSoftwareComponent } from './pphSoftware-page/pphSoftware.component';
